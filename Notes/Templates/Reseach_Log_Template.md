@@ -10,13 +10,13 @@ var lastModDate = tp.date.now("YYYY__MM__DD");
 const filename = `Log - ${creationDate}`;
 
 // 4) Move the new file into a “ResearchLogs” 
-const srcPath = tp.file.path(relative: boolian = True);
+const srcPath = tp.file.path(true);
 const destPath = `Notes\Research Log/${filename}.md`;
 
-//await tp.file.move(srcPath,destPath)
+await tp.file.move
 
 // 3. Open the moved file in the editor
-//await tp.obsidian.open_file(destPath);
+await tp.obsidian.open_file(destPath);
 %>
 
 
