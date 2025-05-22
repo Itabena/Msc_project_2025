@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 3.md",
+                "file": "Templates/Reseach_Log_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 3"
+              "title": "Reseach_Log_Template"
             }
           }
         ],
@@ -229,8 +229,9 @@
   },
   "active": "5513dd6f890adac3",
   "lastOpenFiles": [
-    "Templates/Reseach_Log_Template.md",
+    "Untitled 4.md",
     "Untitled 3.md",
+    "Templates/Reseach_Log_Template.md",
     "Untitled 1.md",
     "Untitled 2.md",
     "Untitled.md",
@@ -244,7 +245,6 @@
     "Templates/Book_Chapter_Summary_Template.md",
     "Wegg 2012 paper.md",
     "2012Wegg_parar.md",
-    "Untitled 4.md",
     "Yosi yosi.md",
     "Templates/Book_Sum_Template.md",
     "Templates/PPr_Sum_Template.md",
