@@ -15,8 +15,8 @@
   "enable_folder_templates": true,
   "folder_templates": [
     {
-      "folder": "Templates",
-      "template": "Templates/Date_trigger.md"
+      "folder": "Research Log",
+      "template": "Templates/Reseach_Log_Template.md"
     }
   ],
   "enable_file_templates": false,
