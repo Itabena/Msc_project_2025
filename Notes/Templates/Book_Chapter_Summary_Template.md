@@ -6,6 +6,7 @@ let chapterNumber = await tp.system.prompt("Chapter number");
 let bookAuthor    = await tp.system.prompt("Book author");
 let pubYear       = await tp.system.prompt("Publication year");
 let pages         = await tp.system.prompt("Pages (e.g. 12–34)");
+let doi         = await tp.system.prompt("(folder in library)/(File name) from zotero library.");
 %>
 
 title: "Book: <% bookTitle %> Ch. <% chapterNumber %>"
@@ -21,7 +22,8 @@ tags: [book-summary]
 
 **Author:** <% bookAuthor %>  
 **Published:** <% pubYear %>  
-**Pages:** <% pages %>  
+**Pages:** <% pages %>
+**File link:** [Zotero Link](zotero://open-pdf/library/items/<% doi %>) 
 
 ---
 

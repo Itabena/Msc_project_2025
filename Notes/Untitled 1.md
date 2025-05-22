@@ -1,41 +1,40 @@
 ---
 
 
-title: "Derivation: sdasda"
-date: "2025-05-23"
-tags: [derivation, math]
+title: "fsdfds Paper Summary"
+citekey: "fsdfds"
+paper: "sdfsdf"
+authors: "dsfs"
+year: 3243
+journal: "sdfs"
+doi: "I5NWN2Z4/PW_potential.pdf"
+tags: [paper-summary]
 ---
 
-# Derivation: sdasda
+# sdfsdf (3243)  
+**Authors:** dsfs  
+**Journal:** sdfs  
+**File link:** [Zotero Link](zotero://open-pdf/library/items/I5NWN2Z4/PW_potential.pdf) 
 
-## 1. Objective
-_What are we deriving and why?_
+---
 
-## 2. Starting Equations / Assumptions
-\[
+## 1. Abstract in Brief
+> 
 
-\]
-
-## 3. Step-by-Step Derivation
-1. **Step 1:** _Describe transformation_  
-   \[
-     % YOUR MATH HERE %
-   \]
-2. **Step 2:** _Next manipulation_  
-   \[
-     % … %
-   \]
-3. **Final Result:**  
-   \[
-     \boxed{\,\text{Result here}\,}
-   \]
-
-## 4. Discussion of Approximations
+## 2. Key Contributions
 - 
 
-## 5. Special Cases & Consistency Checks
-- Case \(r \to \infty\): …  
-- Dimensional check: …  
+## 3. Methods & Approach
+- 
 
-## 6. References
-- adad;asdsad;add
+## 4. Results & Conclusions
+- 
+
+## 5. Strengths & Weaknesses
+- **Strengths:**  
+  -  
+- **Weaknesses / Open Questions:**  
+  -  
+
+## 6. Relation to My Work
+- 

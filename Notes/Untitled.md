@@ -1,39 +1,40 @@
-
----
-title: "Book: ff Ch. 4"
-book: "ff"
-chapter: 4
-author: "asdasd"
-year: 12321
-pages: "23-3443"
-tags: [book-summary]
 ---
 
-# `ff` — Chapter 4
 
-**Author:** asdasd  
-**Published:** 12321  
-**Pages:** 23-3443  
+title: "dada Paper Summary"
+citekey: "dada"
+paper: "ada"
+authors: "adad"
+year: 1312
+journal: "daasd"
+doi: "k"
+tags: [paper-summary]
+---
+
+# ada (1312)  
+**Authors:** adad  
+**Journal:** daasd  
+**File link:** [Zotero Link](k) 
 
 ---
 
-## 1. Chapter Overview
-_A 2–3 sentence high-level description._
+## 1. Abstract in Brief
+> 
 
-## 2. Major Themes & Concepts
+## 2. Key Contributions
 - 
 
-## 3. Important Terms & Definitions
-| Term        | Definition                               |
-|-------------|------------------------------------------|
-|             |                                          |
+## 3. Methods & Approach
+- 
 
-## 4. Key Arguments or Narratives
-1.  
-2.  
+## 4. Results & Conclusions
+- 
 
-## 5. Memorable Quotes
->  
+## 5. Strengths & Weaknesses
+- **Strengths:**  
+  -  
+- **Weaknesses / Open Questions:**  
+  -  
 
-## 6. Reflections & Takeaways
+## 6. Relation to My Work
 - 

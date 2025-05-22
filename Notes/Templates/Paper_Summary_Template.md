@@ -6,7 +6,7 @@ let paperTitle  = await tp.system.prompt("Paper title");
 let authors     = await tp.system.prompt("Authors");
 let year        = await tp.system.prompt("Publication year");
 let journal     = await tp.system.prompt("Journal name");
-let doi         = await tp.system.prompt("DOI or URL");
+let doi         = await tp.system.prompt("(folder in library)/(File name) from zotero library.");
 %>
 
 title: "<% citekey %> Paper Summary"
@@ -22,7 +22,7 @@ tags: [paper-summary]
 # <% paperTitle %> (<% year %>)  
 **Authors:** <% authors %>  
 **Journal:** <% journal %>  
-**DOI/URL:** <% doi %>  
+**File link:** [Zotero Link](zotero://open-pdf/library/items/<% doi %>) 
 
 ---
 
