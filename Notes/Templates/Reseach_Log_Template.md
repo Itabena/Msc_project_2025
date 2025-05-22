@@ -9,9 +9,14 @@ var lastModDate = tp.date.now("YYYY__MM__DD");
 // 3) Build the filename for convenience
 const filename = `Log - ${creationDate}`;
 
-// 4) Move the new file into a “ResearchLogs” subfolder (optional)
-// await tp.file.create(`ResearchLogs/${filename}.md`, ""); 
-// await tp.file.move(`${filename}.md`, `ResearchLogs/${filename}.md`);
+// 4) Move the new file into a “ResearchLogs” 
+const srcPath = tp.file.path();
+const destPath = `Notes/Research Log/${filename}.md`;
+
+await tp.file.move(srcPath, destPath);
+
+// 3. Open the moved file in the editor
+await tp.obsidian.open_file(destPath);
 %>
 
 
