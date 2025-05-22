@@ -1,18 +1,27 @@
 ---
-title: "Book Chapter Summary: <% await tp.system.prompt("Book Title") %> Ch. <% await tp.system.prompt("Chapter Number") %>"
-book: "<% await tp.system.prompt("Book Title") %>"
-chapter: <% await tp.system.prompt("Chapter Number") %>
-author: "<% await tp.system.prompt("Book Author") %>"
-year: <% await tp.system.prompt("Publication Year") %>
-pages: "<% await tp.system.prompt("Pages (e.g. 12–34)") %>"
+<%* 
+// Prompt for book chapter metadata
+let bookTitle     = await tp.system.prompt("Book title");
+let chapterNumber = await tp.system.prompt("Chapter number");
+let bookAuthor    = await tp.system.prompt("Book author");
+let pubYear       = await tp.system.prompt("Publication year");
+let pages         = await tp.system.prompt("Pages (e.g. 12–34)");
+%>
+
+title: "Book: <% bookTitle %> Ch. <% chapterNumber %>"
+book: "<% bookTitle %>"
+chapter: <% chapterNumber %>
+author: "<% bookAuthor %>"
+year: <% pubYear %>
+pages: "<% pages %>"
 tags: [book-summary]
 ---
 
-# `<% tp.frontmatter.book %>` — Chapter <% tp.frontmatter.chapter %>
+# `<% bookTitle %>` — Chapter <% chapterNumber %>
 
-**Author:** <% tp.frontmatter.author %>  
-**Published:** <% tp.frontmatter.year %>  
-**Pages:** <% tp.frontmatter.pages %>  
+**Author:** <% bookAuthor %>  
+**Published:** <% pubYear %>  
+**Pages:** <% pages %>  
 
 ---
 

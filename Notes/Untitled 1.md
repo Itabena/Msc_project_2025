@@ -1,23 +1,19 @@
 ---
-<%* 
-// Prompt for derivation name
-let name = await tp.system.prompt("Derivation name");
-let today = tp.date.now("YYYY-MM-DD");
-%>
 
-title: "Derivation: <% name %>"
-date: "<% today %>"
+
+title: "Derivation: sdasda"
+date: "2025-05-23"
 tags: [derivation, math]
 ---
 
-# Derivation: <% name %>
+# Derivation: sdasda
 
 ## 1. Objective
 _What are we deriving and why?_
 
 ## 2. Starting Equations / Assumptions
 \[
-<% tp.file.cursor() %>
+
 \]
 
 ## 3. Step-by-Step Derivation
@@ -42,4 +38,4 @@ _What are we deriving and why?_
 - Dimensional check: …  
 
 ## 6. References
-- <% await tp.system.prompt("Enter citekeys separated by semicolons") %>
+- adad;asdsad;add
