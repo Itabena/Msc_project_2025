@@ -1,5 +1,6 @@
 [
   "obsidian-git",
   "obsidian-zotero-desktop-connector",
-  "obsidian-citation-plugin"
+  "obsidian-citation-plugin",
+  "templater-obsidian"
 ]

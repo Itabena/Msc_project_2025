@@ -7,7 +7,7 @@ date: {{date}}
 tags: [book-summary]
 ---
 
-# {{bookTitle}} — Chapter {{chapterNumber}}
+# {{ bookTitle }} — Chapter {{chapterNumber}}
 
 **Author:** {{bookAuthor}}  
 **Published:** {{year}}  
