@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import imageio
 
-#test test test
+
 
 
 # Defining the equations of motion for the Schwarzschild metric
