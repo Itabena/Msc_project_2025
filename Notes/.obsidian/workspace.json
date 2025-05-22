@@ -62,9 +62,23 @@
               "icon": "lucide-file",
               "title": "Reseach_Log_Template"
             }
+          },
+          {
+            "id": "5513dd6f890adac3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Templates/Date_trigger.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Date_trigger"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -215,10 +229,10 @@
   },
   "active": "074168bb58b17de5",
   "lastOpenFiles": [
-    "Untitled 3.md",
+    "Templates/Reseach_Log_Template.md",
+    "Templates/Date_trigger.md",
     "Research Log/Log -2025_05_22.md",
     "Research Log/2025_05_22.md",
-    "Templates/Reseach_Log_Template.md",
     "Untitled.md",
     "Untitled 2.md",
     "Untitled 1.md",
