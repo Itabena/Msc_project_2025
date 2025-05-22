@@ -7,7 +7,7 @@
       ""
     ]
   ],
-  "trigger_on_file_creation": false,
+  "trigger_on_file_creation": true,
   "auto_jump_to_cursor": true,
   "enable_system_commands": false,
   "shell_path": "",
@@ -19,11 +19,11 @@
       "template": "Templates/Reseach_Log_Template.md"
     }
   ],
-  "enable_file_templates": false,
+  "enable_file_templates": true,
   "file_templates": [
     {
-      "regex": ".*",
-      "template": ""
+      "regex": "^Notes/ResearchLogs/Log-.*\\.md$",
+      "template": ".obsidian/plugins/templater/user_scripts/update_last_modified.js"
     }
   ],
   "syntax_highlighting": true,
