@@ -1,44 +1,22 @@
 
 ---
-title: "NaN"
-authors: "NaN"
-year: 1999
-journal: "NaN"
-doi: "NaN"
-tags: [paper-summary]
+title: "Log-2025__05__22"
+created: "2025__05__22"
+last_modified: "2025__05__22"
+tags: [research-log]
 ---
 
-# yoyo (1999)  
-**Authors:** mama  
-**Journal:** asaas  
-**DOI/URL:** --  
+# Log-2025__05__22  
+_Last modified: 2025__05__22_
 
----
+## Tasks and Goals
+- [ ] 
 
-# `Untitled` ( undefined )  
-**Authors:** undefined  
-**Journal:** undefined  
-**DOI/URL:** ---  
-
----
-
-## 1. Abstract in Brief
-> 
-
-## 2. Key Contributions
+## Findings and Notes
 - 
 
-## 3. Methods & Approach
-- 
+## Actions Taken
+1. 
 
-## 4. Results & Conclusions
-- 
-
-## 5. Strengths & Weaknesses
-- **Strengths:**  
-  -  
-- **Weaknesses / Open Questions:**  
-  -  
-
-## 6. Relation to My Work
+## Future Plans
 - 

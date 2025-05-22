@@ -1,39 +1,22 @@
 
 ---
-title: "NaN"
-citekey: "NaN"
-paper: "NaN"
-authors: "NaN"
-year: 1991
-journal: "NaN"
-doi: "NaN"
-tags: [paper-summary]
+title: "Log - 2025__05__22"
+created: "2025__05__22"
+last_modified: "2025__05__22"
+tags: [research-log]
 ---
 
-# NaN (1991)  
-**Authors:** NaN  
-**Journal:** NaN  
-**DOI/URL:** NaN  
+# Log - 2025__05__22  
+_Last modified: 2025__05__22_
 
----
+## Tasks and Goals
+- [ ] 
 
-## 1. Abstract in Brief  
-> 
-
-## 2. Key Contributions  
+## Findings and Notes
 - 
 
-## 3. Methods & Approach  
-- 
+## Actions Taken
+1. 
 
-## 4. Results & Conclusions  
-- 
-
-## 5. Strengths & Weaknesses  
-- **Strengths:**  
-  -  
-- **Weaknesses / Open Questions:**  
-  -  
-
-## 6. Relation to My Work  
+## Future Plans
 - 

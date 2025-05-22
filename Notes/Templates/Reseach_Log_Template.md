@@ -1,19 +1,35 @@
 ---
-title: "Research Log — <% tp.date.now("YYYY-MM-DD") %>"
-date: "<% tp.date.now("YYYY-MM-DD") %>"
-tags: [research-log]
+<%* 
+// 1) Compute dates
+const creationDate = tp.date.now("YYYY__MM__DD");
+// 2) For a first draft, lastMod = creation; you can later update via a save-trigger
+const lastModDate = creationDate;
+
+// 3) Build the filename for convenience
+const filename = `Log - ${creationDate}`;
+
+// 4) Move the new file into a “ResearchLogs” subfolder (optional)
+// await tp.file.create(`ResearchLogs/${filename}.md`, ""); 
+// await tp.file.move(`${filename}.md`, `ResearchLogs/${filename}.md`);
+%>
+title: "<% filename %>"
+created: "<% creationDate %>"
+last_modified: "<% lastModDate %>"
+tags: [#research-log]
 ---
 
-# Research Log — <% tp.date.now("YYYY-MM-DD") %>
+---
+# <% filename %>  
+_Last modified: <% lastModDate %>_
 
-## Goals for Today
+## Tasks and Goals
 - [ ] <% tp.file.cursor() %>
+
+## Findings and Notes
+- 
 
 ## Actions Taken
 1. 
 
-## Findings & Notes
-- 
-
-## Next Steps
+## Future Plans
 - 
