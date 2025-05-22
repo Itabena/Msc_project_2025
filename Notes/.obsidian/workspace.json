@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Log/Test.md",
+                "file": "Templates/Reseach_Log_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Test"
+              "title": "Reseach_Log_Template"
             }
           }
         ],
@@ -227,19 +227,19 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5513dd6f890adac3",
+  "active": "074168bb58b17de5",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Research Log/Test.md",
     "user_scripts/update_last_modified.js",
     "user_scripts",
     "Templates/Reseach_Log_Template.md",
-    "Research Log/Test.md",
     "Untitled 4.md",
     "NotesResearch Log",
     "Untitled 5.md",
     "Untitled 3.md",
     "Untitled 1.md",
     "Untitled 2.md",
-    "Untitled.md",
     "Templates/Paper_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Research Log/2025_05_22.md",
