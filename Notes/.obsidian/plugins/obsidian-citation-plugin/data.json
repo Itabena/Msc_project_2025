@@ -1,9 +1,9 @@
 {
-  "citationExportFormat": "csl-json",
+  "citationExportFormat": "biblatex",
   "literatureNoteTitleTemplate": "@{{citekey}}",
   "literatureNoteFolder": "Reading notes",
   "literatureNoteContentTemplate": "---\ntitle: {{title}}\nauthors: {{authorString}}\nyear: {{year}}\n---\n\n",
   "markdownCitationTemplate": "[@{{citekey}}]",
   "alternativeMarkdownCitationTemplate": "@{{citekey}}",
-  "citationExportPath": ""
+  "citationExportPath": "C:\\Users\\itama\\Desktop\\My Projects\\Msc_project_2025\\Sources\\My Library.bib"
 }
