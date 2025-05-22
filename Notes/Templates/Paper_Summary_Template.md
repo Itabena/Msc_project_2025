@@ -22,20 +22,20 @@ let doi = await tp.system.prompt("DOI or URL");
 let fileTitle = `Paper Summary: ${citekey}`;
 %>
 ---
-title: "<%+ fileTitle %>"
-citekey: "<%+ citekey %>"
-paper: "<%+ paperTitle %>"
-authors: "<%+ authors %>"
-year: <%+ year %>
-journal: "<%+ journal %>"
-doi: "<%+ doi %>"
+title: "<% fileTitle %>"
+citekey: "<% citekey %>"
+paper: "<% paperTitle %>"
+authors: "<% authors %>"
+year: <% year %>
+journal: "<% journal %>"
+doi: "<% doi %>"
 tags: [paper-summary]
 ---
 
-# <%+ paperTitle %> (<%+ year %>)  
-**Authors:** <%+ authors %>  
-**Journal:** <%+ journal %>  
-**DOI/URL:** <%+ doi %>  
+# <% paperTitle %> (<% year %>)  
+**Authors:** <% authors %>  
+**Journal:** <% journal %>  
+**DOI/URL:** <% doi %>  
 
 ---
 

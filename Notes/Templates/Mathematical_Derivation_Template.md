@@ -1,5 +1,5 @@
 ---
-title: "Derivation: <% await tp.system.prompt("Derivation Name") %>"
+title: Derivation: <% await tp.system.prompt("Derivation Name") %>"
 date: "<% tp.date.now("YYYY-MM-DD") %>"
 tags: [derivation, math]
 ---
