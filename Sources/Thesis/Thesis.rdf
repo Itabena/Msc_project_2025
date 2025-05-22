@@ -1,0 +1,906 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#">
+    <bib:Article rdf:about="http://arxiv.org/abs/1303.4068">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:1365-2966,%200035-8711"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tejeda</foaf:surname>
+                        <foaf:givenName>Emilio</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rosswog</foaf:surname>
+                        <foaf:givenName>Stephan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_11"/>
+        <link:link rdf:resource="#item_33"/>
+        <link:link rdf:resource="#item_8"/>
+        <dc:subject>
+            <z:AutomaticTag>
+                <rdf:value>Astrophysics - High Energy Astrophysical Phenomena</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>An accurate Newtonian description of particle motion around a Schwarzschild black hole</dc:title>
+        <dcterms:abstract>A generalized Newtonian potential is derived from the geodesic motion of test particles in Schwarzschild spacetime. This potential reproduces several relativistic features with higher accuracy than commonly used pseudo-Newtonian approaches. The new potential reproduces the exact location of the marginally stable, marginally bound, and photon circular orbits, as well as the exact radial dependence of the binding energy and the angular momentum of these orbits. Moreover, it reproduces the orbital and epicyclic angular frequencies to better than 6%. In addition, the spatial projections of general trajectories coincide with their relativistic counterparts, while the time evolution of parabolic-like trajectories and the pericentre advance of elliptical-like trajectories are both reproduced exactly. We apply this approach to a standard thin accretion disc and ﬁnd that the efﬁciency of energy extraction agrees to within 3% with the exact relativistic value, while the energy ﬂux per unit area as a function of radius is reproduced everywhere to better than 7%. As a further astrophysical application we implement the new approach within a smoothed particle hydrodynamics code and study the tidal disruption of a main sequence star by a supermassive black hole. The results obtained are in very good agreement with previous relativistic simulations of tidal disruptions in Schwarzschild spacetime. The equations of motion derived from this potential can be implemented easily within existing Newtonian hydrodynamics codes with hardly any additional computational effort.</dcterms:abstract>
+        <dc:date>2013-08-11</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/1303.4068</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-01-14 09:04:04</dcterms:dateSubmitted>
+        <dc:description>arXiv:1303.4068 [astro-ph]</dc:description>
+        <bib:pages>1930-1940</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:1365-2966,%200035-8711">
+        <prism:volume>433</prism:volume>
+        <dc:title>Monthly Notices of the Royal Astronomical Society</dc:title>
+        <dc:identifier>DOI 10.1093/mnras/stt853</dc:identifier>
+        <prism:number>3</prism:number>
+        <dc:identifier>ISSN 1365-2966, 0035-8711</dc:identifier>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_11">
+        <rdf:value>Comment: 11 pages, 8 figures, minor corrections to match version accepted for publication in MNRAS</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_33">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/33/1980A+A____88___23P.pdf"/>
+        <dc:title>1980A+A____88___23P</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_8">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/8/Tejeda and Rosswog - 2013 - An accurate Newtonian description of particle motion around a Schwarzschild black hole.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1088/0004-637X/749/2/183">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0004-637X,%201538-4357"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wegg</foaf:surname>
+                        <foaf:givenName>Christopher</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_9"/>
+        <dc:title>PSEUDO-NEWTONIAN POTENTIALS FOR NEARLY PARABOLIC ORBITS</dc:title>
+        <dcterms:abstract>We describe a pseudo-Newtonian potential which, to within 1% error at all angular momenta, reproduces the precession due to general relativity of particles whose speciﬁc orbital energy is small compared to c2 in the Schwarzschild metric. For bound orbits, the constraint of low energy is equivalent to requiring the apoapsis of a particle to be large compared to the Schwarzschild radius. Such low-energy orbits are ubiquitous close to supermassive black holes in galactic nuclei, but the potential is relevant in any context containing particles on low-energy orbits. Like the more complex post-Newtonian expressions, the potential correctly reproduces the precession in the far ﬁeld, but also correctly reproduces the position and magnitude of the logarithmic divergence in precession for low angular momentum orbits. An additional advantage lies in its simplicity, both in computation and implementation. We also provide two simpler, but less accurate potentials, for cases where orbits always remain at large angular momenta, or when the extra accuracy is not needed. In all of the presented cases, the accuracy in precession in low-energy orbits exceeds that of the well-known potential of Paczy´nski &amp; Wiita, which has ∼30% error in the precession at all angular momenta.</dcterms:abstract>
+        <dc:date>2012-04-20</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>Crossref</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1088/0004-637X/749/2/183</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-01-14 09:04:09</dcterms:dateSubmitted>
+        <dc:description>Publisher: American Astronomical Society</dc:description>
+        <bib:pages>183</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0004-637X,%201538-4357">
+        <prism:volume>749</prism:volume>
+        <dc:title>The Astrophysical Journal</dc:title>
+        <dc:identifier>DOI 10.1088/0004-637x/749/2/183</dc:identifier>
+        <prism:number>2</prism:number>
+        <dcterms:alternative>ApJ</dcterms:alternative>
+        <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_9">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/9/Wegg - 2012 - PSEUDO-NEWTONIAN POTENTIALS FOR NEARLY PARABOLIC ORBITS.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Book rdf:about="urn:isbn:978-0-471-92567-5">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>New York</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Wiley</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weinberg</foaf:surname>
+                        <foaf:givenName>Steven</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_16"/>
+        <dc:title>Gravitation and cosmology: principles and applications of the general theory of relativity</dc:title>
+        <dc:date>1976</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Gravitation and cosmology</z:shortTitle>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-0-471-92567-5</dc:identifier>
+        <z:numPages>657</z:numPages>
+    </bib:Book>
+    <z:Attachment rdf:about="#item_16">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/16/Weinberg - 1976 - Gravitation and cosmology principles and applications of the general theory of relativity.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://www.aanda.org/10.1051/0004-6361/200912155">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0004-6361,%201432-0746"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Abramowicz</foaf:surname>
+                        <foaf:givenName>M. A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_35"/>
+        <dc:title>The Paczyński-Wiita potential. A step-by-step “derivation”: Commentary on: Paczyński B. and Wiita P. J., 1980, A&amp;A, 88, 23</dc:title>
+        <dc:date>06/2009</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>The Paczyński-Wiita potential. A step-by-step “derivation”</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>http://www.aanda.org/10.1051/0004-6361/200912155</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-04 12:37:17</dcterms:dateSubmitted>
+        <bib:pages>213-214</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0004-6361,%201432-0746">
+        <prism:volume>500</prism:volume>
+        <dc:title>Astronomy &amp; Astrophysics</dc:title>
+        <dc:identifier>DOI 10.1051/0004-6361/200912155</dc:identifier>
+        <prism:number>1</prism:number>
+        <dcterms:alternative>A&amp;A</dcterms:alternative>
+        <dc:identifier>ISSN 0004-6361, 1432-0746</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_35">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/35/Abramowicz - 2009 - The Paczyński-Wiita potential. A step-by-step “derivation” Commentary on Paczyński B. and Wiita P..pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://adsabs.harvard.edu/doi/10.1086/170465">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>378</prism:volume>
+                <dc:title>The Astrophysical Journal</dc:title>
+                <dc:identifier>DOI 10.1086/170465</dc:identifier>
+                <dcterms:alternative>ApJ</dcterms:alternative>
+                <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nowak</foaf:surname>
+                        <foaf:givenName>Michael A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wagoner</foaf:surname>
+                        <foaf:givenName>Robert V.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_37"/>
+        <dc:title>Diskoseismology: Probing accretion disks. I - Trapped adiabatic oscillations</dc:title>
+        <dcterms:abstract>We analyze the normal modes of acoustic oscillations within thin accretion disks which are terminated by an innermost stable orbit around a slowly rotating black hole or weakly magnetized compact neutron star. The dominant relativistic effects, which allow modes to be trapped within the inner region of the disk, are approximated via a modified Newtonian potential. A general formalism is developed for investigating the adiabatic oscillations of arbitary unperturbed disk models. We explore the generic behavior via an expansion of the Lagrangian displacement about the plane of sysmmetry and by assuming separable solutions with the same radial wavelength for the horizontal and vertical perturbations. We obtain the lowest eigenfrequencies and eigenfunctions of a particular set of radial and quadrupole modes which have minimum motion normal to the plane. These modes correspond to the standard dispersion relation of disk theory. In future papers we will study a wide variety of modes and compute the rates of growth or damping of these modes due to gravitational radiation and various models of viscosity.</dcterms:abstract>
+        <dc:date>09/1991</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Diskoseismology</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://adsabs.harvard.edu/doi/10.1086/170465</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-04 12:37:36</dcterms:dateSubmitted>
+        <bib:pages>656</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_37">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/37/Nowak and Wagoner - 1991 - Diskoseismology Probing accretion disks. I - Trapped adiabatic oscillations.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_41">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+           <bib:Journal><prism:volume>88</prism:volume></bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Paczyńsky</foaf:surname>
+                        <foaf:givenName>B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wiita</foaf:surname>
+                        <foaf:givenName>P. J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_39"/>
+        <link:link rdf:resource="#item_72"/>
+        <dc:subject>Angular Momentum</dc:subject>
+        <dc:subject>Astrophysics</dc:subject>
+        <dc:subject>Black Holes (Astronomy)</dc:subject>
+        <dc:subject>Disks</dc:subject>
+        <dc:subject>Galactic Nuclei</dc:subject>
+        <dc:subject>Stellar Luminosity</dc:subject>
+        <dc:subject>Stellar Mass Accretion</dc:subject>
+        <dc:title>Thick accretion disks and supercritical luminosities</dc:title>
+        <dc:date>1980-08</dc:date>
+        <dc:description>Citation Key: 1980A&amp;A....88...23P
+tex.adsnote: Provided by the SAO/NASA Astrophysics Data System</dc:description>
+        <bib:pages>23</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_39">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/39/PW_potential.pdf"/>
+        <dc:title>PW_potential</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_72">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/72/Stuchlík_2009_Class._Quantum_Grav._26_215013.pdf"/>
+        <dc:title>Stuchlík_2009_Class._Quantum_Grav._26_215013</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://academic.oup.com/mnras/article/335/1/L29/1034557">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:00358711,%2013652966"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kluźniak</foaf:surname>
+                        <foaf:givenName>Włodzimierz</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lee</foaf:surname>
+                        <foaf:givenName>William H.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_46"/>
+        <dc:title>The swallowing of a quark star by a black hole</dc:title>
+        <dcterms:abstract>In three-dimensional smooth particle hydrodynamic simulations of the coalescence of a quark star with a pseudo-Newtonian black hole all of the quark matter is quickly accreted by the black hole. The Madsen–Caldwell–Friedman argument against the existence of quark stars may need to be re-examined.</dcterms:abstract>
+        <dc:date>09/2002</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/mnras/article/335/1/L29/1034557</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 12:25:15</dcterms:dateSubmitted>
+        <bib:pages>L29-L32</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:00358711,%2013652966">
+        <prism:volume>335</prism:volume>
+        <dc:title>Monthly Notices of the Royal Astronomical Society</dc:title>
+        <dc:identifier>DOI 10.1046/j.1365-8711.2002.05819.x</dc:identifier>
+        <prism:number>1</prism:number>
+        <dc:identifier>ISSN 00358711, 13652966</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_46">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/46/Kluźniak and Lee - 2002 - The swallowing of a quark star by a black hole.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="http://arxiv.org/abs/2204.11738">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2470-0010,%202470-0029"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rom</foaf:surname>
+                        <foaf:givenName>Barak</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sari</foaf:surname>
+                        <foaf:givenName>Re'em</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_51"/>
+        <link:link rdf:resource="#item_48"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>General Relativity and Quantum Cosmology</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Extreme Mass-Ratio Binary Black Hole Merger: Characteristics of the Test-Particle Limit</dc:title>
+        <dcterms:abstract>We study binary black hole mergers in the extreme mass-ratio limit. We determine the energy, angular momentum, and linear momentum of the post-merger, remnant black hole. Unlike previous works, we perform our analysis directly in the test-particle limit by solving the Regge-Wheeler-Zerilli wave equation with a source that moves along a geodesic. We rely on the fact that toward the merger, small mass-ratio binary systems follow a quasiuniversal geodesic trajectory. This formalism captures the final premerger stages of small mass-ratio binaries and thus provides a straightforward universal description in a region inaccessible to numerical relativity simulations. We present a general waveform template that may be used in the search for gravitational wave bursts from small and intermediate mass-ratio binary systems. Finally, this formalism gives a formal proof that the recoil velocity is quadratic in the symmetric mass ratio $\nu$. Specifically, the velocity is given by $V/c\approx 0.0467 \nu^2$. This result is about $4\%$ larger than previously estimated. Most of this difference stems from the inclusion of higher multipoles in our calculation.</dcterms:abstract>
+        <dc:date>2022-11-18</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Extreme Mass-Ratio Binary Black Hole Merger</z:shortTitle>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/2204.11738</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 16:07:19</dcterms:dateSubmitted>
+        <dc:description>arXiv:2204.11738 [gr-qc]</dc:description>
+        <bib:pages>104040</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2470-0010,%202470-0029">
+        <prism:volume>106</prism:volume>
+        <dc:title>Physical Review D</dc:title>
+        <dc:identifier>DOI 10.1103/PhysRevD.106.104040</dc:identifier>
+        <prism:number>10</prism:number>
+        <dcterms:alternative>Phys. Rev. D</dcterms:alternative>
+        <dc:identifier>ISSN 2470-0010, 2470-0029</dc:identifier>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_51">
+        <rdf:value>Comment: 11 pages, 7 figures. Accepted for publication in Physical Review D</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_48">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/48/Rom and Sari - 2022 - Extreme Mass-Ratio Binary Black Hole Merger Characteristics of the Test-Particle Limit.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_52">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>106</prism:volume>
+                <dc:title>Physical Review D</dc:title>
+                <dc:identifier>DOI 10.1103/PhysRevD.106.104040</dc:identifier>
+                <prism:number>10</prism:number>
+                <dcterms:alternative>Phys. Rev. D</dcterms:alternative>
+                <dc:identifier>ISSN 2470-0010, 2470-0029</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rom</foaf:surname>
+                        <foaf:givenName>Barak</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sari</foaf:surname>
+                        <foaf:givenName>Re'em</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_53"/>
+        <link:link rdf:resource="#item_49"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>General Relativity and Quantum Cosmology</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Extreme Mass-Ratio Binary Black Hole Merger: Characteristics of the Test-Particle Limit</dc:title>
+        <dcterms:abstract>We study binary black hole mergers in the extreme mass-ratio limit. We determine the energy, angular momentum, and linear momentum of the post-merger, remnant black hole. Unlike previous works, we perform our analysis directly in the test-particle limit by solving the Regge-Wheeler-Zerilli wave equation with a source that moves along a geodesic. We rely on the fact that toward the merger, small mass-ratio binary systems follow a quasiuniversal geodesic trajectory. This formalism captures the final premerger stages of small mass-ratio binaries and thus provides a straightforward universal description in a region inaccessible to numerical relativity simulations. We present a general waveform template that may be used in the search for gravitational wave bursts from small and intermediate mass-ratio binary systems. Finally, this formalism gives a formal proof that the recoil velocity is quadratic in the symmetric mass ratio $\nu$. Specifically, the velocity is given by $V/c\approx 0.0467 \nu^2$. This result is about $4\%$ larger than previously estimated. Most of this difference stems from the inclusion of higher multipoles in our calculation.</dcterms:abstract>
+        <dc:date>2022-11-18</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Extreme Mass-Ratio Binary Black Hole Merger</z:shortTitle>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/2204.11738</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-03 16:07:22</dcterms:dateSubmitted>
+        <dc:description>arXiv:2204.11738 [gr-qc]</dc:description>
+        <bib:pages>104040</bib:pages>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_53">
+        <rdf:value>Comment: 11 pages, 7 figures. Accepted for publication in Physical Review D</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_49">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/49/Rom and Sari - 2022 - Extreme Mass-Ratio Binary Black Hole Merger Characteristics of the Test-Particle Limit.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="http://arxiv.org/abs/physics/9905030">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>arXiv</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Schwarzschild</foaf:surname>
+                        <foaf:givenName>K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_56"/>
+        <link:link rdf:resource="#item_54"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>General Relativity and Quantum Cosmology</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Physics - History and Philosophy of Physics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>On the gravitational field of a mass point according to Einstein's theory</dc:title>
+        <dcterms:abstract>Translation by S. Antoci and A. Loinger of the fundamental memoir, that contains the ORIGINAL form of the solution of Schwarzschild's problem. The solution is regular in the whole space-time, with the only exception of the origin of the spatial co-ordinates; consequently, it leaves no room for the science fiction of the black holes. (In the centuries of the decline of the Roman Empire people said: ``Graecum est, non legitur''...).</dcterms:abstract>
+        <dc:date>1999-05-12</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>arXiv.org</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>http://arxiv.org/abs/physics/9905030</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-08 07:56:30</dcterms:dateSubmitted>
+        <dc:description>arXiv:physics/9905030</dc:description>
+        <dc:identifier>DOI 10.48550/arXiv.physics/9905030</dc:identifier>
+        <prism:number>arXiv:physics/9905030</prism:number>
+    </rdf:Description>
+    <bib:Memo rdf:about="#item_56">
+        <rdf:value>Comment: Plain TeX, 7 pages, English translation of the original paper by K. Schwarzschild</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_54">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/54/Schwarzschild - 1999 - On the gravitational field of a mass point according to Einstein's theory.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_57">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/57/2501.03178"/>
+        <dc:title>2501.03178</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://arxiv.org/pdf/2501.03178</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-16 05:44:27</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_58">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/58/pdf"/>
+        <dc:title>pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1086/520920/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-16 05:42:00</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_59">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/59/pdf"/>
+        <dc:title>pdf</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1086/344574/pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-16 05:38:25</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1086/344227">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>581</prism:volume>
+                <dc:title>The Astrophysical Journal</dc:title>
+                <dc:identifier>DOI 10.1086/344227</dc:identifier>
+                <prism:number>1</prism:number>
+                <dcterms:alternative>ApJ</dcterms:alternative>
+                <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mukhopadhyay</foaf:surname>
+                        <foaf:givenName>Banibrata</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_60"/>
+        <dc:title>Description of Pseudo‐Newtonian Potential for the Relativistic Accretion Disks around Kerr Black Holes</dc:title>
+        <dcterms:abstract>We present a pseudo-Newtonian potential for accretion disk modeling around a rotating black hole. This potential can describe the general relativistic eﬀects on the accretion disk. As the inclusion of rotation in a proper way is very important at the inner edge of the disk, the potential is derived from the Kerr metric. This potential can reproduce all the essential properties of general relativity within 10% error, even for rapidly rotating black holes.</dcterms:abstract>
+        <dc:date>2002-12-10</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1086/344227</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:37:44</dcterms:dateSubmitted>
+        <bib:pages>427-430</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_60">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/60/Mukhopadhyay - 2002 - Description of Pseudo‐Newtonian Potential for the Relativistic Accretion Disks around Kerr Black Hol.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1086/338059">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>566</prism:volume>
+                <dc:title>The Astrophysical Journal</dc:title>
+                <dc:identifier>DOI 10.1086/338059</dc:identifier>
+                <prism:number>1</prism:number>
+                <dcterms:alternative>ApJ</dcterms:alternative>
+                <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hawley</foaf:surname>
+                        <foaf:givenName>John F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Krolik</foaf:surname>
+                        <foaf:givenName>Julian H.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_61"/>
+        <dc:title>High‐Resolution Simulations of the Plunging Region in a Pseudo‐Newtonian Potential: Dependence on Numerical Resolution and Field Topology</dc:title>
+        <dcterms:abstract>New three-dimensional magnetohydrodynamic simulations of accretion disk dynamics in a pseudoNewtonian Paczynç ski-Wiita potential are presented. These have Ðner resolution in the inner disk than any previously reported. Finer resolution leads to increased magnetic Ðeld strength, greater accretion rate, and greater Ñuctuations in the accretion rate. One simulation begins with a purely poloidal magnetic Ðeld, the other with a purely toroidal Ðeld. Compared to the poloidal initial Ðeld simulation, a purely toroidal initial Ðeld takes longer to reach saturation of the magnetorotational instability and produces less turbulence and weaker magnetic Ðeld energies. For both initial Ðeld conÐgurations, magnetic stresses continue across the marginally stable orbit ; measured in units corresponding to the ShakuraSunyaev a-parameter, the stress grows from D0.1 in the disk body to as much as D10 deep in the plunging region. Matter passing the inner boundary of the simulation has D10% greater binding energy and D10% smaller angular momentum than it did at the marginally stable orbit. Both the mass accretion rate and the integrated stress Ñuctuate widely on a broad range of timescales.</dcterms:abstract>
+        <dc:date>2002-02-10</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>High‐Resolution Simulations of the Plunging Region in a Pseudo‐Newtonian Potential</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1086/338059</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:37:46</dcterms:dateSubmitted>
+        <bib:pages>164-180</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_61">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/61/Hawley and Krolik - 2002 - High‐Resolution Simulations of the Plunging Region in a Pseudo‐Newtonian Potential Dependence on Nu.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S0370269305002996">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:03702693"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ivanov</foaf:surname>
+                        <foaf:givenName>Rossen I.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Prodanov</foaf:surname>
+                        <foaf:givenName>Emil M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_62"/>
+        <dc:title>Pseudo-Newtonian potential for charged particle in Kerr–Newman geometry</dc:title>
+        <dcterms:abstract>We consider the equatorial circular motion of a test particle of speciﬁc charge q m in the Kerr–Newman geometry of a rotating charged black hole. We ﬁnd the particle’s conserved energy and conserved projection of the angular momentum on the black hole’s axis of rotation as corrections, in leading order of q/m, to the corresponding energy and angular momentum of a neutral particle. We determine the centripetal force acting on the test particle and, consequently, we ﬁnd a classical pseudoNewtonian potential with which one can mimic this general relativistic problem.</dcterms:abstract>
+        <dc:date>03/2005</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S0370269305002996</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:37:48</dcterms:dateSubmitted>
+        <dc:rights>https://www.elsevier.com/tdm/userlicense/1.0/</dc:rights>
+        <bib:pages>34-38</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:03702693">
+        <prism:volume>611</prism:volume>
+        <dc:title>Physics Letters B</dc:title>
+        <dc:identifier>DOI 10.1016/j.physletb.2005.02.047</dc:identifier>
+        <prism:number>1-2</prism:number>
+        <dcterms:alternative>Physics Letters B</dcterms:alternative>
+        <dc:identifier>ISSN 03702693</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_62">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/62/Ivanov and Prodanov - 2005 - Pseudo-Newtonian potential for charged particle in Kerr–Newman geometry.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://academic.oup.com/ptp/article-lookup/doi/10.1143/PTP.96.693">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0033-068X,%201347-4081"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Taniguchi</foaf:surname>
+                        <foaf:givenName>K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nakamura</foaf:surname>
+                        <foaf:givenName>T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_66"/>
+        <dc:title>Innermost Stable Circular Orbit of Coalescing Neutron Star-Black Hole Binary: Generalized Pseudo-Newtonian Potential Approach</dc:title>
+        <dc:date>1996-10-01</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>Innermost Stable Circular Orbit of Coalescing Neutron Star-Black Hole Binary</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/ptp/article-lookup/doi/10.1143/PTP.96.693</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:40:42</dcterms:dateSubmitted>
+        <bib:pages>693-712</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0033-068X,%201347-4081">
+        <prism:volume>96</prism:volume>
+        <dc:title>Progress of Theoretical Physics</dc:title>
+        <dc:identifier>DOI 10.1143/PTP.96.693</dc:identifier>
+        <prism:number>4</prism:number>
+        <dcterms:alternative>Progress of Theoretical Physics</dcterms:alternative>
+        <dc:identifier>ISSN 0033-068X, 1347-4081</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_66">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/66/Taniguchi and Nakamura - 1996 - Innermost Stable Circular Orbit of Coalescing Neutron Star-Black Hole Binary Generalized Pseudo-New.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1086/344574">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>582</prism:volume>
+                <dc:title>The Astrophysical Journal</dc:title>
+                <dc:identifier>DOI 10.1086/344574</dc:identifier>
+                <prism:number>1</prism:number>
+                <dcterms:alternative>ApJ</dcterms:alternative>
+                <dc:identifier>ISSN 0004-637X, 1538-4357</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mukhopadhyay</foaf:surname>
+                        <foaf:givenName>Banibrata</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Misra</foaf:surname>
+                        <foaf:givenName>Ranjeev</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_68"/>
+        <dc:title>Pseudo‐Newtonian Potentials to Describe the Temporal Effects on Relativistic Accretion Disks around Rotating Black Holes and Neutron Stars</dc:title>
+        <dcterms:abstract>Two pseudo-Newtonian potentials, which approximate the angular and epicyclic frequencies of the relativistic accretion disk around rotating (and counter-rotating) compact objects, are presented. One of them, the logarithmically modiﬁed potential, is a better approximation for the frequencies while the other, the second-order expanded potential, also reproduces the speciﬁc energy for circular orbits in close agreement with the general relativistic values. These potentials may be included in time-dependent hydrodynamic simulations to study the temporal behavior of such accretion disks.</dcterms:abstract>
+        <dc:date>01/2003</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1086/344574</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:50:08</dcterms:dateSubmitted>
+        <bib:pages>347-351</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_68">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/68/Mukhopadhyay and Misra - 2003 - Pseudo‐Newtonian Potentials to Describe the Temporal Effects on Relativistic Accretion Disks around.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S0370269311001821">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <prism:volume>697</prism:volume>
+                <dc:title>Physics Letters B</dc:title>
+                <dc:identifier>DOI 10.1016/j.physletb.2011.02.037</dc:identifier>
+                <prism:number>5</prism:number>
+                <dcterms:alternative>Physics Letters B</dcterms:alternative>
+                <dc:identifier>ISSN 03702693</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Crispino</foaf:surname>
+                        <foaf:givenName>Luís C.B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Da Cruz Filho</foaf:surname>
+                        <foaf:givenName>Jaime L.C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Letelier</foaf:surname>
+                        <foaf:givenName>Patricio S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_69"/>
+        <dc:title>Pseudo-Newtonian potentials and the radiation emitted by a source swirling around a stellar object</dc:title>
+        <dc:date>03/2011</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S0370269311001821</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:50:10</dcterms:dateSubmitted>
+        <dc:rights>https://www.elsevier.com/tdm/userlicense/1.0/</dc:rights>
+        <bib:pages>506-511</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_69">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/69/Crispino et al. - 2011 - Pseudo-Newtonian potentials and the radiation emitted by a source swirling around a stellar object.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1088/0264-9381/26/21/215013">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0264-9381,%201361-6382"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Stuchlík</foaf:surname>
+                        <foaf:givenName>Zdeněk</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Slaný</foaf:surname>
+                        <foaf:givenName>Petr</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kovář</foaf:surname>
+                        <foaf:givenName>Jiří</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_73"/>
+        <dc:title>Pseudo-Newtonian and general relativistic barotropic tori in Schwarzschild–de Sitter spacetimes</dc:title>
+        <dcterms:abstract>Pseudo-Newtonian gravitational potential introduced in spherically symmetric black-hole spacetimes with a repulsive cosmological constant is tested for equilibrium toroidal conﬁgurations of barotropic perfect ﬂuid orbiting the black holes. Shapes and potential depths are determined for the marginally stable barotropic tori with uniform distribution of speciﬁc angular momentum, using both the pseudo-Newtonian and fully relativistic approach. For the adiabatic (isoentropic) perfect ﬂuid, temperature proﬁles, mass-density and pressure proﬁles and total masses of pseudo-Newtonian and relativistic tori are compared providing important information on the relevance of the test-disc approximation in both the approaches. It is shown that the pseudo-Newtonian approach can be precise enough and useful for the modelling of accretion discs in the Schwarzschild–de Sitter spacetimes with the cosmological parameter y = M2/3 10−6. For astrophysically relevant black holes with y &lt; 10−25, this statement is tested and shown to be precise in few per cent for both accretion and excretion tori and for the marginally bound, i.e. maximally extended, tori allowing simultaneous inﬂow to the black hole and outﬂow to the outer space.</dcterms:abstract>
+        <dc:date>2009-11-07</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1088/0264-9381/26/21/215013</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-04-23 09:57:26</dcterms:dateSubmitted>
+        <bib:pages>215013</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0264-9381,%201361-6382">
+        <prism:volume>26</prism:volume>
+        <dc:title>Classical and Quantum Gravity</dc:title>
+        <dc:identifier>DOI 10.1088/0264-9381/26/21/215013</dc:identifier>
+        <prism:number>21</prism:number>
+        <dcterms:alternative>Class. Quantum Grav.</dcterms:alternative>
+        <dc:identifier>ISSN 0264-9381, 1361-6382</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_73">
+        <z:itemType>attachment</z:itemType>
+        <rdf:resource rdf:resource="files/73/Stuchlík et al. - 2009 - Pseudo-Newtonian and general relativistic barotropic tori in Schwarzschild–de Sitter spacetimes.pdf"/>
+        <dc:title>PDF</dc:title>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Collection rdf:about="#collection_2">
+        <dc:title>PseudoNewtonian pappers</dc:title>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/1303.4068"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1088/0004-637X/749/2/183"/>
+        <dcterms:hasPart rdf:resource="urn:isbn:978-0-471-92567-5"/>
+        <dcterms:hasPart rdf:resource="http://www.aanda.org/10.1051/0004-6361/200912155"/>
+        <dcterms:hasPart rdf:resource="http://adsabs.harvard.edu/doi/10.1086/170465"/>
+        <dcterms:hasPart rdf:resource="#item_41"/>
+        <dcterms:hasPart rdf:resource="https://academic.oup.com/mnras/article/335/1/L29/1034557"/>
+        <dcterms:hasPart rdf:resource="http://arxiv.org/abs/2204.11738"/>
+        <dcterms:hasPart rdf:resource="#item_52"/>
+        <dcterms:hasPart rdf:resource="#item_57"/>
+        <dcterms:hasPart rdf:resource="#item_58"/>
+        <dcterms:hasPart rdf:resource="#item_59"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1086/344227"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1086/338059"/>
+        <dcterms:hasPart rdf:resource="https://linkinghub.elsevier.com/retrieve/pii/S0370269305002996"/>
+        <dcterms:hasPart rdf:resource="https://academic.oup.com/ptp/article-lookup/doi/10.1143/PTP.96.693"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1086/344574"/>
+        <dcterms:hasPart rdf:resource="https://linkinghub.elsevier.com/retrieve/pii/S0370269311001821"/>
+        <dcterms:hasPart rdf:resource="https://iopscience.iop.org/article/10.1088/0264-9381/26/21/215013"/>
+    </z:Collection>
+</rdf:RDF>
