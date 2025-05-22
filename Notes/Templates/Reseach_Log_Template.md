@@ -12,6 +12,8 @@ const filename = `Log - ${creationDate}`;
 // await tp.file.create(`ResearchLogs/${filename}.md`, ""); 
 // await tp.file.move(`${filename}.md`, `ResearchLogs/${filename}.md`);
 %>
+
+
 title: "<% filename %>"
 created: "<% creationDate %>"
 last_modified: "<% lastModDate %>"
