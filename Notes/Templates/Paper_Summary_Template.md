@@ -1,51 +1,48 @@
 <%* 
-// Prompt for all your fields up front
-let title = await tp.system.prompt("Paper title (e.g. “Effective Potential in GR”)");
-let authors = await tp.system.prompt("Authors (e.g. Smith et al.)");
-let year = await tp.system.prompt("Publication year");
-let journal = await tp.system.prompt("Journal name");
+// Prompt for metadata up front
+let citekey = await tp.system.prompt("Citation key (e.g. smith2020)");
+let paperTitle = await tp.system.prompt("Paper title");
+let authors = await tp.system.prompt("Authors");
+let year = await tp.system.prompt("Year");
+let journal = await tp.system.prompt("Journal");
 let doi = await tp.system.prompt("DOI or URL");
+let fileTitle = `Paper Summary: ${citekey}`;
 %>
 ---
-title: "<% title %>"
-authors: "<% authors %>"
-year: <% year %>
-journal: "<%  journal %>"
-doi: "<% doi %>"
+title: "<%+ fileTitle %>"
+citekey: "<%+ citekey %>"
+paper: "<%+ paperTitle %>"
+authors: "<%+ authors %>"
+year: <%+ year %>
+journal: "<%+ journal %>"
+doi: "<%+ doi %>"
 tags: [paper-summary]
 ---
 
-# <%- title %> (<%- year %>)  
-**Authors:** <%- authors %>  
-**Journal:** <%- journal %>  
-**DOI/URL:** <%- doi %>  
+# <%+ paperTitle %> (<%+ year %>)  
+**Authors:** <%+ authors %>  
+**Journal:** <%+ journal %>  
+**DOI/URL:** <%+ doi %>  
 
 ---
 
-# `<% tp.file.title %>` ( <% tp.frontmatter.year %> )  
-**Authors:** <% tp.frontmatter.authors %>  
-**Journal:** <% tp.frontmatter.journal %>  
-**DOI/URL:** <% tp.system.prompt("DOI or URL") %>  
-
----
-
-## 1. Abstract in Brief
+## 1. Abstract in Brief  
 > 
 
-## 2. Key Contributions
+## 2. Key Contributions  
 - 
 
-## 3. Methods & Approach
+## 3. Methods & Approach  
 - 
 
-## 4. Results & Conclusions
+## 4. Results & Conclusions  
 - 
 
-## 5. Strengths & Weaknesses
+## 5. Strengths & Weaknesses  
 - **Strengths:**  
   -  
 - **Weaknesses / Open Questions:**  
   -  
 
-## 6. Relation to My Work
+## 6. Relation to My Work  
 - 
