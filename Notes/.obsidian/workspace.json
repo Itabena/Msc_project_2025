@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 2.md",
+                "file": "Templates/Reseach_Log_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 2"
+              "title": "Reseach_Log_Template"
             }
           }
         ],
@@ -229,16 +229,16 @@
   },
   "active": "5513dd6f890adac3",
   "lastOpenFiles": [
-    "Untitled 1.md",
-    "Untitled 2.md",
+    "Templates/Paper_Summary_Template.md",
+    "Templates/Mathematical_Derivation_Template.md",
+    "Templates/Book_Chapter_Summary_Template.md",
+    "Templates/Date_trigger.md",
     "Templates/Reseach_Log_Template.md",
+    "Untitled 2.md",
+    "Untitled 1.md",
     "Research Log/2025_05_22.md",
     "Research Log/Test.md",
-    "Templates/Mathematical_Derivation_Template.md",
-    "Templates/Paper_Summary_Template.md",
-    "Templates/Book_Chapter_Summary_Template.md",
     "Untitled.md",
-    "Templates/Date_trigger.md",
     "user_scripts/update_last_modified.js",
     "user_scripts",
     "Untitled 4.md",
