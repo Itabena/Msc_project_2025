@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Paper_Summary_Template.md",
+                "file": "Untitled 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Paper_Summary_Template"
+              "title": "Untitled 2"
             }
           }
         ],
@@ -229,9 +229,10 @@
   },
   "active": "d376d5791e1f16e6",
   "lastOpenFiles": [
+    "Templates/Paper_Summary_Template.md",
+    "Untitled 2.md",
     "Templates/Reseach_Log_Template.md",
     "Untitled 1.md",
-    "Templates/Paper_Summary_Template.md",
     "2012Wegg_parar.md",
     "Untitled.md",
     "Wegg 2012 paper.md",
