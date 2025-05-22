@@ -1,5 +1,6 @@
 ---
 <%* 
+
 // 1) Compute dates
 const creationDate = tp.date.now("YYYY__MM__DD");
 // 2) For a first draft, lastMod = creation; you can later update via a save-trigger
@@ -19,6 +20,7 @@ created: "<% creationDate %>"
 last_modified: "<% lastModDate %>"
 tags: [research-log]
 ---
+
 
 ---
 # <% filename %>  
