@@ -13,7 +13,7 @@ const filename = `Log - ${creationDate}`;
 const srcPath = tp.file.path(true);
 const destPath = `Notes\Research Log/${filename}.md`;
 
-await tp.file.move
+await tp.file.move(destPath,srcPath)
 
 // 3. Open the moved file in the editor
 await tp.obsidian.open_file(destPath);
