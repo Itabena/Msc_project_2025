@@ -7,18 +7,11 @@
   "citeFormats": [
     {
       "name": "Format #1",
-      "format": "biblatex",
-      "command": "autocite"
+      "format": "pandoc",
+      "brackets": true
     }
   ],
-  "exportFormats": [
-    {
-      "name": "Import #1",
-      "outputPathTemplate": "{{citekey}}.md",
-      "imageOutputPathTemplate": "{{citekey}}/",
-      "imageBaseNameTemplate": "image"
-    }
-  ],
+  "exportFormats": [],
   "citeSuggestTemplate": "[[{{citekey}}]]",
   "openNoteAfterImport": true,
   "whichNotesToOpenAfterImport": "first-imported-note"
