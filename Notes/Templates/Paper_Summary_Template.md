@@ -1,10 +1,25 @@
+<%* 
+// Prompt for all your fields up front
+let title = await tp.system.prompt("Paper title (e.g. “Effective Potential in GR”)");
+let authors = await tp.system.prompt("Authors (e.g. Smith et al.)");
+let year = await tp.system.prompt("Publication year");
+let journal = await tp.system.prompt("Journal name");
+let doi = await tp.system.prompt("DOI or URL");
+%>
 ---
-title: "Paper Summary: <% await tp.system.prompt("Title")%>"
-citekey: "<% tp.file.title %>"
-authors: "<% await tp.system.prompt("Authors (e.g. Smith et al.)") %>"
-year: <% await tp.system.prompt("Year") %>
-journal: "<% await tp.system.prompt("Journal Name") %>"
+title: "<% title %>"
+authors: "<% authors %>"
+year: <% year %>
+journal: "<%  journal %>"
+doi: "<% doi %>"
 tags: [paper-summary]
+---
+
+# <%- title %> (<%- year %>)  
+**Authors:** <%- authors %>  
+**Journal:** <%- journal %>  
+**DOI/URL:** <%- doi %>  
+
 ---
 
 # `<% tp.file.title %>` ( <% tp.frontmatter.year %> )  
