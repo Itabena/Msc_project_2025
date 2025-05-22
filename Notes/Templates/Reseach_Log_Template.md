@@ -10,7 +10,7 @@ var lastModDate = tp.date.now("YYYY__MM__DD");
 const filename = `Log - ${creationDate}`;
 
 // 4) Move the new file into a “ResearchLogs” 
-const srcPath = tp.file.path(relative == True);
+const srcPath = tp.file.path();
 const destPath = `Notes/Research Log/${filename}.md`;
 
 //await tp.file.move(srcPath,destPath)
@@ -31,6 +31,8 @@ tags: [research-log]
 # <% filename %>  
 _Last modified: <% lastModDate %>_
 
+<% srcPath%>
+<%destPath%>
 ## Tasks and Goals
 - [ ] <% tp.file.cursor() %>
 
