@@ -11,9 +11,9 @@ const filename = `Log - ${creationDate}`;
 
 // 4) Move the new file into a “ResearchLogs” 
 const srcPath = tp.file.path();
-const destPath = `C:\Users\itama\Desktop\My Projects\Msc_project_2025\Notes\Research Log\${filename}.md`;
+const destPath = `Notes/Research Log\${filename}.md`;
 
-await tp.file.mov
+await tp.file.move(,)
 
 // 3. Open the moved file in the editor
 await tp.obsidian.open_file(destPath);
