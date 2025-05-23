@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 2.md",
+                "file": "Templates/Paper_Summary_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 2"
+              "title": "Paper_Summary_Template"
             }
           }
         ],
@@ -201,16 +201,17 @@
   },
   "active": "d42a355cc6eb1157",
   "lastOpenFiles": [
-    "Templates/Reseach_Log_Template.md",
-    "Untitled 2.md",
-    "Templates/Paper_Summary_Template.md",
-    "Untitled 1.md",
-    "Templates/Mathematical_Derivation_Template.md",
     "Untitled.md",
+    "Templates/Paper_Summary_Template.md",
+    "Templates/Reseach_Log_Template.md",
+    "Templates/Book_Chapter_Summary_Template.md",
+    "Templates/Mathematical_Derivation_Template.md",
+    "Templates/NewInFolder.md",
+    "Untitled 2.md",
+    "Untitled 1.md",
     "Untitled 3.md",
     "Untitled 4.md",
     "Untitled 5.md",
-    "Templates/NewInFolder.md",
     "Templates/Testt.md",
     "Templates/FolderTemplate.md",
     "Test/Untitled 4.md",
@@ -226,7 +227,6 @@
     "Test/hhh.md",
     "Test/sdasda.md",
     "Test/KKK.md",
-    "Test/MyTestNote.md",
     "Test",
     "user_scripts/update_last_modified.js",
     "user_scripts",

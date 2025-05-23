@@ -23,6 +23,7 @@ tags: [paper-summary]
 **Authors:** <% authors %>  
 **Journal:** <% journal %>  
 **File link:** [Zotero Link](zotero://open-pdf/library/items/<% doi %>) 
+**Last Modified:**  <% tp.file.last_modified_date("YYYY-MM-DD") %>
 
 ---
 
