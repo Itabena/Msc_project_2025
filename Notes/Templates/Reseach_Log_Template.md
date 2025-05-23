@@ -4,7 +4,7 @@
 // 1) Compute dates
 const creationDate = tp.date.now("YYYY__MM__DD");
 // 2) For a first draft, lastMod = creation; you can later update via a save-trigger
-const lastModDate =tp.file.last_modified_date("YYYY__MM__DD");
+//const lastModDate =
 
 // 3) Build the filename for convenience
 const filename = `Log - ${creationDate}`;
@@ -22,14 +22,14 @@ const filename = `Log - ${creationDate}`;
 
 title: "<% filename %>"
 created: "<% creationDate %>"
-last_modified: "<% lastModDate %>"
+last_modified: "<% tp.file.last_modified_date("YYYY__MM__DD"); %>"
 tags: [research-log]
 ---
 
 
 ---
 # <% filename %>  
-_Last modified: <% lastModDate %>_
+_Last modified: <% tp.file.last_modified_date("YYYY__MM__DD"); %>_
 
 <% srcPath%>
 <%destPath%>
