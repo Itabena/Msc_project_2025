@@ -55,48 +55,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Reseach_Log_Template.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Reseach_Log_Template"
-            }
-          },
-          {
-            "id": "5513dd6f890adac3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled 1"
-            }
-          },
-          {
-            "id": "eb5798dc865b407b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled 3.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Untitled 3"
-            }
-          },
-          {
-            "id": "95094fb01bbb9ca6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Templates/NewInFolder.md",
                 "mode": "source",
                 "source": false
@@ -106,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -255,29 +213,30 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "074168bb58b17de5",
+  "active": "abe450635a47944c",
   "lastOpenFiles": [
+    "Templates/Reseach_Log_Template.md",
     "Untitled 5.md",
-    "Untitled 4.md",
     "Untitled 3.md",
-    "Test/sdasda.md",
-    "Test/testytest.md",
-    "Untitled 2.md",
-    "Templates/NewInFolder.md",
-    "Untitled 1.md",
+    "Untitled.md",
     "Test/asdasd.md",
+    "Test/testytest.md",
+    "Test/hhh.md",
+    "Templates/NewInFolder.md",
+    "Untitled 4.md",
+    "Test/sdasda.md",
+    "Untitled 2.md",
+    "Untitled 1.md",
     "Test/KKK.md",
     "Test/MyTestNote.md",
     "Test/Test111.md",
     "Templates/Testt.md",
     "Test.md",
-    "Untitled.md",
     "Test",
     "Research Log/test1.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Templates/Paper_Summary_Template.md",
-    "Templates/Reseach_Log_Template.md",
     "ReadMeHelp.md",
     "Templates/Date_trigger.md",
     "Research Log/Test.md",
@@ -286,7 +245,6 @@
     "NotesResearch Log",
     "Research Log/Log - 2025__05__22.md",
     "Research Log/Log -2025_05_22.md",
-    "Wegg 2012 paper.md",
     "Templates",
     "Important Calculations",
     "Articles and books",
