@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Reseach_Log_Template.md",
+                "file": "Untitled 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reseach_Log_Template"
+              "title": "Untitled 2"
             }
           }
         ],
@@ -201,11 +201,12 @@
   },
   "active": "d42a355cc6eb1157",
   "lastOpenFiles": [
-    "Untitled.md",
     "Templates/Reseach_Log_Template.md",
-    "Templates/Paper_Summary_Template.md",
     "Untitled 2.md",
+    "Templates/Paper_Summary_Template.md",
     "Untitled 1.md",
+    "Templates/Mathematical_Derivation_Template.md",
+    "Untitled.md",
     "Untitled 3.md",
     "Untitled 4.md",
     "Untitled 5.md",
@@ -226,7 +227,6 @@
     "Test/sdasda.md",
     "Test/KKK.md",
     "Test/MyTestNote.md",
-    "Test/Test111.md",
     "Test",
     "user_scripts/update_last_modified.js",
     "user_scripts",

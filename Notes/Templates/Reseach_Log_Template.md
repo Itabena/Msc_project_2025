@@ -1,12 +1,13 @@
 ---
 
 ---
----
+
+
 title: "Log Entire - <% tp.date.now("YYYY__MM__DD") %>"
 created: "<% tp.date.now("YYYY__MM__DD") %>"
 last_modified: "<% tp.file.last_modified_date("YYYY-MM-DD") %>"
 tags: [research-log]
----
+
 
 
 # Log Entire - <% tp.date.now("YYYY__MM__DD") %>  
