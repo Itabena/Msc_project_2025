@@ -4,7 +4,7 @@
 // 1) Compute dates
 const creationDate = tp.date.now("YYYY__MM__DD");
 // 2) For a first draft, lastMod = creation; you can later update via a save-trigger
-var lastModDate = tp.date.now("YYYY__MM__DD");
+const lastModDate =tp.file.last_modified_date("YYYY__MM__DD");
 
 // 3) Build the filename for convenience
 const filename = `Log - ${creationDate}`;
