@@ -16,7 +16,7 @@
   "folder_templates": [
     {
       "folder": "Test",
-      "template": "Templates/NewInFolder.md"
+      "template": "Templates/FolderTemplate.md"
     }
   ],
   "enable_file_templates": false,
