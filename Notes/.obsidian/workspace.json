@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Book_Chapter_Summary_Template.md",
+                "file": "Untitled 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Book_Chapter_Summary_Template"
+              "title": "Untitled 1"
             }
           }
         ],
@@ -229,13 +229,13 @@
   },
   "active": "5513dd6f890adac3",
   "lastOpenFiles": [
+    "Untitled.md",
+    "Untitled 1.md",
+    "Templates/Book_Chapter_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Templates/Paper_Summary_Template.md",
     "Templates/Reseach_Log_Template.md",
-    "Untitled 1.md",
     "ReadMeHelp.md",
-    "Templates/Book_Chapter_Summary_Template.md",
-    "Untitled.md",
     "Untitled 4.md",
     "Untitled 3.md",
     "Untitled 2.md",
