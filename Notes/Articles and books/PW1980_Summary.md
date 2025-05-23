@@ -20,7 +20,7 @@ tags: [paper-summary]
 ---
 
 ## 1. Abstract in Brief
-> 
+> They suggest 
 
 ## 2. Key Contributions
 - 
