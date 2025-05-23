@@ -20,6 +20,9 @@ _Last modified: 2025-05-23_
 
 ## Findings and Notes
 - I didnt make the templates in obsidian the best, I still need to find how to make them better.
+- After first glance on the PW1980 paper I understand I need to go back and read about the Sakura Sunyev model for accretion disks.
+- After summarizing lets pin poin the questions: what is important to accertion disks models?
+- 
 
 ## Actions Taken
 1. 
