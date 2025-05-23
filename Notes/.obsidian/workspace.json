@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Paper_Summary_Template.md",
+                "file": "Articles and books/PW1980_Summary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Paper_Summary_Template"
+              "title": "PW1980_Summary"
             }
           }
         ],
@@ -199,11 +199,14 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "074168bb58b17de5",
+  "active": "d42a355cc6eb1157",
   "lastOpenFiles": [
-    "Untitled 1.md",
-    "Untitled.md",
+    "Research Log/Log Entire - 2025__05__23.md",
+    "Articles and books/PW1980_Summary.md",
+    "Research Log/test1.md",
+    "Research Log/Test.md",
     "Templates/Paper_Summary_Template.md",
+    "Untitled.md",
     "Templates/Reseach_Log_Template.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
@@ -224,9 +227,6 @@
     "Test/2025fff.md",
     "Test/asdasd.md",
     "Test/testytest.md",
-    "Test/hhh.md",
-    "Test/sdasda.md",
-    "Test/KKK.md",
     "Test",
     "user_scripts/update_last_modified.js",
     "user_scripts",

@@ -1,0 +1,28 @@
+---
+
+---
+
+
+title: "Log Entire - 2025__05__23"
+created: "2025__05__23"
+last_modified: "2025-05-23"
+tags: [research-log]
+
+
+
+# Log Entire - 2025__05__23  
+_Last modified: 2025-05-23_
+
+## Tasks and Goals
+- [ ] Summarizing the PW paper
+- [ ] Summarizing the Wegg paper
+- [ ] Summarizing the Tejeda & Roswog paper 
+
+## Findings and Notes
+- I didnt make the templates in obsidian the best, I still need to find how to make them better.
+
+## Actions Taken
+1. 
+
+## Future Plans
+- 
