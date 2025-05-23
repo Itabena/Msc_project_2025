@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/NewInFolder.md",
+                "file": "Templates/Testt.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NewInFolder"
+              "title": "Testt"
             }
           }
         ],
@@ -244,11 +244,13 @@
   "active": "eb5798dc865b407b",
   "lastOpenFiles": [
     "Untitled 2.md",
+    "Test.md",
+    "Templates/Testt.md",
+    "Untitled.md",
+    "Templates/NewInFolder.md",
     "Test",
     "Research Log/test1.md",
     "Untitled 1.md",
-    "Templates/NewInFolder.md",
-    "Untitled.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Templates/Paper_Summary_Template.md",
@@ -272,7 +274,6 @@
     "Templates/RLog_Template.md",
     "Templates/Math_Der_Template.md",
     "Templates",
-    "Templates.md",
     "Important Calculations",
     "Articles and books",
     "Research Log"
