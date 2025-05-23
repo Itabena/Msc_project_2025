@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Reseach_Log_Template.md",
+                "file": "Untitled 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reseach_Log_Template"
+              "title": "Untitled 4"
             }
           }
         ],
@@ -215,8 +215,9 @@
   },
   "active": "abe450635a47944c",
   "lastOpenFiles": [
-    "Templates/NewInFolder.md",
     "Templates/Reseach_Log_Template.md",
+    "Untitled 4.md",
+    "Templates/NewInFolder.md",
     "Untitled 3.md",
     "Untitled 2.md",
     "Untitled.md",
@@ -234,7 +235,6 @@
     "Test/asdasd.md",
     "Test/testytest.md",
     "Test/hhh.md",
-    "Untitled 4.md",
     "Test/sdasda.md",
     "Test/KKK.md",
     "Test/MyTestNote.md",

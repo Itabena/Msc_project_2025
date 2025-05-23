@@ -1,14 +1,15 @@
+---
+
+---
 
 <%* 
-// capture today’s date
-const today = tp.date.now("YYYY__MM__DD");
-// get the file’s last‐modified date
+// 1) capture today’s date in your desired format
+const today  = tp.date.now("YYYY__MM__DD");
+
+// 2) get the file’s last‐modified date
 const lastMod = tp.file.last_modified_date("YYYY-MM-DD");
-
-tp.file.
 %>
-
-title: "Log Entire - <% today %> "
+title: "Log Entire - <% today %>"
 created: "<% today %>"
 last_modified: "<% lastMod %>"
 tags: [research-log]
@@ -18,7 +19,7 @@ tags: [research-log]
 _Last modified: <% lastMod %>_
 
 ## Tasks and Goals
-- [ ] <% tp.file.cursor %>
+- [ ] <% tp.file.cursor() %>
 
 ## Findings and Notes
 - 
