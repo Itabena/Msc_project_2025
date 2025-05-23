@@ -1,28 +1,32 @@
 <%* 
-// 1) Ask for the target folder (relative to vault root)
+// 1) Prompt for the folder and force-create it
 let folder = await tp.system.prompt("Target folder (e.g. Test)");
+await tp.file.create(`${folder}/.gitkeep`, "");
 
-// 2) If it doesn’t exist, create it
-if (!app.vault.getAbstractFileByPath(folder)) {
-  await app.vault.createFolder(folder);
-}
-
-// 3) Ask for the note title (no “.md”)
+// 2) Prompt for the final note title
 let title = await tp.system.prompt("Note title");
+title = title.replace(/[\/\\]/g, '-').trim();
 
-// 4) Build the full path
-let path = `${folder}/${title}.md`;
+// 3) Build paths
+const src = tp.file.path();            // e.g. "Untitled.md"
+const dest = `${folder}/${title}.md`;  // e.g. "Test/My Note.md"
 
-// 5) Build a simple frontmatter + blank body
-let content = 
-  "---\n" +
-  `title: "${title}"\n` +
-  `date: ${tp.date.now("YYYY-MM-DD")}\n` +
-  "---\n\n";
+// 4) Rename (move) the current file into its final home
+await tp.file.move(src, dest);
 
-// 6) Create the new file
-await app.vault.create(path, content);
+// 5) Prepare frontmatter + body
+const fm = [
+  '---',
+  `title: "${title}"`,
+  `date: ${tp.date.now("YYYY-MM-DD")}`,
+  '---',
+  ''
+].join('\n');
 
-// 7) Open it in the editor
-await tp.obsidian.open_file(path);
+// 6) Overwrite the moved file’s contents
+const file = app.vault.getAbstractFileByPath(dest);
+await app.vault.modify(file, fm);
+
+// 7) Open it for you to continue writing
+await app.workspace.openLinkText(dest, '', false);
 %>

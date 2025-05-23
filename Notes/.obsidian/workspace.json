@@ -83,6 +83,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Untitled 3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 3"
+            }
+          },
+          {
+            "id": "95094fb01bbb9ca6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Templates/NewInFolder.md",
                 "mode": "source",
                 "source": false
@@ -92,7 +106,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -243,36 +257,36 @@
   },
   "active": "074168bb58b17de5",
   "lastOpenFiles": [
+    "Untitled 5.md",
+    "Untitled 4.md",
+    "Untitled 3.md",
+    "Test/sdasda.md",
+    "Test/testytest.md",
     "Untitled 2.md",
+    "Templates/NewInFolder.md",
+    "Untitled 1.md",
+    "Test/asdasd.md",
     "Test/KKK.md",
     "Test/MyTestNote.md",
     "Test/Test111.md",
     "Templates/Testt.md",
     "Test.md",
     "Untitled.md",
-    "Templates/NewInFolder.md",
     "Test",
     "Research Log/test1.md",
-    "Untitled 1.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Templates/Paper_Summary_Template.md",
     "Templates/Reseach_Log_Template.md",
     "ReadMeHelp.md",
-    "Untitled 4.md",
-    "Untitled 3.md",
     "Templates/Date_trigger.md",
     "Research Log/Test.md",
     "user_scripts/update_last_modified.js",
     "user_scripts",
     "NotesResearch Log",
-    "Untitled 5.md",
     "Research Log/Log - 2025__05__22.md",
     "Research Log/Log -2025_05_22.md",
     "Wegg 2012 paper.md",
-    "2012Wegg_parar.md",
-    "Yosi yosi.md",
-    "Templates/Book_Sum_Template.md",
     "Templates",
     "Important Calculations",
     "Articles and books",
