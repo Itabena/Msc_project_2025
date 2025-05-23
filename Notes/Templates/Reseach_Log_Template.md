@@ -1,40 +1,24 @@
----
+
 <%* 
+// capture today’s date
+const today = tp.date.now("YYYY__MM__DD");
+// get the file’s last‐modified date
+const lastMod = tp.file.last_modified_date("YYYY-MM-DD");
 
-// 1) Compute dates
-const creationDate = tp.date.now("YYYY__MM__DD");
-// 2) For a first draft, lastMod = creation; you can later update via a save-trigger
-//const lastModDate =
-
-// 3) Build the filename for convenience
-const filename = `Log - ${creationDate}`;
-
-// 4) Move the new file into a “ResearchLogs” 
-//const srcPath = tp.file.path(true);
-//const destPath = `Notes\Research Log/${filename}.md`;
-
-//await tp.file.move(<destPath>,<srcPath>)
-
-// 3. Open the moved file in the editor
-//await tp.obsidian.open_file(<destPath>);
+tp.file.
 %>
 
-
-title: "<% filename %>"
-created: "<% creationDate %>"
-last_modified: "<% tp.file.last_modified_date("YYYY__MM__DD"); %>"
+title: "Log Entire - <% today %> "
+created: "<% today %>"
+last_modified: "<% lastMod %>"
 tags: [research-log]
 ---
 
+# Log Entire - <% today %>  
+_Last modified: <% lastMod %>_
 
----
-# <% filename %>  
-_Last modified: <% tp.file.last_modified_date("YYYY__MM__DD"); %>_
-
-<% srcPath%>
-<%destPath%>
 ## Tasks and Goals
-- [ ] <% tp.file.cursor() %>
+- [ ] <% tp.file.cursor %>
 
 ## Findings and Notes
 - 
