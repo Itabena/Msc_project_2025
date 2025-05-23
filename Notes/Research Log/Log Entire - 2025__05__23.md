@@ -29,7 +29,8 @@ _Last modified: 2025-05-23_
 
 - First of all for an accretion disc around a star there is the Sakure-Sunyev model, which has some precription to the dynamical viscosity that leads to angular momentum loss. THe model consists of several differential equations setting conservation laws, hydrostatic equlibrium and so on, and is modeling an accretion disc that is reaching the surface of the star. Some of thos equations are dependant on said inner most boundry or the star radius.
 -  With a black hole however, this model breaks where the angular velocity is no longer Keplerian and also close to the ISCO . Ususaly it is modeled as Newtonian with corrections and the ISCO is assumed as an inner edge though the accretion due to the GUI is smaller in comparison to the total accretion.[See Chapter 6.7](C:\Users\itama\Zotero\storage\6RBKAL56\Accretion power in astrophysics-Cambridge University Press (2002))
-## Actions Taken
+- In reading this I think that I see that the interesting quantity is $\Omega_{ISCO}$  which means , maybe the condition relevant to us is to equate the frequency at the ISCO and not the ungular momentum.
+## Actions Taken 
 1. 
 
 ## Future Plans
