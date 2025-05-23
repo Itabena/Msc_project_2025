@@ -1,20 +1,28 @@
 <%* 
-// 1) Ask for folder name (relative to vault root)
-let folder = await tp.system.prompt("Target folder (e.g. Projects/Alpha)");
+// 1) Ask for the target folder (relative to vault root)
+let folder = await tp.system.prompt("Target folder (e.g. Test)");
 
-// 2) Ensure that folder exists
-await tp.file.create_folder(folder);
+// 2) If it doesn’t exist, create it
+if (!app.vault.getAbstractFileByPath(folder)) {
+  await app.vault.createFolder(folder);
+}
 
-// 3) Ask for note title (no “.md”)
+// 3) Ask for the note title (no “.md”)
 let title = await tp.system.prompt("Note title");
 
-// 4) Build path and frontmatter
+// 4) Build the full path
 let path = `${folder}/${title}.md`;
-let fm = `---\ntitle: "${title}"\ndate: ${tp.date.now("YYYY-MM-DD")}\n---\n\n`;
 
-// 5) Create the file
-await tp.file.create(path, fm);
+// 5) Build a simple frontmatter + blank body
+let content = 
+  "---\n" +
+  `title: "${title}"\n` +
+  `date: ${tp.date.now("YYYY-MM-DD")}\n` +
+  "---\n\n";
 
-// 6) Open it
+// 6) Create the new file
+await app.vault.create(path, content);
+
+// 7) Open it in the editor
 await tp.obsidian.open_file(path);
 %>

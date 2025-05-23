@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Testt.md",
+                "file": "Templates/NewInFolder.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Testt"
+              "title": "NewInFolder"
             }
           }
         ],
@@ -241,11 +241,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "074168bb58b17de5",
+  "active": "eb5798dc865b407b",
   "lastOpenFiles": [
     "Untitled 2.md",
-    "Test.md",
+    "Test/MyTestNote.md",
+    "Test/Test111.md",
     "Templates/Testt.md",
+    "Test.md",
     "Untitled.md",
     "Templates/NewInFolder.md",
     "Test",
@@ -271,8 +273,6 @@
     "Yosi yosi.md",
     "Templates/Book_Sum_Template.md",
     "Templates/PPr_Sum_Template.md",
-    "Templates/RLog_Template.md",
-    "Templates/Math_Der_Template.md",
     "Templates",
     "Important Calculations",
     "Articles and books",
