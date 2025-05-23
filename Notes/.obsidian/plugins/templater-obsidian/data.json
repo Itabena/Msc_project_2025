@@ -12,14 +12,14 @@
   "enable_system_commands": false,
   "shell_path": "",
   "user_scripts_folder": "user_scripts",
-  "enable_folder_templates": false,
+  "enable_folder_templates": true,
   "folder_templates": [
     {
-      "folder": "Research Log",
-      "template": "Templates/Reseach_Log_Template.md"
+      "folder": "Test",
+      "template": "Templates/NewInFolder.md"
     }
   ],
-  "enable_file_templates": true,
+  "enable_file_templates": false,
   "file_templates": [
     {
       "regex": "^Notes/ResearchLogs/Log-.*\\.md$",
