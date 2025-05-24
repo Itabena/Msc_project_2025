@@ -19,6 +19,11 @@ _Last modified: 2025-05-24_
 - [ ] Add "bad" potential plot.
 - [ ] Look at correct angular moentum or orbital energy ISCO alternatives.
 
+
+## Questions for reem :
+- English or Hebrew?
+- Is adding the small information about what feature is important to what phenomena enough?
+- 
 ## Findings and Notes
 - I am note sure about completely summarizing the papers, it is a lot of work that is not mandatory for this case.
 - From PW I understand that it was crucial to them to get the ISCO and MBCO radius correctly, because, they wanted to model a thick part in the accretion disk which in some works , as explained to exit between the two radii. they get an incorrect energy conservation efficiency, probably because they create the wrong  orbital energy at the ISCO.
