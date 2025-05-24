@@ -20,7 +20,7 @@ tags: [paper-summary]
 ---
 
 ## 1. Abstract in Brief
-> They suggest 
+> They suggest a family of thick accretion disk solutions, to try and 
 
 ## 2. Key Contributions
 - 
