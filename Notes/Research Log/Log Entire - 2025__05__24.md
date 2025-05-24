@@ -14,7 +14,10 @@ tags: [research-log]
 _Last modified: 2025-05-24_
 
 ## Tasks and Goals
-- [ ] 
+- [ ] Change plots , use better colors (Not yellow).
+- [ ] Finish optional plot of effeective potential and tragectory gifs around it.
+- [ ] Add "bad" potential plot.
+- [ ] Look at correct angular moentum or orbital energy ISCO alternatives.
 
 ## Findings and Notes
 - I am note sure about completely summarizing the papers, it is a lot of work that is not mandatory for this case.
@@ -28,7 +31,8 @@ _Last modified: 2025-05-24_
 - *Note: I think in general reading an article and summarizing it could be a good method , but for now , it is more efficient to take the important parts because of the lack of time.*
 
 ## Actions Taken
-1. 
-
+1. Surveyed PW, Wagoner and Nowak, Wegg , Tejeda and Roswogg papper, also NIck and elads papper.
+2. Read the appropriate chapters on accretion disck in the relevant book ([[Log Entire - 2025__05__23]] ).
+3. Changed some small slides in the presentation.
 ## Future Plans
 - 
