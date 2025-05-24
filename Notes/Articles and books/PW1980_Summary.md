@@ -20,7 +20,7 @@ tags: [paper-summary]
 ---
 
 ## 1. Abstract in Brief
-> They suggest a family of thick accretion disk solutions, to try and 
+> They suggest a family of thick accretion disk solutions, to try and model the accretion disks i the inner region where they are known to be unstable and become thick. They use the PW potential for this.
 
 ## 2. Key Contributions
 - 
