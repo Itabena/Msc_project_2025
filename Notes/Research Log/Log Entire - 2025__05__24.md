@@ -23,6 +23,7 @@ _Last modified: 2025-05-24_
 - In Nowak & Wagoner, They replicate the frequency at circular orbits close to the USCO and the radial epicyclic frequency, which is the frequency of a mass unit , radially perturbated from a circular orbit. They need this because they research oscillations inside these accretion disks.
 - In Weggs paper, They tried to match the precession because they wanted to simulate galactic dynamics around supermassive black holes. so this is one use of these quantities.
 - Tageda and roswogg, generate the equations of motion correctly but they are not the orbital specific energy, that couses some of their predictions to be slightly off.
+- I think that saying that for tidal disruption events it is important to look at  the precession is ok.
 - *Note: I think in general reading an article and summarizing it could be a good method , but for now , it is more efficient to take the important parts because of the lack of time.*
 
 ## Actions Taken
