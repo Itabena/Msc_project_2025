@@ -19,6 +19,8 @@ _Last modified: 2025-05-24_
 ## Findings and Notes
 - I am note sure about completely summarizing the papers, it is a lot of work that is not mandatory for this case.
 - From PW I understand that it was crucial to them to get the ISCO and MBCO radius correctly, because, they wanted to model a thick part in the accretion disk which in some works , as explained to exit between the two radii. they get an incorrect energy conservation efficiency, probably because they create the wrong  orbital energy at the ISCO.
+- It is also seem that for there model the Angular momentum value is imporatant.
+- 
 
 ## Actions Taken
 1. 
