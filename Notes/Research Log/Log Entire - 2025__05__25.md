@@ -1,0 +1,30 @@
+---
+
+---
+
+
+title: "Log Entire - 2025__05__25"
+created: "2025__05__25"
+last_modified: "2025-05-25"
+tags: [research-log]
+
+
+
+# Log Entire - 2025__05__25  
+_Last modified: 2025-05-25_
+
+## Tasks and Goals
+- [ ] 
+
+## Findings and Notes
+-  For the 2 examples in the atrticle (n1=1 and n1=7):
+L/sqrt(12) for run 0 is 1.1008919179049041
+E/(-1/9) for run 0 is 0.6548231260713167
+L/sqrt(12) for run 1 is 1.0717282016860146
+E/(-1/9) for run 1 is 0.9926962610428283
+
+## Actions Taken
+1. 
+
+## Future Plans
+- 

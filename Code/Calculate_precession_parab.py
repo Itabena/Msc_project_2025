@@ -222,8 +222,9 @@ def Pn_precession_gen_2(rp,rs,x,N1,lim1=10**8,lim2=10**-7):
             return -2*u(r,N1,x,rs)-((L**2)/(r**2))
         
     ###DEbugging plot
-    # plt.plot(np.linspace(2,100,1000),-2*u(np.linspace(2,100,1000),N1,x,rs)-((L**2)/(np.linspace(2,100,1000)**2)))
+    # plt.plot(np.linspace(2,100,1000),u(np.linspace(2,100,1000),N1,x,rs)+((12)/(2*(np.linspace(2,100,1000)**2))))
     # plt.ylim(-0.5,0.5)
+    # plt.xlim(2,100)
     # plt.show(block=False)
     # plt.pause(1)
     # plt.close()

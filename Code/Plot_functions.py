@@ -27,7 +27,10 @@ conditions_text_list=[
     '13)  Equating the 3rd derivative of the effective potential at r=6M to the GR value',
     '14)  Equating the energy of the Isco to the GR value'
 ]
-
+dark_colors = [
+        "#8A07E8", "#009F9F", "#C00089", "#5D9200", "#660101",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
 def new_main(N1,rs,conds,rangelist):
     '''
     N1 - number of alphas , integer between 0 to len(conds)
@@ -162,14 +165,14 @@ def new_main(N1,rs,conds,rangelist):
     return data_final
 
 def plot_effective_potential(ax, rlist, N1_list, coefficient_lists, rs_list, L, marksizq, font_size):
-    dark_colors = [
-        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
-        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
-    ]
+    # dark_colors = [
+    #     "#8A07E8", "#009F9F", "#C00089", "#5D9200", "#660101",
+    #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    # ]
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
         ax.plot(rlist, 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) + (L**2 / rlist**2),
-                '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+                '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
     ax.plot(rlist, (1 - (2 / rlist)) * (1 + (L**2 / rlist**2)) - 1, 'k-', label='Gr')
     ax.plot(rlist, 2 * u_pw(rlist) + (L**2 / rlist**2), 'g-.', label='Pw')
     ax.plot(rlist, 2 * u_wegg(rlist) + (L**2 / rlist**2), 'r--', label='Pwegg')
@@ -183,15 +186,15 @@ def plot_effective_potential(ax, rlist, N1_list, coefficient_lists, rs_list, L, 
     ax.legend(fontsize=font_size - 2)
 
 def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
-    dark_colors = [
-        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
-        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
-    ]
+    # dark_colors = [
+    #     "#8A07E8", "#009F9F", "#C00089", "#5D9200", "#660101",
+    #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    # ]
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
         ax.plot(prcession_L_lists[i][:rangelist[1]] - prcession_L_lists[i][0],
                 np.array(precession_value_lists[i][:rangelist[1]]) / np.pi,
-                '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+                '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
     ax.plot(gr_l_list[:rangelist[1]] - gr_l_list[0], np.array(gr_precession_list[:rangelist[1]]) / np.pi, 'k-', label='Gr')
     ax.plot(pw_l_list[:rangelist[1]] - pw_l_list[0], np.array(pw_precession_list[:rangelist[1]]) / np.pi, 'g-.', label='Pw')
     ax.plot(wegg_l_list[:rangelist[1]] - wegg_l_list[0], np.array(wegg_precession_list[:rangelist[1]]) / np.pi, 'r--', label='Pwegg')
@@ -206,14 +209,14 @@ def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_
     ax.legend(fontsize=font_size - 2)
 
 def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
-    dark_colors = [
-        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
-        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
-    ]
+    # dark_colors = [
+    #     "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+    #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    # ]
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
         ax.plot(prcession_L_lists[i][rangelist[1]:], np.array(precession_value_lists[i][rangelist[1]:]) / np.pi,
-                '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+                '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
     ax.plot(gr_l_list[rangelist[1]:], np.array(gr_precession_list[rangelist[1]:]) / np.pi, 'k-', label='Gr')
     ax.plot(pw_l_list[rangelist[1]:], np.array(pw_precession_list[rangelist[1]:]) / np.pi, 'g-.', label='Pw')
     ax.plot(wegg_l_list[rangelist[1]:], np.array(wegg_precession_list[rangelist[1]:]) / np.pi, 'r--', label='Pwegg')
@@ -230,13 +233,13 @@ def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_l
     ax.legend(fontsize=font_size - 2)
 
 def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size):
-    dark_colors = [
-        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
-        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
-    ]
+    # dark_colors = [
+    #     "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+    #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    # ]
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
-        ax.plot(rlist_list[i], (np.array(rdotpn_list[i]) - np.array(rdot_gr[:len(rdotpn_list[i])])), '-*', label=f'Pn-N1={N1_list[i]}', markersize=0.3, color=color)
+        ax.plot(rlist_list[i], (np.array(rdotpn_list[i]) - np.array(rdot_gr[:len(rdotpn_list[i])])), '-*', label=f'Pn-N1={N1_list[i]},{i}_pn', markersize=0.3, color=color)
     ax.plot(rlist, (np.array(rdot_pw) - (np.array(rdot_gr[:len(rdot_pw)]))), 'g-.', label='Pw')
     ax.plot(rlist_wegg[:len(rdot_gr)] + (6 - r_wegg_isdo), (np.array(rdot_wegg[:len(rdot_gr)]) - (np.array(rdot_gr))), 'r--', label='Pwegg(shifted)')
     ax.legend(markerscale=10, loc='upper right', fontsize=font_size - 6)
@@ -249,15 +252,17 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
     ax.text(0.05, 0.95, "(a)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
 def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size):
-    dark_colors = [
-        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
-        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
-    ]
+    # dark_colors = [
+    #     "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+    #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    # ]
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
         L_pn_isco = np.sqrt((6**3) * u_dr(6, N1_list[i], coefficient_lists[i], rs_list[i]))
+        print(f"L/sqrt(12) for run {i} is",L_pn_isco/np.sqrt(12))
+        print(f"E/(-1/9) for run {i} is",(2*u(6, N1_list[i], coefficient_lists[i], rs_list[i])+(((L_pn_isco**2))/(36)))/(-1/9))
         veff_pn_isco = 2 * u(rlist_isco, N1_list[i], coefficient_lists[i], rs_list[i]) + ((L_pn_isco**2) / (rlist_isco**2))
-        ax.plot(rlist_isco, veff_pn_isco, '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=0.3, linewidth=0.7)
+        ax.plot(rlist_isco, veff_pn_isco, '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=0.3, linewidth=0.7)
     ax.plot(rlist_isco, veff_wegg_isco, 'r--', label='Pwegg', markersize=0.3, linewidth=0.7)
     ax.plot(rlist_isco, veff_gr_isco, 'k-', label='Gr')
     ax.plot(rlist_isco, veff_pw_isco, 'g-.', label='Pw')
@@ -394,29 +399,72 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 
 
 
-rangelist = [0.8, 1000, 7002, 3000]
+rangelist = [0.8, 5000, 7001, 7000]
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-final_plots(rangelist,auto=True,N1_list=[1,1,1],rs_list=[2,2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12,13]])
+# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
+final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 
-# Define the coefficients for the two cases
-coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
-coefficients_case_2 = Solve_coeffs(1, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
+# Calculate coefficients for the specified cases
+N1_list = [1, 9]
+rs_list = [1.5, 1.5]
+conds_list = [
+    [0, 1, 4, 5, 6, 7, 8, 12, 13],
+    [0, 1, 4, 5, 6, 7, 8, 12, 13]
+]
 
-# Convert coefficients to rational numbers
-coefficients_case_1_rational = [Rational(c).limit_denominator() for c in coefficients_case_1]
-coefficients_case_2_rational = [Rational(c).limit_denominator() for c in coefficients_case_2]
+coefficient_lists = []
+for i in range(len(N1_list)):
+    coeffs = Solve_coeffs(N1_list[i], rs_list[i], conds_list[i])[0]
+    coefficient_lists.append(np.array(coeffs))
 
-# Print the coefficients in rational and decimal form
-print("Coefficients for Case 1 (N1=7, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
-for rational, decimal in zip(coefficients_case_1_rational, coefficients_case_1):
-    print(f"{rational} ({decimal})")
+# Plot only the effective potentials for L=4 and ISCO
+rlist = np.linspace(2, 13, 1000)
+fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
 
-print("\nCoefficients for Case 2 (N1=1, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
-for rational, decimal in zip(coefficients_case_2_rational, coefficients_case_2):
-    print(f"{rational} ({decimal})")
-# final_plots(rangelist,auto=True,N1_list=N11_list,rs_list=rsss,conds_list=conds_list)
+# Plot for L=4
+plot_effective_potential(axs[0], rlist, N1_list, coefficient_lists, rs_list, 4, marksizq=2, font_size=14)
+axs[0].set_title("Effective Potential for L=4", fontsize=16)
 
-# Example usage:
+# Plot for ISCO
+rlist_isco = np.linspace(2, 10, 1000)
+Lgrisco = np.sqrt(12)
+Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
+r_wegg_isdo = 4.6784623564771834
+Lweggisco = np.sqrt((r_wegg_isdo**3) * (u_wegg_dr(r_wegg_isdo)))
+
+veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
+veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
+veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
+
+plot_isco_veff(axs[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size=14)
+axs[1].set_title("Effective Potential at ISCO", fontsize=16)
+
+plt.show()
+
+
+
+
+
+
+# # Define the coefficients for the two cases
+# coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
+# coefficients_case_2 = Solve_coeffs(1, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
+
+# # Convert coefficients to rational numbers
+# coefficients_case_1_rational = [Rational(c).limit_denominator() for c in coefficients_case_1]
+# coefficients_case_2_rational = [Rational(c).limit_denominator() for c in coefficients_case_2]
+
+# # Print the coefficients in rational and decimal form
+# print("Coefficients for Case 1 (N1=7, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
+# for rational, decimal in zip(coefficients_case_1_rational, coefficients_case_1):
+#     print(f"{rational} ({decimal})")
+
+# print("\nCoefficients for Case 2 (N1=1, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
+# for rational, decimal in zip(coefficients_case_2_rational, coefficients_case_2):
+#     print(f"{rational} ({decimal})")
+# # final_plots(rangelist,auto=True,N1_list=N11_list,rs_list=rsss,conds_list=conds_list)
+
+# # Example usage:
 # rangelist = [0.8, 5000, 6990, 7000]
 # final_plots_envelope(rangelist, auto=True, N1_list=[1,7], rs_list=[2,2], conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
