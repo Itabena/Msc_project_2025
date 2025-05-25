@@ -29,14 +29,11 @@ L/sqrt(12) for run 0 is 1.0685743503990917
 E/(-1/9) for run 0 is 0.9999999999997082
 L/sqrt(12) for run 1 is 1.0706674190424805
 E/(-1/9) for run 1 is 1.00000000195405
-
+![[Withcond13fig1.png]]
+![[Withcond13fig2.png]]
 - With only the angular momentum condition added:
 - 
 ## Actions Taken
 1. 
 
 ## Future Plans
-- [C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Temp3_f1.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Temp3_f1.png)
-[C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Figure2_paper.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Figure2_paper.png)
-- [C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Adding_Isco_E_cond_1.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Adding_Isco_E_cond_1.png)
-[C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Figure2_paper.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Figure2_paper.png)
