@@ -421,53 +421,109 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 
 
 rangelist = [0.8, 5000, 7000, 7000]
-final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
-# final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
+# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 
 # Calculate coefficients for the specified cases
+def compare_effective_potentials(N1_list, rs_list, conds_list, L=4, marksizq=2, font_size=14):
+    """
+    Compare effective potentials for given N1, rs, and conds lists.
+    Plots for L and for ISCO.
+    """
+    coefficient_lists = []
+    for i in range(len(N1_list)):
+        coeffs = Solve_coeffs(N1_list[i], rs_list[i], conds_list[i])[0]
+        coefficient_lists.append(np.array(coeffs))
+
+    # Plot only the effective potentials for L and ISCO
+    rlist = np.linspace(2, 13, 1000)
+    fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
+
+    # Plot for L
+    plot_effective_potential(axs[0], rlist, N1_list, coefficient_lists, rs_list, L, marksizq=marksizq, font_size=font_size)
+    axs[0].set_title(f"Effective Potential for L={L}", fontsize=font_size+2)
+
+    # Plot for ISCO
+    rlist_isco = np.linspace(2, 10, 1000)
+    Lgrisco = np.sqrt(12)
+    Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
+    r_wegg_isdo = 4.6784623564771834
+    Lweggisco = np.sqrt((r_wegg_isdo**3) * (u_wegg_dr(r_wegg_isdo)))
+
+    veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
+    veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
+    veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
+
+    plot_isco_veff(axs[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size=font_size)
+    axs[1].set_title("Effective Potential at ISCO", fontsize=font_size+2)
+
+    plt.show()
+
+# Example usage:
 N1_list = [1, 9]
 rs_list = [1.5, 1.5]
 conds_list = [
     [0, 1, 2, 4, 5, 6, 7, 8, 12, 13],
     [0, 1, 2, 4, 5, 6, 7, 8, 12, 13]
 ]
+# compare_effective_potentials(N1_list, rs_list, conds_list)
+def plot_all_potentials_semilogy(N1_list, rs_list, conds_list, r_min=0.01, r_max=70, num_points=1000):
+    """
+    Plots all potentials (PN, PW, Pwegg, Newtonian) on a semilog-y plot.
+    PN is computed for each (N1, rs, conds) in the input lists.
+    Each potential is plotted only up to its divergence point.
+    """
+    # Ensure input lists are the same length
+    if not (len(N1_list) == len(rs_list) == len(conds_list)):
+        raise ValueError("N1_list, rs_list, and conds_list must have the same length.")
 
-coefficient_lists = []
-for i in range(len(N1_list)):
-    coeffs = Solve_coeffs(N1_list[i], rs_list[i], conds_list[i])[0]
-    coefficient_lists.append(np.array(coeffs))
+    # Newtonian: diverges at r=0
+    rlist_newton = np.linspace(r_min, r_max, num_points)
+    v_newton = -1 / rlist_newton
 
-# Plot only the effective potentials for L=4 and ISCO
-rlist = np.linspace(2, 13, 1000)
-fig, axs = plt.subplots(1, 2, figsize=(12, 6), constrained_layout=True)
+    # PW: diverges at r=0
+    rlist_pw = np.linspace(2 + r_min, r_max, num_points)
+    v_pw = u_pw(rlist_pw)
 
-# Plot for L=4
-plot_effective_potential(axs[0], rlist, N1_list, coefficient_lists, rs_list, 4, marksizq=2, font_size=14)
-axs[0].set_title("Effective Potential for L=4", fontsize=16)
+    # Pwegg: diverges at r=2
+    rlist_pwegg = np.linspace((4 * np.sqrt(6)) - 9 + r_min, r_max, num_points)
+    v_pwegg = u_wegg(rlist_pwegg)
 
-# Plot for ISCO
-rlist_isco = np.linspace(2, 10, 1000)
-Lgrisco = np.sqrt(12)
-Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
-r_wegg_isdo = 4.6784623564771834
-Lweggisco = np.sqrt((r_wegg_isdo**3) * (u_wegg_dr(r_wegg_isdo)))
+    plt.figure(figsize=(8, 6))
+    plt.semilogy(rlist_newton, np.abs(v_newton), label="Newtonian", color="black", linestyle="--")
+    plt.semilogy(rlist_pw, np.abs(v_pw), label="PW", color="green")
+    plt.semilogy(rlist_pwegg, np.abs(v_pwegg), label="Pwegg", color="red")
 
-veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
-veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
-veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
+    for i, (N1, rs, conds) in enumerate(zip(N1_list, rs_list, conds_list)):
+        coeffs = Solve_coeffs(N1, rs, conds)[0]
+        rlist_pn = np.linspace(rs + r_min, r_max, num_points)
+        v_pn = u(rlist_pn, N1, coeffs, rs)
+        color = dark_colors[i % len(dark_colors)]
+        plt.semilogy(rlist_pn, np.abs(v_pn), label=f"PN (N1={N1}, rs={rs})", color=color)
 
-plot_isco_veff(axs[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size=14)
-axs[1].set_title("Effective Potential at ISCO", fontsize=16)
+    plt.xlabel("r", fontsize=14)
+    plt.ylabel(r"$-\Phi(r)$", fontsize=14)
+    plt.title("Comparison of Potentials (semilog-y)", fontsize=16)
+    plt.xlim(r_min, r_max)
+    plt.ylim(1e-2, 10)
+    plt.grid(True, which="both", ls="--")
+    plt.legend(fontsize=12)
+    plt.gcf().patch.set_alpha(0)  # Make figure background transparent
+    ax = plt.gca()
+    ax.set_facecolor('none')      # Make subplot (axes) background transparent
+    plt.show()
 
-plt.show()
+# plot_all_potentials_semilogy([7,1], [2,2], [[0, 1, 4, 5, 6, 7, 8, 12],[0, 1, 4, 5, 6, 7, 8, 12]])
 
 
 
 
 
 
+
+
+
+
+##########
 # # Define the coefficients for the two cases
 # coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
 # coefficients_case_2 = Solve_coeffs(1, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
@@ -489,3 +545,4 @@ plt.show()
 # # Example usage:
 # rangelist = [0.8, 5000, 6990, 7000]
 # final_plots_envelope(rangelist, auto=True, N1_list=[1,7], rs_list=[2,2], conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
+#########
