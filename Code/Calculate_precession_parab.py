@@ -220,6 +220,13 @@ def Pn_precession_gen_2(rp,rs,x,N1,lim1=10**8,lim2=10**-7):
             return 0
         else:
             return -2*u(r,N1,x,rs)-((L**2)/(r**2))
+        
+    ###DEbugging plot
+    # plt.plot(np.linspace(2,100,1000),-2*u(np.linspace(2,100,1000),N1,x,rs)-((L**2)/(np.linspace(2,100,1000)**2)))
+    # plt.ylim(-0.5,0.5)
+    # plt.show(block=False)
+    # plt.pause(1)
+    # plt.close()
 
     def integrand(r):
         return L/((r**2)*(tmp1(r))**(1/2))
@@ -409,229 +416,230 @@ def calculate_precession_others(g1,g2,f1,f2,lim1=10**6,lim2=10**-6):
 #### A function to prevent repeated calculations
 
 ##insperation:
-def new_main(N1,rs,conds,rangelist):
+# def new_main(N1,rs,conds,rangelist):
 
-    '''
-    N1 - number of alphas , integer between 0 to len(conds)
-    rs - value of rs, float between 0 to 2
-    conds - list of integers between 0 to 13
-    range list - list four values, g1,g2,f1,f2, the range of rp values to calculate the precession ,g1,f1 are floats, g2,f2 are integers
+#     '''
+#     N1 - number of alphas , integer between 0 to len(conds)
+#     rs - value of rs, float between 0 to 2
+#     conds - list of integers between 0 to 13
+#     range list - list four values, g1,g2,f1,f2, the range of rp values to calculate the precession ,g1,f1 are floats, g2,f2 are integers
 
-    This function calculates the coefficients of the pn potential for the given , Nq,rs,conds combination,
-    then it calculates the precession rate of the Gr,Pn,Pw,Pwegg potentials for the given range of rp values.
-    finally it plots the resluts for compering the precession rates of the different potentials.
-    '''
-    save_pn=False
-    save_others=False
-    conds_list=''.join([str(i) for i in conds])
-    save_json_title_pn = f'N1_{N1}_rs_{rs:.2f}_conds_{"".join(map(str, conds))}_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
-    save_json_title_others=f'Not_pn_data_for_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
-    folder_path_plots = f"C:\\Users\\itama\\Documents\\.venv\\Scripts\\Research scripts\\PNP_research_assets\\Papper_final_plots"
-    folder_path_jsons = f"C:\\Users\\itama\\Documents\\.venv\\Scripts\\Research scripts\\PNP_research_assets\\Papper_final_jsons"
-    if not os.path.exists(folder_path_plots):
-        os.makedirs(folder_path_plots, exist_ok=True)
-    if not os.path.exists(folder_path_jsons):
-        os.makedirs(folder_path_jsons, exist_ok=True)
+#     This function calculates the coefficients of the pn potential for the given , Nq,rs,conds combination,
+#     then it calculates the precession rate of the Gr,Pn,Pw,Pwegg potentials for the given range of rp values.
+#     finally it plots the resluts for compering the precession rates of the different potentials.
+#     '''
+#     save_pn=False
+#     save_others=False
+#     conds_list=''.join([str(i) for i in conds])
+#     save_json_title_pn = f'N1_{N1}_rs_{rs:.2f}_conds_{"".join(map(str, conds))}_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
+#     save_json_title_others=f'Not_pn_data_for_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
+#     folder_path_plots = f"C:\\Users\\itama\\Documents\\.venv\\Scripts\\Research scripts\\PNP_research_assets\\Papper_final_plots"
+#     folder_path_jsons = f"C:\\Users\\itama\\Documents\\.venv\\Scripts\\Research scripts\\PNP_research_assets\\Papper_final_jsons"
+#     if not os.path.exists(folder_path_plots):
+#         os.makedirs(folder_path_plots, exist_ok=True)
+#     if not os.path.exists(folder_path_jsons):
+#         os.makedirs(folder_path_jsons, exist_ok=True)
 
-    if not os.path.exists(folder_path_jsons + '\\' + save_json_title_pn + '.json'):
-        save_pn = True
-    if not os.path.exists(folder_path_jsons + '\\' + save_json_title_others + '.json'):
-        save_others = True
+#     if not os.path.exists(folder_path_jsons + '\\' + save_json_title_pn + '.json'):
+#         save_pn = True
+#     if not os.path.exists(folder_path_jsons + '\\' + save_json_title_others + '.json'):
+#         save_others = True
 
-    if save_pn:
-         print('Calculating PN precession for uncalculated values')
-         x=Solve_coeffs(N1,rs,conds)[0]
-         print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
-         Pn_L_list,Pn_parb_prec_list=calculate_precession_PN(rs,N1,x,rangelist[0],rangelist[1],rangelist[2],rangelist[3])
-         data = {
-                'Pn_L_list': Pn_L_list,
-                'Pn_parb_prec_list': Pn_parb_prec_list,
-                'N1': N1,
-                'rs': rs,
-                'conds': conds,
-                'coeffs': x.tolist()
-                }
-         with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'w') as outfile:
-            json.dump(data, outfile)
-    else:
-        print('loading PN precession data')
-        with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
-            data = json.load(outfile)
-            Pn_L_list = np.array(data['Pn_L_list'])
-            Pn_parb_prec_list = np.array(data['Pn_parb_prec_list'])
-            x = np.array(data['coeffs'])
-    print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
-    if save_others==True and save_pn==True:
-        print('Calculating others precession for uncalculated values')
-        Gr_L_list,Pw_L_list,Pwegg_L_list,Gr_parb_prec_list,Pw_parb_prec_list,Pwegg_parb_prec_list,rp1,rp2,rp_wegg1,rp_wegg2=calculate_precession_others(rangelist[0],rangelist[1],rangelist[2],rangelist[3])
-        data = {
-            'Gr_L_list': Gr_L_list,
-            'Pw_L_list': Pw_L_list,
-            'Pwegg_L_list': Pwegg_L_list,
-            'Gr_parb_prec_list': Gr_parb_prec_list,
-            'Pw_parb_prec_list': Pw_parb_prec_list,
-            'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
-            'rp1': rp1.tolist(),
-            'rp2': rp2.tolist(),
-            'rp_wegg1': rp_wegg1.tolist(),
-            'rp_wegg2': rp_wegg2.tolist(),
-        }
-        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
-            json.dump(data, outfile)
-    else:
-        print('loading others precession data')
-        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'r') as outfile:
-            data = json.load(outfile)
-            Gr_L_list = np.array(data['Gr_L_list'])
-            Pw_L_list = np.array(data['Pw_L_list'])
-            Pwegg_L_list = np.array(data['Pwegg_L_list'])
-            Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
-            Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
-            Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
-            rp1 = np.array(data['rp1'])
-            rp2 = np.array(data['rp2'])
-            rp_wegg1 = np.array(data['rp_wegg1'])
-            rp_wegg2 = np.array(data['rp_wegg2'])
+#     if save_pn:
+#          print('Calculating PN precession for uncalculated values')
+#          x=Solve_coeffs(N1,rs,conds)[0]
+#          print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
+#          Pn_L_list,Pn_parb_prec_list=calculate_precession_PN(rs,N1,x,rangelist[0],rangelist[1],rangelist[2],rangelist[3])
+#          data = {
+#                 'Pn_L_list': Pn_L_list,
+#                 'Pn_parb_prec_list': Pn_parb_prec_list,
+#                 'N1': N1,
+#                 'rs': rs,
+#                 'conds': conds,
+#                 'coeffs': x.tolist()
+#                 }
+#          with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'w') as outfile:
+#             json.dump(data, outfile)
+#     else:
+#         print('loading PN precession data')
+#         with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
+#             data = json.load(outfile)
+#             Pn_L_list = np.array(data['Pn_L_list'])
+#             Pn_parb_prec_list = np.array(data['Pn_parb_prec_list'])
+#             x = np.array(data['coeffs'])
+#     print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
+#     if save_others==True and save_pn==True:
+#         print('Calculating others precession for uncalculated values')
+#         Gr_L_list,Pw_L_list,Pwegg_L_list,Gr_parb_prec_list,Pw_parb_prec_list,Pwegg_parb_prec_list,rp1,rp2,rp_wegg1,rp_wegg2=calculate_precession_others(rangelist[0],rangelist[1],rangelist[2],rangelist[3])
+#         data = {
+#             'Gr_L_list': Gr_L_list,
+#             'Pw_L_list': Pw_L_list,
+#             'Pwegg_L_list': Pwegg_L_list,
+#             'Gr_parb_prec_list': Gr_parb_prec_list,
+#             'Pw_parb_prec_list': Pw_parb_prec_list,
+#             'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
+#             'rp1': rp1.tolist(),
+#             'rp2': rp2.tolist(),
+#             'rp_wegg1': rp_wegg1.tolist(),
+#             'rp_wegg2': rp_wegg2.tolist(),
+#         }
+#         with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
+#             json.dump(data, outfile)
+#     else:
+#         print('loading others precession data')
+#         with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'r') as outfile:
+#             data = json.load(outfile)
+#             Gr_L_list = np.array(data['Gr_L_list'])
+#             Pw_L_list = np.array(data['Pw_L_list'])
+#             Pwegg_L_list = np.array(data['Pwegg_L_list'])
+#             Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
+#             Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
+#             Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
+#             rp1 = np.array(data['rp1'])
+#             rp2 = np.array(data['rp2'])
+#             rp_wegg1 = np.array(data['rp_wegg1'])
+#             rp_wegg2 = np.array(data['rp_wegg2'])
 
-    if  save_pn==False and save_others==True:
-        print('loading from old jsons the others data')
-        with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
-            data = json.load(outfile)
-            Gr_L_list = np.array(data['r_L_list'])
-            Pw_L_list = np.array(data['Pw_L_list'])
-            Pwegg_L_list = np.array(data['Pwegg_L_list'])
-            Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
-            Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
-            Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
-            rp1 = np.array(data['rp1'])
-            rp2 = np.array(data['rp2'])
-            rp_wegg1 = np.array(data['rp_wegg1'])
-            rp_wegg2 = np.array(data['rp_wegg2'])
-        data_new = {
-            'Gr_L_list': Gr_L_list,
-            'Pw_L_list': Pw_L_list,
-            'Pwegg_L_list': Pwegg_L_list,
-            'Gr_parb_prec_list': Gr_parb_prec_list,
-            'Pw_parb_prec_list': Pw_parb_prec_list,
-            'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
-            'rp1': rp1.tolist(),
-            'rp2': rp2.tolist(),
-            'rp_wegg1': rp_wegg1.tolist(),
-            'rp_wegg2': rp_wegg2.tolist(),
-        }
-        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
-            json.dump(data_new, outfile)
+#     if  save_pn==False and save_others==True:
+#         print('loading from old jsons the others data')
+#         with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
+#             data = json.load(outfile)
+#             Gr_L_list = np.array(data['r_L_list'])
+#             Pw_L_list = np.array(data['Pw_L_list'])
+#             Pwegg_L_list = np.array(data['Pwegg_L_list'])
+#             Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
+#             Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
+#             Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
+#             rp1 = np.array(data['rp1'])
+#             rp2 = np.array(data['rp2'])
+#             rp_wegg1 = np.array(data['rp_wegg1'])
+#             rp_wegg2 = np.array(data['rp_wegg2'])
+#         data_new = {
+#             'Gr_L_list': Gr_L_list,
+#             'Pw_L_list': Pw_L_list,
+#             'Pwegg_L_list': Pwegg_L_list,
+#             'Gr_parb_prec_list': Gr_parb_prec_list,
+#             'Pw_parb_prec_list': Pw_parb_prec_list,
+#             'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
+#             'rp1': rp1.tolist(),
+#             'rp2': rp2.tolist(),
+#             'rp_wegg1': rp_wegg1.tolist(),
+#             'rp_wegg2': rp_wegg2.tolist(),
+#         }
+#         with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
+#             json.dump(data_new, outfile)
             
-    data_final = {
-            'Gr_L_list': np.array(Gr_L_list),
-            'Pw_L_list': np.array(Pw_L_list),
-            'Pwegg_L_list': np.array(Pwegg_L_list),
-            'Gr_parb_prec_list': np.array(Gr_parb_prec_list),
-            'Pw_parb_prec_list': np.array(Pw_parb_prec_list),
-            'Pwegg_parb_prec_list': np.array(Pwegg_parb_prec_list),
-            'rp1': np.array(rp1),
-            'rp2': np.array(rp2),
-            'rp_wegg1': np.array(rp_wegg1),
-            'rp_wegg2': np.array(rp_wegg2),
-            'Pn_L_list': np.array(Pn_L_list),
-            'Pn_parb_prec_list': np.array(Pn_parb_prec_list),
-            'N1': np.array(N1),
-            'rs': np.array(rs),
-            'conds': np.array(conds),
-            'coeffs': np.array(x)
-        }
-    return data_final
+#     data_final = {
+#             'Gr_L_list': np.array(Gr_L_list),
+#             'Pw_L_list': np.array(Pw_L_list),
+#             'Pwegg_L_list': np.array(Pwegg_L_list),
+#             'Gr_parb_prec_list': np.array(Gr_parb_prec_list),
+#             'Pw_parb_prec_list': np.array(Pw_parb_prec_list),
+#             'Pwegg_parb_prec_list': np.array(Pwegg_parb_prec_list),
+#             'rp1': np.array(rp1),
+#             'rp2': np.array(rp2),
+#             'rp_wegg1': np.array(rp_wegg1),
+#             'rp_wegg2': np.array(rp_wegg2),
+#             'Pn_L_list': np.array(Pn_L_list),
+#             'Pn_parb_prec_list': np.array(Pn_parb_prec_list),
+#             'N1': np.array(N1),
+#             'rs': np.array(rs),
+#             'conds': np.array(conds),
+#             'coeffs': np.array(x)
+#         }
+#     return data_final
 
 
-def Calculate_all_prec_data(N1, rs, conds, rangelist):
-    """
-    Calculates and caches precession and coefficient data for given parameters.
-    If data exists for the same N1, rs, conds, and rangelist, loads it.
-    If data exists for the same N1, rs, conds but different rangelist, prompts user.
-    Only calculates missing L values if partial data exists.
-    Saves all results in a 'data_dump' folder in the script directory.
-    """
+# def Calculate_all_prec_data(N1, rs, conds, rangelist):
 
-    # Prepare folder and filenames
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dump_dir = os.path.join(base_dir, "data_dump")
-    os.makedirs(data_dump_dir, exist_ok=True)
+    # """
+    # Calculates and caches precession and coefficient data for given parameters.
+    # If data exists for the same N1, rs, conds, and rangelist, loads it.
+    # If data exists for the same N1, rs, conds but different rangelist, prompts user.
+    # Only calculates missing L values if partial data exists.
+    # Saves all results in a 'data_dump' folder in the script directory.
+    # """
 
-    # Create a unique hash for N1, rs, conds
-    param_str = f"N1_{N1}_rs_{rs}_conds_{'_'.join(map(str, conds))}"
-    param_hash = hashlib.md5(param_str.encode()).hexdigest()
-    coeffs_file = os.path.join(data_dump_dir, f"coeffs_{param_hash}.json")
-    prec_file = os.path.join(data_dump_dir, f"prec_{param_hash}.json")
+    # # Prepare folder and filenames
+    # base_dir = os.path.dirname(os.path.abspath(__file__))
+    # data_dump_dir = os.path.join(base_dir, "data_dump")
+    # os.makedirs(data_dump_dir, exist_ok=True)
 
-    # Helper to flatten rangelist for comparison
-    def rangelist_key(r):
-        return tuple(float(x) for x in r)
+    # # Create a unique hash for N1, rs, conds
+    # param_str = f"N1_{N1}_rs_{rs}_conds_{'_'.join(map(str, conds))}"
+    # param_hash = hashlib.md5(param_str.encode()).hexdigest()
+    # coeffs_file = os.path.join(data_dump_dir, f"coeffs_{param_hash}.json")
+    # prec_file = os.path.join(data_dump_dir, f"prec_{param_hash}.json")
 
-    # Load coefficients if exist, else calculate and save
-    if os.path.exists(coeffs_file):
-        with open(coeffs_file, "r") as f:
-            coeffs_data = json.load(f)
-            x = np.array(coeffs_data["coeffs"])
-    else:
-        x = Solve_coeffs(N1, rs, conds)[0]
-        with open(coeffs_file, "w") as f:
-            json.dump({"N1": N1, "rs": rs, "conds": conds, "coeffs": x.tolist()}, f)
+    # # Helper to flatten rangelist for comparison
+    # def rangelist_key(r):
+    #     return tuple(float(x) for x in r)
 
-    # Check if precession data exists
-    if os.path.exists(prec_file):
-        with open(prec_file, "r") as f:
-            prec_data = json.load(f)
-        prev_rangelist = prec_data.get("rangelist", None)
-        prev_rangelist_key = rangelist_key(prev_rangelist) if prev_rangelist else None
-        curr_rangelist_key = rangelist_key(rangelist)
-        if prev_rangelist_key == curr_rangelist_key:
-            print("Loading existing precession data for these parameters and L vector.")
-            return prec_data
-        else:
-            print("This calculation was made for a different L vector, are you sure you want to do it again? (y/n)")
-            ans = input().strip().lower()
-            if ans != "y":
-                print("Aborting calculation.")
-                return prec_data
-            # Calculate only for missing L values
-            prev_L = np.array(prec_data.get("Pn_L_list", []))
-            # Generate new L vector
-            rp = 4
-            rp1 = np.linspace(rp, rp + rangelist[0], int(rangelist[1]))
-            rp2 = np.linspace(rp + rangelist[0], rangelist[2], int(rangelist[3]))
-            rplist = np.concatenate((rp1, rp2))
-            missing_idx = [i for i, val in enumerate(rplist) if not np.isclose(val, prev_L).any()]
-            print(f"Calculating {len(missing_idx)} new L values...")
-            new_Pn_L = []
-            new_Pn_prec = []
-            for i in missing_idx:
-                pri = rplist[i]
-                p, l = Pn_precession_gen_2(pri, rs, x, N1)
-                new_Pn_prec.append(p)
-                new_Pn_L.append(l)
-            # Append new results to existing
-            Pn_L_list = list(prev_L) + new_Pn_L
-            Pn_parb_prec_list = list(prec_data.get("Pn_parb_prec_list", [])) + new_Pn_prec
-            # Save updated data
-            prec_data["Pn_L_list"] = Pn_L_list
-            prec_data["Pn_parb_prec_list"] = Pn_parb_prec_list
-            prec_data["rangelist"] = rangelist
-            with open(prec_file, "w") as f:
-                json.dump(prec_data, f)
-            return prec_data
-    else:
-        # No previous data, calculate all
-        print("Calculating coefficients and precession for new parameter set.")
-        Pn_L_list, Pn_parb_prec_list = calculate_precession_PN(rs, N1, x, rangelist[0], rangelist[1], rangelist[2], rangelist[3])
-        data = {
-            "N1": N1,
-            "rs": rs,
-            "conds": conds,
-            "coeffs": x.tolist(),
-            "Pn_L_list": Pn_L_list,
-            "Pn_parb_prec_list": Pn_parb_prec_list,
-            "rangelist": rangelist
-        }
-        with open(prec_file, "w") as f:
-            json.dump(data, f)
-        return data
+    # # Load coefficients if exist, else calculate and save
+    # if os.path.exists(coeffs_file):
+    #     with open(coeffs_file, "r") as f:
+    #         coeffs_data = json.load(f)
+    #         x = np.array(coeffs_data["coeffs"])
+    # else:
+    #     x = Solve_coeffs(N1, rs, conds)[0]
+    #     with open(coeffs_file, "w") as f:
+    #         json.dump({"N1": N1, "rs": rs, "conds": conds, "coeffs": x.tolist()}, f)
+
+    # # Check if precession data exists
+    # if os.path.exists(prec_file):
+    #     with open(prec_file, "r") as f:
+    #         prec_data = json.load(f)
+    #     prev_rangelist = prec_data.get("rangelist", None)
+    #     prev_rangelist_key = rangelist_key(prev_rangelist) if prev_rangelist else None
+    #     curr_rangelist_key = rangelist_key(rangelist)
+    #     if prev_rangelist_key == curr_rangelist_key:
+    #         print("Loading existing precession data for these parameters and L vector.")
+    #         return prec_data
+    #     else:
+    #         print("This calculation was made for a different L vector, are you sure you want to do it again? (y/n)")
+    #         ans = input().strip().lower()
+    #         if ans != "y":
+    #             print("Aborting calculation.")
+    #             return prec_data
+    #         # Calculate only for missing L values
+    #         prev_L = np.array(prec_data.get("Pn_L_list", []))
+    #         # Generate new L vector
+    #         rp = 4
+    #         rp1 = np.linspace(rp, rp + rangelist[0], int(rangelist[1]))
+    #         rp2 = np.linspace(rp + rangelist[0], rangelist[2], int(rangelist[3]))
+    #         rplist = np.concatenate((rp1, rp2))
+    #         missing_idx = [i for i, val in enumerate(rplist) if not np.isclose(val, prev_L).any()]
+    #         print(f"Calculating {len(missing_idx)} new L values...")
+    #         new_Pn_L = []
+    #         new_Pn_prec = []
+    #         for i in missing_idx:
+    #             pri = rplist[i]
+    #             p, l = Pn_precession_gen_2(pri, rs, x, N1)
+    #             new_Pn_prec.append(p)
+    #             new_Pn_L.append(l)
+    #         # Append new results to existing
+    #         Pn_L_list = list(prev_L) + new_Pn_L
+    #         Pn_parb_prec_list = list(prec_data.get("Pn_parb_prec_list", [])) + new_Pn_prec
+    #         # Save updated data
+    #         prec_data["Pn_L_list"] = Pn_L_list
+    #         prec_data["Pn_parb_prec_list"] = Pn_parb_prec_list
+    #         prec_data["rangelist"] = rangelist
+    #         with open(prec_file, "w") as f:
+    #             json.dump(prec_data, f)
+    #         return prec_data
+    # else:
+    #     # No previous data, calculate all
+    #     print("Calculating coefficients and precession for new parameter set.")
+    #     Pn_L_list, Pn_parb_prec_list = calculate_precession_PN(rs, N1, x, rangelist[0], rangelist[1], rangelist[2], rangelist[3])
+    #     data = {
+    #         "N1": N1,
+    #         "rs": rs,
+    #         "conds": conds,
+    #         "coeffs": x.tolist(),
+    #         "Pn_L_list": Pn_L_list,
+    #         "Pn_parb_prec_list": Pn_parb_prec_list,
+    #         "rangelist": rangelist
+    #     }
+    #     with open(prec_file, "w") as f:
+    #         json.dump(data, f)
+    #     return data

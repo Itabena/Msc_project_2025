@@ -24,10 +24,7 @@ def c0_alpha(n, rs):
     """
     Condition 1: Covergence to the classical Newtonian potential at large distances
     """
-    if n == 0:
-        return 1
-    else:
-        return 0
+    return 1
 def c0_beta(n):
     """
     Condition 1: Covergence to the classical Newtonian potential at large distances
@@ -252,6 +249,70 @@ def Solve_coeffs(N1, rs, conds):
     data['x'] = x.tolist()
     return x,data
 
+
+# def Solve_coeffs(N1, rs, conds):
+#     """
+#         Solves for the coefficients of a linear system defined by a set of constraints and basis functions.
+#         This function constructs a system of linear equations based on the provided constraints and basis functions,
+#         then solves for the coefficients that satisfy these constraints. The system is constructed by combining
+#         two sets of basis functions (alpha and beta) for each constraint, and the right-hand side vector is selected
+#         from a global array according to the specified conditions.
+#         Parameters
+#         ----------
+#         N1 : int
+#             The number of constraints (or basis functions) of the "alpha" type.
+#         rs : float
+#             A parameter passed to the alpha basis functions, typically representing the translation radius of the alpha series.
+#         conds : array-like of int
+#             Indices specifying which constraints (rows) to select from the global system. Used to select both the
+#             right-hand side vector and the rows of the coefficient matrix.
+#         Returns
+#         -------
+#         x : numpy.ndarray
+#             The solution vector containing the coefficients that satisfy the system of equations.
+#         data : dict
+#             A dictionary containing the solution vector under the key 'x' as a list.
+#         Notes
+#         -----
+#         - The function relies on a set of basis functions named `cN_alpha` and `cN_beta` (for N=1 to 13), which must be
+#           defined elsewhere in the code.
+#         - The system matrix is constructed by concatenating the outputs of these basis functions for the specified
+#           number of alpha and beta constraints.
+#         - The right-hand side vector is selected from a predefined global array `b_global` using the provided `conds`.
+#         - The function prints a check message with the sizes of the constraint sets for debugging purposes.
+#         """
+#     N=len(conds)
+#     N2=N-N1
+#     print('Important check!',N,N1,N2)
+#     b_global=np.array([1,0,2,(1/3),3,0,4,2,9,36,(2/9),(5/27),1,-(1/9)])
+#     b=b_global[conds]
+#     tmpvecbeta1=np.concatenate((np.array([1]),np.zeros(N-1)))
+#     tmpvecbeta2=np.concatenate((np.array([0,1]),np.zeros(N-2)))
+
+
+#     r0=np.concatenate((np.ones(N1),tmpvecbeta1[:N2]))
+#     r1=np.concatenate((np.array([c1_alpha(i,rs) for i in range(N1)]),np.array([c1_beta(i) for i in range(N2)])))
+#     r2=np.concatenate((np.array([c2_alpha(i,rs) for i in range(N1)]),np.array([c2_beta(i) for i in range(N2)])))
+#     r3=np.concatenate((np.array([c3_alpha(i,rs) for i in range(N1)]),np.array([c3_beta(i) for i in range(N2)])))
+#     r4=np.concatenate((np.array([c4_alpha(i,rs) for i in range(N1)]),tmpvecbeta2[:N2]))
+#     r5=np.concatenate((np.array([c5_alpha(i,rs) for i in range(N1)]),np.array([c5_beta(i) for i in range(N2)])))
+#     r6=np.concatenate((np.array([c6_alpha(i,rs) for i in range(N1)]),np.array([c6_beta(i) for i in range(N2)])))
+#     r7=np.concatenate((np.array([c7_alpha(i,rs) for i in range(N1)]),np.array([c7_beta(i) for i in range(N2)])))
+#     r8=np.concatenate((np.array([c8_alpha(i,rs) for i in range(N1)]),np.array([c8_beta(i) for i in range(N2)])))
+#     r9=np.concatenate((np.array([c9_alpha(i,rs) for i in range(N1)]),np.array([c9_beta(i) for i in range(N2)])))
+#     r10=np.concatenate((np.array([c10_alpha(i,rs) for i in range(N1)]),np.array([c10_beta(i) for i in range(N2)])))
+#     r11=np.concatenate((np.array([c11_alpha(i,rs) for i in range(N1)]),np.array([c11_beta(i) for i in range(N2)])))
+#     r12=np.concatenate((np.array([c12_alpha(i,rs) for i in range(N1)]),np.array([c12_beta(i) for i in range(N2)])))
+#     r13=np.concatenate((np.array([c13_alpha(i,rs) for i in range(N1)]),np.array([c13_beta(i) for i in range(N2)])))
+
+#     A_global=np.array([r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13])
+#     A=A_global[conds]
+#     # print(A)
+#     x=np.linalg.solve(A,b)
+#     data = {}
+#     data['x'] = x.tolist()
+#     return x,data
+
 #region - Potential functions:
 def u(r,N1,x,rs):
     """
@@ -352,3 +413,7 @@ def u_wegg_dr(r):
     Ry=-(4/3)*(-3+2*np.sqrt(6))
     return alph/(r**2)+((1-alph)/(((r-Rx)**2)))+2*Ry/(r**3)
 #endregion
+
+
+
+

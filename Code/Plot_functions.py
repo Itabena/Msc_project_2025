@@ -4,325 +4,172 @@ import scipy as sp
 import mcint as mc
 import sys
 from matplotlib import cm, ticker
-sys.path.append('Scripts/Research scripts/General Functions')
-import json
-import time
-from matplotlib.animation import FuncAnimation
-from matplotlib.colors import LogNorm
-import os
+from Calculate_Potential import *
+from Calculate_precession_parab import *
 from datetime import datetime
-from itertools import combinations
-from matplotlib.axes import Axes
-from mpl_toolkits.mplot3d import Axes3D
-import traceback
-from scipy.stats import linregress
-import numpy as np
+import os
 from sympy import Rational
-from scipy.optimize import fsolve
 
 
-def plot_effctive_potential(rs,N1,x,type='MSCO'):
-    if type=='MSCO':    
-        Rp=4
-        Rp_wegg=2*(np.sqrt(6)-1)
-        E=0
-        Lpn=np.sqrt(2*(Rp**2)*(E-u(Rp,N1,x,rs)))
-        print(Lpn)
-        Lgr1=np.sqrt((((E+1)**2)*(Rp**2)-(Rp**2)+2*Rp)/(1-(2/Rp)))
-        Lpw=np.sqrt(2*(Rp**2)*(E-u_pw(Rp)))
-        Lwegg=np.sqrt(2*(Rp_wegg**2)*(E-u_wegg(Rp_wegg)))
-        data_for_save_1=f'Lpn={Lpn}, Lgr={Lgr1}, Lpw={Lpw}, Lwegg={Lwegg} \n marginally bound in gr={Rp} pn={Rp} pw={Rp} wegg={Rp_wegg}'
+conditions_text_list=[   
+    '1) Covergence to the classical Newtonian potential at large distances',
+    '2) Reproducing the ISCO at r=6M',
+    '3) Reproducing the same angular momentum of the ISCO L=sqrt(12)M',
+    '4) Reproducing the photon sphere at r=3M',
+    '5) Reproducing the same precession as in GR for rp>>rs',
+    '6) Reproducing max point with value 0 for the effective potential at r=4M',
+    '7) Reproducing the same angular momentum for marginally bound orbit as in gr L=4M',
+    '8) Reproducing the divergence of the precession of an parabolic orbit for L->4M',
+    '9) Equating the 3rd derivative of the effective potential at r=4M to the GR value',
+    '10) Equating the 4th derivative of the effective potential at r=4M to the GR value',
+    '11) Having a minimal point at r=12M for the effective potential',
+    '12) Reproducing the minimal point at r=12M  value as the GR one',
+    '13)  Equating the 3rd derivative of the effective potential at r=6M to the GR value',
+    '14)  Equating the energy of the Isco to the GR value'
+]
 
-        rlist=np.linspace(Rp-2.5,100,100000)
-        plt.plot(rlist, [2*u(r,N1,x,rs) + ((Lpn**2)/(r**2)) for r in rlist], label='Pn')
-        plt.plot(rlist, [(1-(2/r))*(1+((Lgr1**2)/(r**2)))-1 for r in rlist], '--', label='Gr,rp=4')
-        plt.plot(rlist, [2*u_pw(r) + ((Lpw**2)/(r**2)) for r in rlist], label='Pw')
-        plt.plot(rlist, [2*u_wegg(r) + ((Lwegg**2)/((r)**2)) for r in rlist], label=f'Pwegg moved by {abs(Rp_wegg-Rp):.2f}')
+def new_main(N1,rs,conds,rangelist):
+    '''
+    N1 - number of alphas , integer between 0 to len(conds)
+    rs - value of rs, float between 0 to 2
+    conds - list of integers between 0 to 13
+    range list - list four values, g1,g2,f1,f2, the range of rp values to calculate the precession ,g1,f1 are floats, g2,f2 are integers
 
-        plt.title('Effective potential parbolic Rp=4')
-        plt.grid()
-        plt.xlim(0,50)
-        plt.ylim(-0.8,0.8)
-        return data_for_save_1
-    if type=='ISCO':
-        rlist=np.linspace(2,10,100000)
-        rlist=rlist[1:-2]
-        Lgrisco=np.sqrt(12)
-        Lpnisco=np.sqrt((6**3)*u_dr(6,N1,x,rs))
-        Lpwisco=np.sqrt((6**3)*u_pw_dr(6))
-        Lweggisco=np.sqrt((6**3)*u_wegg_dr(6))
-        veff_gr=(1-(2/rlist))*(1+((Lgrisco**2)/(rlist**2)))-1
-        veff_pn=2*u(rlist,N1,x,rs)+((Lpnisco**2)/(rlist**2))
-        veff_pw=2*u_pw(rlist)+((Lpwisco**2)/(rlist**2))
-        veff_wegg=2*u_wegg(rlist)+((Lweggisco**2)/(rlist**2))
+    This function calculates the coefficients of the pn potential for the given , Nq,rs,conds combination,
+    then it calculates the precession rate of the Gr,Pn,Pw,Pwegg potentials for the given range of rp values.
+    finally it plots the resluts for compering the precession rates of the different potentials.
+    '''
+    save_pn=False
+    save_others=False
+    conds_list=''.join([str(i) for i in conds])
+    save_json_title_pn = f'N1_{N1}_rs_{rs:.2f}_conds_{"".join(map(str, conds))}_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
+    save_json_title_others=f'Not_pn_data_for_range_{rangelist[0]}_{rangelist[1]:.0e}_{rangelist[2]}_{rangelist[3]:.0e}'.replace('+', '_').replace('.', '')
+    # Set folder paths relative to the current directory
+    folder_path_plots = r"C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots"
+    folder_path_jsons = r"C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Jsons"
+    if not os.path.exists(folder_path_plots):
+        os.makedirs(folder_path_plots, exist_ok=True)
+    if not os.path.exists(folder_path_jsons):
+        os.makedirs(folder_path_jsons, exist_ok=True)
 
-        plt.plot(rlist, veff_gr,'-', label='Gr')
-        plt.plot(rlist, veff_pn,'--', label='Pn')
-        plt.plot(rlist, veff_pw,'-.', label='Pw')
-        plt.plot(rlist, veff_wegg,':', label='Pwegg')
-        plt.legend()
-        plt.grid()
-        plt.title('Effective potential for ISCO')
-        plt.xlim(2,10)
-        plt.ylim(-1,0.5)
-        return Lgrisco,Lpnisco,Lpwisco,Lweggisco
-def plot_ISCO_trajectory(rs,N1,x,L_list):
-    rlist=np.linspace(2,6,100000)
-    Lgrisco=L_list[0]
-    Lpnisco=L_list[1]
-    Lpwisco=L_list[2]
-    Lweggisco=L_list[3] 
+    if not os.path.exists(folder_path_jsons + '\\' + save_json_title_pn + '.json'):
+        save_pn = True
+    if not os.path.exists(folder_path_jsons + '\\' + save_json_title_others + '.json'):
+        save_others = True
 
-    rlist=rlist[1:-2]
-    Egrisco=np.sqrt(8/9)
-    Episco=u(6,N1,x,rs)+((6**3)*u_dr(6,N1,x,rs)/(2*(6**2)))
-    Epwisco=u_pw(6)+((Lpwisco**2)/(2*(6**2)))
-    Eweggisco=u_wegg(6)+((Lweggisco**2)/(2*(6**2)))
-    
-    rdot_gr=((1-(2/rlist))/(Egrisco))*((Egrisco**2)-(1-(2/rlist))*(1+((Lgrisco**2)/(rlist**2))))**(1/2)
-    rdot_pn=np.sqrt(2*Episco-2*u(rlist,N1,x,rs)-(Lpnisco**2)/(rlist**2))
-    rdot_pw=np.sqrt(2*Epwisco-2*u_pw(rlist)-((Lpwisco**2)/(rlist**2)))
-    # rdot_wegg=np.sqrt(2*Eweggisco-2*u_wegg(rlist)-((Lweggisco**2)/(rlist**2)))
-    fdot_gr=(1-(2/rlist))*(Lgrisco/rlist**2)/(Egrisco)
-    fdot_pn=(Lpnisco/(rlist**2))
-    fdot_pw=(Lpwisco/(rlist**2))
-    # fdot_wegg=(Lweggisco/(rlist**2))
-    data_for_save_2=f'Lgrisco={Lgrisco}, Egrisco={Egrisco}, Lpnisco={Lpnisco}, Episco={Episco}, Lpwisco={Lpwisco}, Epwisco={Epwisco}, Lweggisco={Lweggisco}, Eweggisco={Eweggisco} \n for r=6'
-    # print(data_for_save_2)
-    # print((6**3)*u_dr(6))
+    if save_pn:
+         print('Calculating PN precession for uncalculated values')
+         x=Solve_coeffs(N1,rs,conds)[0]
+         print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
+         Pn_L_list,Pn_parb_prec_list=calculate_precession_PN(rs,N1,x,rangelist[0],rangelist[1],rangelist[2],rangelist[3])
+         data = {
+                'Pn_L_list': Pn_L_list,
+                'Pn_parb_prec_list': Pn_parb_prec_list,
+                'N1': N1,
+                'rs': rs,
+                'conds': conds,
+                'coeffs': x.tolist()
+                }
+         with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'w') as outfile:
+            json.dump(data, outfile)
+    else:
+        print('loading PN precession data')
+        with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
+            data = json.load(outfile)
+            Pn_L_list = np.array(data['Pn_L_list'])
+            Pn_parb_prec_list = np.array(data['Pn_parb_prec_list'])
+            x = np.array(data['coeffs'])
+    print(f'####This run for N1={N1},rs={rs},conds={conds} \n The coefficients are {x}####')
+    if save_others==True and save_pn==True:
+        print('Calculating others precession for uncalculated values')
+        Gr_L_list,Pw_L_list,Pwegg_L_list,Gr_parb_prec_list,Pw_parb_prec_list,Pwegg_parb_prec_list,rp1,rp2,rp_wegg1,rp_wegg2=calculate_precession_others(rangelist[0],rangelist[1],rangelist[2],rangelist[3])
+        data = {
+            'Gr_L_list': Gr_L_list,
+            'Pw_L_list': Pw_L_list,
+            'Pwegg_L_list': Pwegg_L_list,
+            'Gr_parb_prec_list': Gr_parb_prec_list,
+            'Pw_parb_prec_list': Pw_parb_prec_list,
+            'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
+            'rp1': rp1.tolist(),
+            'rp2': rp2.tolist(),
+            'rp_wegg1': rp_wegg1.tolist(),
+            'rp_wegg2': rp_wegg2.tolist(),
+        }
+        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
+            json.dump(data, outfile)
+    else:
+        print('loading others precession data')
+        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'r') as outfile:
+            data = json.load(outfile)
+            Gr_L_list = np.array(data['Gr_L_list'])
+            Pw_L_list = np.array(data['Pw_L_list'])
+            Pwegg_L_list = np.array(data['Pwegg_L_list'])
+            Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
+            Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
+            Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
+            rp1 = np.array(data['rp1'])
+            rp2 = np.array(data['rp2'])
+            rp_wegg1 = np.array(data['rp_wegg1'])
+            rp_wegg2 = np.array(data['rp_wegg2'])
 
-    fgr_r=sp.integrate.cumulative_simpson(fdot_gr/rdot_gr,x=rlist,initial=0)
-    # fgr_r=fgr_r-fgr_r[-1]
-    fpn_r=sp.integrate.cumulative_simpson(fdot_pn/rdot_pn,x=rlist,initial=0)
-    # fpn_r=fpn_r-fpn_r[-1]
-    fpw_r=sp.integrate.cumulative_simpson(fdot_pw/rdot_pw,x=rlist,initial=0)
-    # fpw_r=fpw_r-fpw_r[-1]
-    # fwegg_r=sp.integrate.cumulative_simpson(fdot_wegg/rdot_wegg,x=rlist,initial=0)
-    # fwegg_r=fwegg_r-fwegg_r[-1]
+    if  save_pn==False and save_others==True:
+        print('loading from old jsons the others data')
+        with open(folder_path_jsons + '\\' + save_json_title_pn + '.json', 'r') as outfile:
+            data = json.load(outfile)
+            Gr_L_list = np.array(data['r_L_list'])
+            Pw_L_list = np.array(data['Pw_L_list'])
+            Pwegg_L_list = np.array(data['Pwegg_L_list'])
+            Gr_parb_prec_list = np.array(data['Gr_parb_prec_list'])
+            Pw_parb_prec_list = np.array(data['Pw_parb_prec_list'])
+            Pwegg_parb_prec_list = np.array(data['Pwegg_parb_prec_list'])
+            rp1 = np.array(data['rp1'])
+            rp2 = np.array(data['rp2'])
+            rp_wegg1 = np.array(data['rp_wegg1'])
+            rp_wegg2 = np.array(data['rp_wegg2'])
+        data_new = {
+            'Gr_L_list': Gr_L_list,
+            'Pw_L_list': Pw_L_list,
+            'Pwegg_L_list': Pwegg_L_list,
+            'Gr_parb_prec_list': Gr_parb_prec_list,
+            'Pw_parb_prec_list': Pw_parb_prec_list,
+            'Pwegg_parb_prec_list': Pwegg_parb_prec_list,
+            'rp1': rp1.tolist(),
+            'rp2': rp2.tolist(),
+            'rp_wegg1': rp_wegg1.tolist(),
+            'rp_wegg2': rp_wegg2.tolist(),
+        }
+        with open(folder_path_jsons + '\\' + save_json_title_others + '.json', 'w') as outfile:
+            json.dump(data_new, outfile)
+            
+    data_final = {
+            'Gr_L_list': np.array(Gr_L_list),
+            'Pw_L_list': np.array(Pw_L_list),
+            'Pwegg_L_list': np.array(Pwegg_L_list),
+            'Gr_parb_prec_list': np.array(Gr_parb_prec_list),
+            'Pw_parb_prec_list': np.array(Pw_parb_prec_list),
+            'Pwegg_parb_prec_list': np.array(Pwegg_parb_prec_list),
+            'rp1': np.array(rp1),
+            'rp2': np.array(rp2),
+            'rp_wegg1': np.array(rp_wegg1),
+            'rp_wegg2': np.array(rp_wegg2),
+            'Pn_L_list': np.array(Pn_L_list),
+            'Pn_parb_prec_list': np.array(Pn_parb_prec_list),
+            'N1': np.array(N1),
+            'rs': np.array(rs),
+            'conds': np.array(conds),
+            'coeffs': np.array(x)
+        }
+    return data_final
 
-    xgr=rlist*np.cos(fgr_r)
-    ygr=rlist*np.sin(fgr_r)
-    xpn=rlist*np.cos(fpn_r)
-    ypn=rlist*np.sin(fpn_r)
-    xpw=rlist*np.cos(fpw_r)
-    ypw=rlist*np.sin(fpw_r)
-    # xwegg=rlist*np.cos(fwegg_r)
-    # ywegg=rlist*np.sin(fwegg_r)
-    ax=plt.subplot(1,2,1)
-    ax.plot(xgr,ygr,'.',label='Gr',markersize=0.1)
-    ax.plot(xpn,ypn,'*',label='Pn',markersize=0.5)
-    ax.plot(xpw,ypw,'o',label='Pw',markersize=0.3)
-    # ax.plot(xwegg,ywegg,'s',label='Pwegg',markersize=0.1)
-    ax.set_aspect('equal')
-    ax.legend()
-    ax.grid()
-    ax.set_title('Trajectories for ISCO')
-    ax=plt.subplot(1,2,2)
-    ax.plot(rlist,fgr_r,label='Gr')
-    ax.plot(rlist,fpn_r,label='Pn')
-    ax.plot(rlist,fpw_r,label='Pw')
-    # ax.plot(rlist,fwegg_r,label='Pwegg')
-    ax.legend()
-    ax.grid()
-    ax.set_yscale('log')
-    ax.set_title('Angular velocity for ISCO')
-
-
-    return data_for_save_2
-def pressecion_plots(L1,L2,Gr_Rp_list,Pn_Rp_list,Pw_Rp_list,Pwegg_Rp_list,Gr_parb_prec_list,Pn_parb_prec_list,Pw_parb_prec_list,Pwegg_parb_prec_list,g1,g2,f1,f2,type=1):
-    L=np.concatenate((L1,L2))
-    if type==1: 
-        plt.plot(np.array(Gr_Rp_list),np.array(Gr_Rp_list)-np.array(Gr_Rp_list),label='Gr')
-        plt.plot(np.array(Gr_Rp_list),(np.array(Pn_Rp_list)-np.array(Gr_Rp_list)),'*',label='Pn')
-        plt.plot(np.array(Gr_Rp_list),(np.array(Pw_Rp_list)-np.array(Gr_Rp_list)),'.-',label='Pw')
-        plt.plot(np.array(Gr_Rp_list),(np.array(Pwegg_Rp_list)-np.array(Gr_Rp_list)),'--',label='Pwegg')
-        plt.legend()
-        plt.grid()
-        plt.xlabel('Rp_gr')
-        plt.ylabel('Rp-Rp_gr')
-        plt.title('Rp of potential ')
-        # plt.xscale('log')
-        # plt.yscale('log')
-        return
-    if type==2:
-        # ind1=np.where((L1-4)>0.0001)[0][0]
-        # ind2=np.where((L1-4)>0.001)[0][0]
-        # indexgr1 =np.where((np.where(~np.isnan(Gr_parb_prec_list)))>ind1)[1][0]
-        # indexpn1 =np.where((np.where(~np.isnan(Pn_parb_prec_list)))>ind1)[1][0]
-        # indexpw1 =np.where((np.where(~np.isnan(Pw_parb_prec_list)))>ind1)[1][0]
-        # indexwegg1 =np.where((np.where(~np.isnan(Pwegg_parb_prec_list)))>ind1)[1][0]
-        # indexgr2 =np.where((np.where(~np.isnan(Gr_parb_prec_list)))>ind2)[1][0]
-        # indexpn2 =np.where((np.where(~np.isnan(Pn_parb_prec_list)))>ind2)[1][0]
-        # indexpw2 =np.where((np.where(~np.isnan(Pw_parb_prec_list)))>ind2)[1][0]
-        # indexwegg2 =np.where((np.where(~np.isnan(Pwegg_parb_prec_list)))>ind2)[1][0]
-        plt.plot(L1-4, np.array(Gr_parb_prec_list[:g2]), '*', label='Gr')
-        plt.plot(L1-4, np.array(Pn_parb_prec_list[:g2]), '*', label='Pn')
-        plt.plot(L1-4, np.array(Pw_parb_prec_list[:g2]), '*', label='Pw')
-        plt.plot(L1-4, np.array(Pwegg_parb_prec_list[:g2]), '*', label='Pwegg')
-          # # Highlight points from index# to index#+8
-        # plt.plot(L1[indexgr1:indexgr2]-4, np.array(Gr_parb_prec_list[indexgr1:indexgr2]), 'o', color='red', label='Gr Highlight')
-        # plt.plot(L1[indexpn1:indexpn2]-4, np.array(Pn_parb_prec_list[indexpn1:indexpn2]), 'o', color='green', label='Pn Highlight')
-        # plt.plot(L1[indexpw1:indexpw2]-4, np.array(Pw_parb_prec_list[indexpw1:indexpw2]), 'o', color='blue', label='Pw Highlight')
-        # plt.plot(L1[indexwegg1:indexwegg2]-4, np.array(Pwegg_parb_prec_list[indexwegg1:indexwegg2]), 'o', color='purple', label='Pwegg Highlight')
-
-        # mgr=((Gr_parb_prec_list[indexgr2]-Gr_parb_prec_list[indexgr1])/(np.log10(L1[indexgr2]-4)-np.log10(L1[indexgr1]-4)))/(np.sqrt(2)/np.log10(np.e))
-        # mpn=((Pn_parb_prec_list[indexpn2]-Pn_parb_prec_list[indexpn1])/(np.log10(L1[indexpn2]-4)-np.log10(L1[indexpn1]-4)))/(np.sqrt(2)/np.log10(np.e))
-        # mpw=((Pw_parb_prec_list[indexpw2]-Pw_parb_prec_list[indexpw1])/(np.log10(L1[indexpw2]-4)-np.log10(L1[indexpw1]-4)))/(np.sqrt(2)/np.log10(np.e))
-        # mwegg=((Pwegg_parb_prec_list[indexwegg2]-Pwegg_parb_prec_list[indexwegg1])/(np.log10(L1[indexwegg2]-4)-np.log10(L1[indexwegg1]-4)))/(np.sqrt(2)/np.log10(np.e))
-        
-        mgr=0
-        mpn=0
-        mpw=0
-        mwegg=0
-
-        # data_for_save_3=f'the slope of the precession near L=4 as a fraction of -sqrt(2) is: Gr={-mgr:.3f}, Pn={-mpn:.3f}, Pw={-mpw:.3f}, Pwegg={-mwegg:.3f}\n the slope was calculated between the points L: {L1[indexgr1]} to {L1[indexgr2]} for Gr, {L1[indexpn1]} to {L1[indexpn2]} for Pn, {L1[indexpw1]} to {L1[indexpw2]} for Pw, {L1[indexwegg1]} to {L1[indexwegg2]} for Pwegg'
-        data_for_save_3=f'the slope of the precession near L=4 as a fraction of -sqrt(2) is: Gr={-mgr:.3f}, Pn={-mpn:.3f}, Pw={-mpw:.3f}, Pwegg={-mwegg:.3f}\n'
-
-        plt.xscale('log')
-        plt.ylim(0,16)
-        plt.legend()
-        plt.grid()
-        plt.title('Precession parabolic near L=4')
-        plt.xlabel('L-4')
-        plt.ylabel('Precession')
-        return data_for_save_3,mgr,mpn,mpw,mwegg
-    if type==3:
-        plt.plot(L2,np.array(Gr_parb_prec_list[g2:g2+f2]),'--',label='Gr')
-        plt.plot(L2,(np.array(Pn_parb_prec_list[g2:g2+f2])),'--',label='Pn')
-        plt.plot(L2,np.array(Pw_parb_prec_list[g2:g2+f2]),'-.',label='Pw')
-        plt.plot(L2,np.array(Pwegg_parb_prec_list[g2:g2+f2]),'-',label='Pwegg')
-
-        # y=6*np.pi/(L2**2)
-        # plt.plot(L2,y,'--',label='$-2*log(L)+log(3*pi)$')
-
-        ind_far_1=int(f2/2)
-        ind_far_2=int(f2/4)
-
-        # plt.plot(L2[ind_far_2:ind_far_1], np.array(Gr_parb_prec_list[g2+ind_far_2:g2+ind_far_1]), 'o', color='red', label='Gr Highlight')
-        # plt.plot(L2[ind_far_2:ind_far_1], np.array(Pn_parb_prec_list[g2+ind_far_2:g2+ind_far_1]), 'o', color='green', label='Pn Highlight')
-        # plt.plot(L2[ind_far_2:ind_far_1], np.array(Pw_parb_prec_list[g2+ind_far_2:g2+ind_far_1]), 'o', color='blue', label='Pw Highlight')
-        # plt.plot(L2[ind_far_2:ind_far_1], np.array(Pwegg_parb_prec_list[g2+ind_far_2:g2+ind_far_1]), 'o', color='purple', label='Pwegg Highlight')
-
-        plt.xscale('log')
-        plt.yscale('log')
-        # lower_ylim=np.nanmin([np.nanmin(Gr_parb_prec_list[g2:g2+f2]),np.nanmin(Pn_parb_prec_list[g2:g2+f2]),np.nanmin(Pw_parb_prec_list[g2:g2+f2]),np.nanmin(Pwegg_parb_prec_list[g2:g2+f2])])
-        # upper_ylim=np.nanmax([Gr_parb_prec_list[g2],Pn_parb_prec_list[g2],Pw_parb_prec_list[g2],Pwegg_parb_prec_list[g2]])
-        # print(lower_ylim,upper_ylim)
-        plt.ylim(10**(-4),8)
-        plt.legend()
-        plt.grid()
-        plt.title('Precession parabolic nfar from L=4')
-
-
-
-        bgr=((np.log10(Gr_parb_prec_list[g2+int(f2/2)]))+2*(np.log10(L2[int(f2/2)])))/np.log10(6*np.pi)
-        bpn=((np.log10(Pn_parb_prec_list[g2+int(f2/2)]))+2*(np.log10(L2[int(f2/2)])))/np.log10(6*np.pi)
-        bpw=((np.log10(Pw_parb_prec_list[g2+int(f2/2)]))+2*(np.log10(L2[int(f2/2)])))/np.log10(6*np.pi)
-        bwegg=((np.log10(Pwegg_parb_prec_list[g2+int(f2/2)]))+2*(np.log10(L2[int(f2/2)])))/np.log10(6*np.pi)
-
-
-
-
-        mgr2=(np.log10(Gr_parb_prec_list[g2+int(f2/2)])-np.log10(Gr_parb_prec_list[g2+int(f2/4)]))/(np.log10(L2[int(f2/2)])-np.log10(L2[int(f2/4)]))
-        mpn2=(np.log10(Pn_parb_prec_list[g2+int(f2/2)])-np.log10(Pn_parb_prec_list[g2+int(f2/4)]))/(np.log10(L2[int(f2/2)])-np.log10(L2[int(f2/4)]))
-        mpw2=(np.log10(Pw_parb_prec_list[g2+int(f2/2)])-np.log10(Pw_parb_prec_list[g2+int(f2/4)]))/(np.log10(L2[int(f2/2)])-np.log10(L2[int(f2/4)]))
-        mwegg2=(np.log10(Pwegg_parb_prec_list[g2+int(f2/2)])-np.log10(Pwegg_parb_prec_list[g2+int(f2/4)]))/(np.log10(L2[int(f2/2)])-np.log10(L2[int(f2/4)]))
-
-        data_for_save_4=f'The far rp>>rs precession behavior: \n Gr:log(prec)={mgr2:.1f}*log(L)+{bgr:.2f}log(6pi) \n Pn:log(prec)={mpn2:.1f}*log(L)+{bpn:.2f}log(6pi) \n Pw:log(prec)={mpw2:.2f}*log(L)+{bpw:.2f}log(6pi) \n Pwegg:log(prec)={mwegg2:.1f}*log(L)+{bwegg:.2f}log(6pi) \n the slope was calculated between the points L: {L2[int(f2/4)]} to {L2[int(f2/2)]} for Gr, {L2[int(f2/4)]} to {L2[int(f2/2)]} for Pn, {L2[int(f2/4)]} to {L2[int(f2/2)]} for Pw, {L2[int(f2/4)]} to {L2[int(f2/2)]} for Pwegg'
-        return data_for_save_4,mgr2,mpn2,mpw2,mwegg2,bgr,bpn,bpw,bwegg
-    if type==4:
-        
-        plt.plot(L-4,((np.array(Pn_parb_prec_list)-np.array(Gr_parb_prec_list)))/np.array(Gr_parb_prec_list),'*',label='Pn_error')
-        plt.plot(L-4,(np.array(Pw_parb_prec_list)-np.array(Gr_parb_prec_list))/np.array(Gr_parb_prec_list),label='Pw_error')
-        plt.plot(L-4,(np.array(Pwegg_parb_prec_list)-np.array(Gr_parb_prec_list))/np.array(Gr_parb_prec_list),label='Pwegg_error')
-
-        plt.plot(L-4,np.zeros(len(L)),'--',label='0')
-        plt.legend()
-        plt.xscale('log')
-        lower_ylim=-1
-        upper_ylim=0.5
-        plt.ylim(lower_ylim,upper_ylim)
-
-        plt.grid()
-        plt.title('Precession difference precentage parabolic near L=4')
-        plt.xlabel('L-4')
-        plt.ylabel('Precession error %')
-        return
-    if type==5:
-        Rp_wegg=2*(np.sqrt(6)-1)
-        plt.plot(np.array(Gr_Rp_list[:g2]), np.array(Gr_parb_prec_list[:g2]), '*', label='Gr')
-        plt.plot(np.array(Pn_Rp_list[:g2]), np.array(Pn_parb_prec_list[:g2]), '*', label='Pn')
-        plt.plot(np.array(Pw_Rp_list[:g2]), np.array(Pw_parb_prec_list[:g2]), '*', label='Pw')
-        plt.plot(np.array(Pwegg_Rp_list[:g2]), np.array(Pwegg_parb_prec_list[:g2]), '*', label='Pwegg')
-        plt.plot(np.array(Pwegg_Rp_list[:g2])-Rp_wegg+4, np.array(Pwegg_parb_prec_list[:g2]), '*', label='Pwegg_moved')
-        plt.legend()
-        plt.grid()
-        plt.title('Precession parabolic near L=4')
-        plt.xlabel('Rp')
-        plt.ylabel('Precession')
-        plt.xscale('log')
-        plt.yscale('log')
-        return
-
-
-def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
-    font_size = 16
-    marksizq = 1
-    if not auto:
-        N1_list = []
-        rs_list = []
-        conds_list = []
-        while True:
-            tr = input("Enter 'N1,rs,conds (space separated)' or 'stop' to continue plot:")
-            if tr == 'stop':
-                break
-            else:
-                l = tr.split(',')
-                N1_list.append(int(l[0]))
-                rs_list.append(float(l[1]))
-                conds_list.append([int(i) for i in l[2].split()])
-
-    coefficient_lists = []
-    prcession_L_lists = []
-    precession_value_lists = []
-    precession_rp1_lists = []
-    precession_rp2_lists = []
+def plot_effective_potential(ax, rlist, N1_list, coefficient_lists, rs_list, L, marksizq, font_size):
+    dark_colors = [
+        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
     for i in range(len(N1_list)):
-        data_tmp = new_main(N1_list[i], rs_list[i], conds_list[i], rangelist)
-        coefficient_lists.append(np.array(data_tmp['coeffs']))
-        prcession_L_lists.append(np.array(data_tmp['Pn_L_list']))
-        precession_value_lists.append(np.array(data_tmp['Pn_parb_prec_list']))
-        precession_rp1_lists.append(np.array(data_tmp['rp1']))
-        precession_rp2_lists.append(np.array(data_tmp['rp2']))
-
-    conds_to_set = {}
-    cond_list_titles = []
-    for conds in conds_list:
-        conds_tuple = tuple(conds)
-        if conds_tuple not in conds_to_set:
-            conds_to_set[conds_tuple] = len(conds_to_set)
-        cond_list_titles.append(conds_to_set[conds_tuple])
-
-    for set_number, conds in enumerate(conds_to_set.keys()):
-        print(f"Set {set_number} is {list(conds)}")
-
-    gr_l_list = np.array(data_tmp['Gr_L_list'])
-    gr_precession_list = np.array(data_tmp['Gr_parb_prec_list'])
-    pw_l_list = np.array(data_tmp['Pw_L_list'])
-    pw_precession_list = np.array(data_tmp['Pw_parb_prec_list'])
-    wegg_l_list = np.array(data_tmp['Pwegg_L_list'])
-    wegg_precession_list = np.array(data_tmp['Pwegg_parb_prec_list'])
-    rp1_wegg = np.array(data_tmp['rp_wegg1'])
-    rp2_wegg = np.array(data_tmp['rp_wegg2'])
-
-    rlist = np.linspace(2, 13, 1000)
-    fig, axs = plt.subplots(3, 1, figsize=(6, 18), constrained_layout=True)
-    ax = axs[0]
-    L = 4
-    for i in range(len(N1_list)):
-        color = f"C{i % 10}"
-        ax.plot(rlist, 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) + (L**2 / rlist**2), '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
-
+        color = dark_colors[i % len(dark_colors)]
+        ax.plot(rlist, 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) + (L**2 / rlist**2),
+                '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
     ax.plot(rlist, (1 - (2 / rlist)) * (1 + (L**2 / rlist**2)) - 1, 'k-', label='Gr')
     ax.plot(rlist, 2 * u_pw(rlist) + (L**2 / rlist**2), 'g-.', label='Pw')
     ax.plot(rlist, 2 * u_wegg(rlist) + (L**2 / rlist**2), 'r--', label='Pwegg')
@@ -335,23 +182,19 @@ def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
     ax.text(0.05, 0.95, "(I)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
     ax.legend(fontsize=font_size - 2)
 
-    ax = axs[1]
+def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
+    dark_colors = [
+        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
     for i in range(len(N1_list)):
-        color = f"C{i % 10}"
-        ax.plot(prcession_L_lists[i][:rangelist[1]] - prcession_L_lists[i][0], 
-                np.array(precession_value_lists[i][:rangelist[1]]) / np.pi, 
+        color = dark_colors[i % len(dark_colors)]
+        ax.plot(prcession_L_lists[i][:rangelist[1]] - prcession_L_lists[i][0],
+                np.array(precession_value_lists[i][:rangelist[1]]) / np.pi,
                 '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
-
-    ax.plot(gr_l_list[:rangelist[1]] - gr_l_list[0], 
-        np.array(gr_precession_list[:rangelist[1]]) / np.pi, 
-        'k-', label='Gr')
-    ax.plot(pw_l_list[:rangelist[1]] - pw_l_list[0], 
-        np.array(pw_precession_list[:rangelist[1]]) / np.pi, 
-        'g-.', label='Pw')
-    ax.plot(wegg_l_list[:rangelist[1]] - wegg_l_list[0], 
-        np.array(wegg_precession_list[:rangelist[1]]) / np.pi, 
-        'r--', label='Pwegg')
-
+    ax.plot(gr_l_list[:rangelist[1]] - gr_l_list[0], np.array(gr_precession_list[:rangelist[1]]) / np.pi, 'k-', label='Gr')
+    ax.plot(pw_l_list[:rangelist[1]] - pw_l_list[0], np.array(pw_precession_list[:rangelist[1]]) / np.pi, 'g-.', label='Pw')
+    ax.plot(wegg_l_list[:rangelist[1]] - wegg_l_list[0], np.array(wegg_precession_list[:rangelist[1]]) / np.pi, 'r--', label='Pwegg')
     ax.set_xscale('log')
     ax.set_ylim(1, 5)
     ax.set_xlim(10**(-5), 3*10**(-2))
@@ -359,18 +202,21 @@ def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
     ax.tick_params(axis='both', which='major', labelsize=font_size)
     ax.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax.set_xlabel('L-4', fontsize=font_size + 4)
-    ax.text(0.05, 0.95, "(II)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))   
+    ax.text(0.05, 0.95, "(II)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
     ax.legend(fontsize=font_size - 2)
 
-    ax = axs[2]
+def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
+    dark_colors = [
+        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
     for i in range(len(N1_list)):
-        color = f"C{i % 10}"
-        ax.plot(prcession_L_lists[i][rangelist[1]:], np.array(precession_value_lists[i][rangelist[1]:]) / np.pi, '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
-
+        color = dark_colors[i % len(dark_colors)]
+        ax.plot(prcession_L_lists[i][rangelist[1]:], np.array(precession_value_lists[i][rangelist[1]:]) / np.pi,
+                '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
     ax.plot(gr_l_list[rangelist[1]:], np.array(gr_precession_list[rangelist[1]:]) / np.pi, 'k-', label='Gr')
     ax.plot(pw_l_list[rangelist[1]:], np.array(pw_precession_list[rangelist[1]:]) / np.pi, 'g-.', label='Pw')
     ax.plot(wegg_l_list[rangelist[1]:], np.array(wegg_precession_list[rangelist[1]:]) / np.pi, 'r--', label='Pwegg')
-
     ax.set_xscale('log')
     ax.set_yscale('log')
     ax.set_ylim(3*10**(-4), 10**-2)
@@ -383,80 +229,15 @@ def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
     ax.legend(fontsize=font_size - 2)
 
-    # Save the figure to the desktop with no background
-    plt.savefig("C:/Users/itama/Desktop/Figure1_papper.png", transparent=True)
-    plt.show()
-    ##fig 4 f(r) in Isco orbit
-    rlist = np.linspace(2, 6, 1000000)[1:-2]
-    E_pn_list = []
-    L_pn_list = []
-    fpn_r_list = []
-    xpn_list = []
-    ypn_list = []
-    rlist_list = []
-    fdotpn_list = []
-    rdotpn_list = []
-
-    for i, j in enumerate(coefficient_lists):
-        L_pn_list.append(np.sqrt((6**3) * (u_dr(6, N1_list[i], j, rs_list[i]))))
-        E_pn_list.append(u(6, N1_list[i], j, rs_list[i]) + ((6**3) * u_dr(6, N1_list[i], j, rs_list[i]) / (2 * (6**2))))
-
-    Lgrisco = np.sqrt(12)
-    Lpwisco = np.sqrt((6**3) * (u_pw_dr(6)))
-    r_wegg_isdo = 4.6784623564771834
-    Lweggisco = np.sqrt((r_wegg_isdo**3) * (u_wegg_dr(r_wegg_isdo)))
-    Egrisco = np.sqrt(8 / 9)
-    Epwisco = u_pw(6) + ((Lpwisco**2) / (2 * (6**2)))
-    Eweggisco = u_wegg(r_wegg_isdo) + ((Lweggisco**2) / (2 * (r_wegg_isdo**2)))
-
+def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size):
+    dark_colors = [
+        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
     for i in range(len(N1_list)):
-        rdot_pn = np.sqrt(2 * E_pn_list[i] - 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) - ((L_pn_list[i]**2) / (rlist**2)))
-        valid_indices = np.where((~np.isnan(rdot_pn)) & (np.isreal(rdot_pn)))[0]
-
-        if len(valid_indices) > 0:
-            rlist_valid = rlist[valid_indices]
-            rlist_list.append(rlist_valid)
-            rdot_pn = rdot_pn[valid_indices]
-            fdot_pn = (L_pn_list[i] / (rlist_valid**2))
-        else:
-            rdot_pn = np.zeros(len(rlist))
-            fdot_pn = np.zeros(len(rlist))
-            rlist_valid = rlist
-            rlist_list.append(rlist_valid)
-
-        fpn_r = sp.integrate.cumulative_simpson(fdot_pn / rdot_pn, x=rlist_valid, initial=0)
-        xpn = rlist_valid * np.cos(fpn_r)
-        ypn = rlist_valid * np.sin(fpn_r)
-        xpn_list.append(xpn)
-        ypn_list.append(ypn)
-        fpn_r_list.append(fpn_r)
-        fdotpn_list.append(fdot_pn)
-        rdotpn_list.append(rdot_pn)
-
-    rdot_gr = ((1 - (2 / rlist)) / (Egrisco)) * ((Egrisco**2) - (1 - (2 / rlist)) * (1 + ((Lgrisco**2) / (rlist**2))))**(1 / 2)
-    rdot_pw = np.sqrt(2 * Epwisco - 2 * u_pw(rlist) - ((Lpwisco**2) / (rlist**2)))
-    rlist_wegg = np.linspace(2, r_wegg_isdo, 1000000)
-    rdot_wegg = np.sqrt(2 * Eweggisco - 2 * u_wegg(rlist_wegg) - ((Lweggisco**2) / (rlist_wegg**2)))
-    fdot_wegg = (Lweggisco / (rlist_wegg**2))
-    fdot_gr = (1 - (2 / rlist)) * (Lgrisco / rlist**2) / (Egrisco)
-    fdot_pw = (Lpwisco / (rlist**2))
-    fgr_r = sp.integrate.cumulative_simpson(fdot_gr / rdot_gr, x=rlist, initial=0)
-    fpw_r = sp.integrate.cumulative_simpson(fdot_pw / rdot_pw, x=rlist, initial=0)
-    xgr = rlist * np.cos(fgr_r)
-    ygr = rlist * np.sin(fpw_r)
-    xpw = rlist * np.cos(fpw_r)
-    ypw = rlist * np.sin(fpw_r)
-
-    fig, axs = plt.subplots(2, 1, figsize=(10, 14), constrained_layout=True)
-    font_size = 23
-
-    # Subplot (a)
-    ax = axs[0]
-    for i in range(len(N1_list)):
-        color = f"C{i % 10}"
+        color = dark_colors[i % len(dark_colors)]
         ax.plot(rlist_list[i], (np.array(rdotpn_list[i]) - np.array(rdot_gr[:len(rdotpn_list[i])])), '-*', label=f'Pn-N1={N1_list[i]}', markersize=0.3, color=color)
-
-    ax.plot(rlist, (np.array(rdot_pw) - (np.array(rdot_gr[:len(rdot_pw)]))), '-.', label='Pw', color='C16')
+    ax.plot(rlist, (np.array(rdot_pw) - (np.array(rdot_gr[:len(rdot_pw)]))), 'g-.', label='Pw')
     ax.plot(rlist_wegg[:len(rdot_gr)] + (6 - r_wegg_isdo), (np.array(rdot_wegg[:len(rdot_gr)]) - (np.array(rdot_gr))), 'r--', label='Pwegg(shifted)')
     ax.legend(markerscale=10, loc='upper right', fontsize=font_size - 6)
     ax.grid()
@@ -467,20 +248,16 @@ def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
     ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
     ax.text(0.05, 0.95, "(a)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
-    # Subplot (b)
-    rlist_isco = np.linspace(2, 10, 100000)[1:-2]
-    Lgrisco = np.sqrt(12)
-    veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
-    ax = axs[1]
+def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size):
+    dark_colors = [
+        "#4B0082", "#2F4F4F", "#483D8B", "#191970", "#8B008B",
+        "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
+    ]
     for i in range(len(N1_list)):
-        color = f"C{i % 10}"
+        color = dark_colors[i % len(dark_colors)]
         L_pn_isco = np.sqrt((6**3) * u_dr(6, N1_list[i], coefficient_lists[i], rs_list[i]))
         veff_pn_isco = 2 * u(rlist_isco, N1_list[i], coefficient_lists[i], rs_list[i]) + ((L_pn_isco**2) / (rlist_isco**2))
         ax.plot(rlist_isco, veff_pn_isco, '-*', label=f'PN-N1={N1_list[i]}', color=color, markersize=0.3, linewidth=0.7)
-
-    Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
-    veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
-    veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
     ax.plot(rlist_isco, veff_wegg_isco, 'r--', label='Pwegg', markersize=0.3, linewidth=0.7)
     ax.plot(rlist_isco, veff_gr_isco, 'k-', label='Gr')
     ax.plot(rlist_isco, veff_pw_isco, 'g-.', label='Pw')
@@ -495,7 +272,151 @@ def final_plots(rangelist,auto=False,N1_list=[],rs_list=[],conds_list=[]):
     ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
     ax.text(0.05, 0.95, "(b)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
-    plt.savefig("C:/Users/itama/Desktop/Figure2_papper.png", transparent=True)
+def save_figure(fig, default_name, plots_dir):
+    save_path = os.path.join(plots_dir, default_name)
+    print(f"Default save path for {default_name}: {save_path}")
+    save_choice = input(f"Save {default_name} as default name? (y/n): ").strip().lower()
+    if save_choice == 'n':
+        new_name = input(f"Enter new filename for {default_name} (with .png): ").strip()
+        if not new_name.endswith('.png'):
+            new_name += '.png'
+        save_path = os.path.join(plots_dir, new_name)
+    fig.savefig(save_path, transparent=True)
     plt.show()
 
+def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
+    font_size = 16
+    marksizq = 1
+    # Set folder path to the directory where this script is located
+    folder_path_plots = r"C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code"
+    if not os.path.exists(folder_path_plots):
+        os.makedirs(folder_path_plots, exist_ok=True)
+    if not auto:
+        N1_list = []
+        rs_list = []
+        conds_list = []
+        while True:
+            tr = input("Enter 'N1,rs,conds (space separated)' or 'stop' to continue plot:")
+            if tr == 'stop':
+                break
+            else:
+                l = tr.split(',')
+                N1_list.append(int(l[0]))
+                rs_list.append(float(l[1]))
+                conds_list.append([int(i) for i in l[2].split()])
+    coefficient_lists = []
+    prcession_L_lists = []
+    precession_value_lists = []
+    precession_rp1_lists = []
+    precession_rp2_lists = []
+    for i in range(len(N1_list)):
+        data_tmp = new_main(N1_list[i], rs_list[i], conds_list[i], rangelist)
+        coefficient_lists.append(np.array(data_tmp['coeffs']))
+        prcession_L_lists.append(np.array(data_tmp['Pn_L_list']))
+        precession_value_lists.append(np.array(data_tmp['Pn_parb_prec_list']))
+        precession_rp1_lists.append(np.array(data_tmp['rp1']))
+        precession_rp2_lists.append(np.array(data_tmp['rp2']))
+    gr_l_list = np.array(data_tmp['Gr_L_list'])
+    gr_precession_list = np.array(data_tmp['Gr_parb_prec_list'])
+    pw_l_list = np.array(data_tmp['Pw_L_list'])
+    pw_precession_list = np.array(data_tmp['Pw_parb_prec_list'])
+    wegg_l_list = np.array(data_tmp['Pwegg_L_list'])
+    wegg_precession_list = np.array(data_tmp['Pwegg_parb_prec_list'])
+    rp1_wegg = np.array(data_tmp['rp_wegg1'])
+    rp2_wegg = np.array(data_tmp['rp_wegg2'])
+    rlist = np.linspace(2, 13, 1000)
+    fig, axs = plt.subplots(3, 1, figsize=(6, 18), constrained_layout=True)
+    plot_effective_potential(axs[0], rlist, N1_list, coefficient_lists, rs_list, 4, marksizq, font_size)
+    plot_precession_near_L4(axs[1], prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size)
+    plot_precession_far_L4(axs[2], prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size)
+    msc_project_dir = os.path.join(os.getcwd(), "Msc_project_2025")
+    plots_dir =folder_path_plots+r"\Plots"
+    if not os.path.exists(plots_dir):
+        os.makedirs(plots_dir, exist_ok=True)
+    save_figure(fig, "Figure1_paper.png", plots_dir)
+    # ISCO plots
+    rlist = np.linspace(2, 6, 1000000)[1:-2]
+    E_pn_list = []
+    L_pn_list = []
+    fpn_r_list = []
+    xpn_list = []
+    ypn_list = []
+    rlist_list = []
+    fdotpn_list = []
+    rdotpn_list = []
+    for i, j in enumerate(coefficient_lists):
+        L_pn_list.append(np.sqrt((6**3) * (u_dr(6, N1_list[i], j, rs_list[i]))))
+        E_pn_list.append(u(6, N1_list[i], j, rs_list[i]) + ((6**3) * u_dr(6, N1_list[i], j, rs_list[i]) / (2 * (6**2))))
+    Lgrisco = np.sqrt(12)
+    Lpwisco = np.sqrt((6**3) * (u_pw_dr(6)))
+    r_wegg_isdo = 4.6784623564771834
+    Lweggisco = np.sqrt((r_wegg_isdo**3) * (u_wegg_dr(r_wegg_isdo)))
+    Egrisco = np.sqrt(8 / 9)
+    Epwisco = u_pw(6) + ((Lpwisco**2) / (2 * (6**2)))
+    Eweggisco = u_wegg(r_wegg_isdo) + ((Lweggisco**2) / (2 * (r_wegg_isdo**2)))
+    for i in range(len(N1_list)):
+        rdot_pn = np.sqrt(2 * E_pn_list[i] - 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) - ((L_pn_list[i]**2) / (rlist**2)))
+        valid_indices = np.where((~np.isnan(rdot_pn)) & (np.isreal(rdot_pn)))[0]
+        if len(valid_indices) > 0:
+            rlist_valid = rlist[valid_indices]
+            rlist_list.append(rlist_valid)
+            rdot_pn = rdot_pn[valid_indices]
+            fdot_pn = (L_pn_list[i] / (rlist_valid**2))
+        else:
+            rdot_pn = np.zeros(len(rlist))
+            fdot_pn = np.zeros(len(rlist))
+            rlist_valid = rlist
+            rlist_list.append(rlist_valid)
+        fpn_r = sp.integrate.cumulative_simpson(fdot_pn / rdot_pn, x=rlist_valid, initial=0)
+        xpn = rlist_valid * np.cos(fpn_r)
+        ypn = rlist_valid * np.sin(fpn_r)
+        xpn_list.append(xpn)
+        ypn_list.append(ypn)
+        fpn_r_list.append(fpn_r)
+        fdotpn_list.append(fdot_pn)
+        rdotpn_list.append(rdot_pn)
+    rdot_gr = ((1 - (2 / rlist)) / (Egrisco)) * ((Egrisco**2) - (1 - (2 / rlist)) * (1 + ((Lgrisco**2) / (rlist**2))))**(1 / 2)
+    rdot_pw = np.sqrt(2 * Epwisco - 2 * u_pw(rlist) - ((Lpwisco**2) / (rlist**2)))
+    rlist_wegg = np.linspace(2, r_wegg_isdo, 1000000)
+    rdot_wegg = np.sqrt(2 * Eweggisco - 2 * u_wegg(rlist_wegg) - ((Lweggisco**2) / (rlist_wegg**2)))
+    fig, axs = plt.subplots(2, 1, figsize=(10, 14), constrained_layout=True)
+    font_size2 = 23
+    plot_isco_rdot(axs[0], rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size2)
+    rlist_isco = np.linspace(2, 10, 100000)[1:-2]
+    Lgrisco = np.sqrt(12)
+    veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
+    Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
+    veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
+    veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
+    plot_isco_veff(axs[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size2)
+    save_figure(fig, "Figure2_paper.png", plots_dir)
     return
+
+
+
+rangelist = [0.8, 1000, 7002, 3000]
+# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+final_plots(rangelist,auto=True,N1_list=[1,1,1],rs_list=[2,2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12,13]])
+
+# Define the coefficients for the two cases
+coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
+coefficients_case_2 = Solve_coeffs(1, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
+
+# Convert coefficients to rational numbers
+coefficients_case_1_rational = [Rational(c).limit_denominator() for c in coefficients_case_1]
+coefficients_case_2_rational = [Rational(c).limit_denominator() for c in coefficients_case_2]
+
+# Print the coefficients in rational and decimal form
+print("Coefficients for Case 1 (N1=7, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
+for rational, decimal in zip(coefficients_case_1_rational, coefficients_case_1):
+    print(f"{rational} ({decimal})")
+
+print("\nCoefficients for Case 2 (N1=1, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
+for rational, decimal in zip(coefficients_case_2_rational, coefficients_case_2):
+    print(f"{rational} ({decimal})")
+# final_plots(rangelist,auto=True,N1_list=N11_list,rs_list=rsss,conds_list=conds_list)
+
+# Example usage:
+# rangelist = [0.8, 5000, 6990, 7000]
+# final_plots_envelope(rangelist, auto=True, N1_list=[1,7], rs_list=[2,2], conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])

@@ -6,7 +6,7 @@ import sys
 from matplotlib import cm, ticker
 sys.path.append('Scripts/Research scripts/General Functions')
 from Monte_Carlo import Monte_Carlo_Integrate as mci
-from New_Potential2025_02_26_addwd_term import semi2 
+# from New_Potential2025_02_26_addwd_term import semi2 
 import json
 import time
 from matplotlib.animation import FuncAnimation
@@ -1354,7 +1354,7 @@ combinations = [
     [0,1,2,3,4,12,13]
 ]
 rs_values = np.linspace(1, 2, 10)
-rangelist = [0.8, 5000, 6990, 7000]
+rangelist = [0.8, 5000, 7005, 7000]
 
 # Loop through combinations and rs values
 # for comb in combinations:
@@ -1642,7 +1642,7 @@ N1_list1=[5,6,7]
 
 # final_plots(rangelist,auto=True,N1_list=[7,1,7,1],rs_list=[2,2,2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
 
-# final_plots(rangelist,auto=True,N1_list=[7,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12,13]])
+final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 # Plot u(r) for both cases along with Pw, Wegg, and -1/r
 r_values = np.linspace(2, 50, 1000)
 coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
