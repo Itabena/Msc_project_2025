@@ -41,8 +41,11 @@ E/(-1/9) for run 1 is 1.9090711826192432
 
 ![[Withcond2fig2.png]]
 - With both ISCO conditions:
-
-
+![[Example_for_bad_potential.png]]
+L/sqrt(12) for run 0 is 1.0000000004007177
+E/(-1/9) for run 0 is 0.9999999995915232
+L/sqrt(12) for run 1 is 0.9999991841319881
+E/(-1/9) for run 1 is 0.9999950542696752
 ## Actions Taken
 1. 
 
