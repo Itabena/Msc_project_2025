@@ -421,8 +421,8 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 rangelist = [0.8, 5000, 7000, 7000]
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
+final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
 
 # Calculate coefficients for the specified cases
 N1_list = [1, 9]
