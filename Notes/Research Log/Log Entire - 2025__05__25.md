@@ -32,7 +32,17 @@ E/(-1/9) for run 1 is 1.00000000195405
 ![[Withcond13fig1.png]]
 ![[Withcond13fig2.png]]
 - With only the angular momentum condition added:
-- 
+L/sqrt(12) for run 0 is 1.000000000000494
+E/(-1/9) for run 0 is 1.703565505803566
+L/sqrt(12) for run 1 is 1.000000000142876
+E/(-1/9) for run 1 is 1.9090711826192432
+
+![[withcond2fig1 1.png]]
+
+![[Withcond2fig2.png]]
+- With both ISCO conditions:
+
+
 ## Actions Taken
 1. 
 

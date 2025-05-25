@@ -268,7 +268,8 @@ def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisc
     ax.plot(rlist_isco, veff_gr_isco, 'k-', label='Gr')
     ax.plot(rlist_isco, veff_pw_isco, 'g-.', label='Pw')
     ax.set_xlim(2, 10)
-    ax.set_ylim(-0.2, -0.07)
+    # ax.set_ylim(-0.2, -0.07)
+    ax.set_ylim(-0.5, 0.07)
     ax.axvline(x=6, color='gray', linestyle=':', linewidth=3)
     ax.text(6.1, -0.1, 'r=6', fontsize=font_size - 2, color='gray', verticalalignment='center')
     ax.legend(markerscale=1, loc='upper right', fontsize=font_size - 6)
@@ -421,7 +422,7 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 rangelist = [0.8, 5000, 7000, 7000]
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
 
 # Calculate coefficients for the specified cases
