@@ -1,7 +1,7 @@
 ---
 
 ---
-![C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Figure2_paper.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Figure2_paper.png)
+
 
 title: "Log Entire - 2025__05__25"
 created: "2025__05__25"

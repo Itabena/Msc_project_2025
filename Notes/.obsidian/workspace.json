@@ -48,9 +48,47 @@
               "icon": "lucide-file",
               "title": "Log Entire - 2025__05__25"
             }
+          },
+          {
+            "id": "e491b31a95bcef90",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "z-Assets/Withcond13fig2.png"
+              },
+              "icon": "lucide-image",
+              "title": "Withcond13fig2"
+            }
+          },
+          {
+            "id": "b6bd446fe2994a3f",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "z-Assets/Withcond13fig1.png"
+              },
+              "icon": "lucide-image",
+              "title": "Withcond13fig1"
+            }
+          },
+          {
+            "id": "3c203a005773adce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research Log/Log Entire - 2025__05__25.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Log Entire - 2025__05__25"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -199,18 +237,19 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d42a355cc6eb1157",
+  "active": "3c203a005773adce",
   "lastOpenFiles": [
-    "Example_for_bad_potential.png",
-    "Withcond2fig2.png",
-    "withcond2fig1 1.png",
-    "withcond2fig1.png",
-    "Withcond13fig2.png",
-    "Withcond13fig1.png",
-    "Forpresentfig2.png",
-    "Forpresentfig1.png",
-    "Research Log/Log Entire - 2025__05__24.md",
+    "z-Assets/Forpresentfig2.png",
+    "z-Assets/Withcond2fig2.png",
+    "z-Assets/Withcond13fig1.png",
+    "z-Assets/Withcond13fig2.png",
     "Research Log/Log Entire - 2025__05__25.md",
+    "z-Assets",
+    "z-Assets/Example_for_bad_potential.png",
+    "z-Assets/withcond2fig1 1.png",
+    "z-Assets/withcond2fig1.png",
+    "z-Assets/Forpresentfig1.png",
+    "Research Log/Log Entire - 2025__05__24.md",
     "Articles and books/PW1980_Summary.md",
     "Research Log/Log Entire - 2025__05__23.md",
     "Research Log/test1.md",
