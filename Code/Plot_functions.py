@@ -226,7 +226,8 @@ def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_l
     ax.set_xlim(25, 10**2)
     ax.grid()
     ax.tick_params(axis='both', which='major', labelsize=font_size)
-    ax.xaxis.set_minor_formatter(ticker.NullFormatter())
+    ax.tick_params(axis='x', which='minor', labelsize=font_size)  # Ensure minor x ticks have the same font size
+    # ax.xaxis.set_minor_formatter(ticker.NullFormatter())
     ax.set_xlabel('L', fontsize=font_size + 4)
     ax.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
@@ -274,6 +275,7 @@ def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisc
     ax.grid()
     ax.set_xlabel('r', fontsize=font_size)
     ax.set_ylabel(r"$V_{eff}$", fontsize=font_size, labelpad=20)
+    ax.legend(markerscale=1, loc='lower right', fontsize=font_size - 6)
     ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
     ax.text(0.05, 0.95, "(b)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
@@ -296,6 +298,21 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     folder_path_plots = r"C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code"
     if not os.path.exists(folder_path_plots):
         os.makedirs(folder_path_plots, exist_ok=True)
+    # Ask user for subplot orientation
+    orientation = input("Choose subplot orientation for Figure 1 (h for horizontal, v for vertical): ").strip().lower()
+    if orientation == 'h':
+        fig1_shape = (1, 3)
+        fig1_size = (18, 6)
+    else:
+        fig1_shape = (3, 1)
+        fig1_size = (6, 18)
+    orientation2 = input("Choose subplot orientation for Figure 2 (h for horizontal, v for vertical): ").strip().lower()
+    if orientation2 == 'h':
+        fig2_shape = (1, 2)
+        fig2_size = (14, 7)
+    else:
+        fig2_shape = (2, 1)
+        fig2_size = (10, 14)
     if not auto:
         N1_list = []
         rs_list = []
@@ -330,12 +347,14 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     rp1_wegg = np.array(data_tmp['rp_wegg1'])
     rp2_wegg = np.array(data_tmp['rp_wegg2'])
     rlist = np.linspace(2, 13, 1000)
-    fig, axs = plt.subplots(3, 1, figsize=(6, 18), constrained_layout=True)
+    fig, axs = plt.subplots(*fig1_shape, figsize=fig1_size, constrained_layout=True)
+    # Make axs always a 1D array for consistent indexing
+    axs = np.ravel(axs)
     plot_effective_potential(axs[0], rlist, N1_list, coefficient_lists, rs_list, 4, marksizq, font_size)
     plot_precession_near_L4(axs[1], prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size)
     plot_precession_far_L4(axs[2], prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size)
     msc_project_dir = os.path.join(os.getcwd(), "Msc_project_2025")
-    plots_dir =folder_path_plots+r"\Plots"
+    plots_dir = folder_path_plots + r"\Plots"
     if not os.path.exists(plots_dir):
         os.makedirs(plots_dir, exist_ok=True)
     save_figure(fig, "Figure1_paper.png", plots_dir)
@@ -384,26 +403,26 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     rdot_pw = np.sqrt(2 * Epwisco - 2 * u_pw(rlist) - ((Lpwisco**2) / (rlist**2)))
     rlist_wegg = np.linspace(2, r_wegg_isdo, 1000000)
     rdot_wegg = np.sqrt(2 * Eweggisco - 2 * u_wegg(rlist_wegg) - ((Lweggisco**2) / (rlist_wegg**2)))
-    fig, axs = plt.subplots(2, 1, figsize=(10, 14), constrained_layout=True)
+    fig2, axs2 = plt.subplots(*fig2_shape, figsize=fig2_size, constrained_layout=True)
+    axs2 = np.ravel(axs2)
     font_size2 = 23
-    plot_isco_rdot(axs[0], rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size2)
+    plot_isco_rdot(axs2[0], rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size2)
     rlist_isco = np.linspace(2, 10, 100000)[1:-2]
     Lgrisco = np.sqrt(12)
     veff_gr_isco = (1 - (2 / rlist_isco)) * (1 + ((Lgrisco**2) / (rlist_isco**2))) - 1
     Lpwisco = np.sqrt((6**3) * u_pw_dr(6))
     veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
     veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
-    plot_isco_veff(axs[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size2)
-    save_figure(fig, "Figure2_paper.png", plots_dir)
+    plot_isco_veff(axs2[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size2)
+    save_figure(fig2, "Figure2_paper.png", plots_dir)
     return
 
 
-
 rangelist = [0.8, 5000, 7000, 7000]
-# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-# final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
-final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12,13],[0,1,2,4,5,6,7,8,12,13]])
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,1],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,6,7,8,12],[0,1,2,4,5,6,7,8,12]])
+final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12,13],[0,1,4,5,6,7,8,12,13]])
 
 # Calculate coefficients for the specified cases
 N1_list = [1, 9]
