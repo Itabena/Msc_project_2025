@@ -22,7 +22,7 @@ L/sqrt(12) for run 0 is 1.1008919179049041
 E/(-1/9) for run 0 is 0.6548231260713167
 L/sqrt(12) for run 1 is 1.0717282016860146
 E/(-1/9) for run 1 is 0.9926962610428283
-[[]]
+[[]]![C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code\Plots\Temp3_f1.png](file:///c%3A/Users/itama/Desktop/My%20Projects/Msc_project_2025/Code/Plots/Temp3_f1.png)
 
 ## Actions Taken
 1. 
