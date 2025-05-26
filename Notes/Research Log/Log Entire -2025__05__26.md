@@ -26,7 +26,8 @@ max_diff_pn_1 57.172737379191304 %
 it is at r=5.
 
 If we take the paper potentials and plot the differance from the GR precession.
-![[Differances precession article potentials 1.png]]
+![[Differances precession article potentials 2.png]]
+- So we can see that for the two pnps presented in the  in the $L\rightarrow 4^+$ limit gets for $N_1=1$ less then $\frac{\pi}{4}$ deviation and $N_1=7$ gets somthing like $\frac{3\pi}{4}$ deviation, wegg gets somthin
 ## Actions Taken
 1. 
 

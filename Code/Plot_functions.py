@@ -9,7 +9,7 @@ from Calculate_precession_parab import *
 from datetime import datetime
 import os
 from sympy import Rational
-
+from scipy.interpolate import interp1d
 
 conditions_text_list=[   
     '1) Covergence to the classical Newtonian potential at large distances',
@@ -191,6 +191,11 @@ def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_
     #     "#8A07E8", "#009F9F", "#C00089", "#5D9200", "#660101",
     #     "#556B2F", "#8B4513", "#2E0854", "#3B3B6D", "#5D3954", "#36454F"
     # ]
+    print(gr_precession_list[:rangelist[1]])
+    print(gr_l_list[:rangelist[1]])
+    for i in range(len(N1_list)):
+        print(precession_value_lists[i][:rangelist[1]])
+        print(prcession_L_lists[i][:rangelist[1]])
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
         ax.plot(prcession_L_lists[i][:rangelist[1]] - prcession_L_lists[i][0],
@@ -443,7 +448,7 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     return
 
 
-rangelist = [0.8, 5000, 7000, 7000]
+rangelist = [0.8, 5000, 7010, 7000]
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
@@ -538,31 +543,37 @@ def plot_all_potentials_semilogy(N1_list, rs_list, conds_list, r_min=0.01, r_max
     plt.show()
 
 # plot_all_potentials_semilogy([7,1], [2,2], [[0, 1, 4, 5, 6, 7, 8, 12],[0, 1, 4, 5, 6, 7, 8, 12]])
+
+
 def plot_precession_diff_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
-    # Plot the difference between GR precession and other potentials' precession (normalized by pi)
-    for i in range(len(N1_list)):
+    # Interpolate all precession curves to a common L grid for logical subtraction
+    # Use the union of all L values in the near-L4 region
+    L_gr = gr_l_list[:rangelist[1]]
+    L_pw = pw_l_list[:rangelist[1]]
+    L_wegg = wegg_l_list[:rangelist[1]]
+    L_pn_list = [prc_L[:rangelist[1]] for prc_L in prcession_L_lists]
+    # Build a common L grid (sorted unique values)
+    L_common = np.unique(np.concatenate([L_gr] + L_pn_list + [L_pw, L_wegg]))
+    # Interpolators
+    interp_gr = interp1d(L_gr, gr_precession_list[:rangelist[1]], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_pw = interp1d(L_pw, pw_precession_list[:rangelist[1]], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_wegg = interp1d(L_wegg, wegg_precession_list[:rangelist[1]], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_pn_list = [interp1d(L_pn, precession_value_lists[i][:rangelist[1]], kind='linear', bounds_error=False, fill_value="extrapolate") for i, L_pn in enumerate(L_pn_list)]
+    # Plot PN - GR
+    for i, interp_pn in enumerate(interp_pn_list):
         color = dark_colors[i % len(dark_colors)]
-        # Ensure lengths match for subtraction
-        min_len = min(len(prcession_L_lists[i][:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
-        ax.plot(
-            prcession_L_lists[i][:min_len] - prcession_L_lists[i][0],
-            (np.array(precession_value_lists[i][:min_len]) - np.array(gr_precession_list[:min_len])) / np.pi,
-            '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq
-        )
-    # PW
-    min_len_pw = min(len(pw_l_list[:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
-    ax.plot(
-        pw_l_list[:min_len_pw] - pw_l_list[0],
-        (np.array(pw_precession_list[:min_len_pw]) - np.array(gr_precession_list[:min_len_pw])) / np.pi,
-        'g-.', label='Pw'
-    )
-    # Pwegg
-    min_len_wegg = min(len(wegg_l_list[:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
-    ax.plot(
-        wegg_l_list[:min_len_wegg] - wegg_l_list[0],
-        (np.array(wegg_precession_list[:min_len_wegg]) - np.array(gr_precession_list[:min_len_wegg])) / np.pi,
-        'r--', label='Pwegg'
-    )
+        diff = (interp_pn(L_common) - interp_gr(L_common)) / np.pi
+        print(diff)
+        ax.plot(L_common - L_common[0], diff, '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+
+    # PW - GR
+    diff_pw = (interp_pw(L_common) - interp_gr(L_common)) / np.pi
+    print(diff_pw)
+    ax.plot(L_common - L_common[0], diff_pw, 'g-.', label='Pw')
+    # Pwegg - GR
+    diff_wegg = (interp_wegg(L_common) - interp_gr(L_common)) / np.pi
+    print(diff_wegg)
+    ax.plot(L_common - L_common[0], diff_wegg, 'r--', label='Pwegg')
     ax.set_xscale('log')
     ax.set_ylim(-1, 1)
     ax.set_xlim(10**(-5), 3*10**(-2))
@@ -575,30 +586,29 @@ def plot_precession_diff_near_L4(ax, prcession_L_lists, precession_value_lists, 
     ax.legend(fontsize=font_size - 2)
 
 def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
-    # Plot the difference between GR precession and other potentials' precession (normalized by pi)
-    for i in range(len(N1_list)):
+    # Interpolate all precession curves to a common L grid for logical subtraction (far from L=4)
+    L_gr = gr_l_list[rangelist[1]:]
+    L_pw = pw_l_list[rangelist[1]:]
+    L_wegg = wegg_l_list[rangelist[1]:]
+    L_pn_list = [prc_L[rangelist[1]:] for prc_L in prcession_L_lists]
+    # Build a common L grid (sorted unique values)
+    L_common = np.unique(np.concatenate([L_gr] + L_pn_list + [L_pw, L_wegg]))
+    # Interpolators
+    interp_gr = interp1d(L_gr, gr_precession_list[rangelist[1]:], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_pw = interp1d(L_pw, pw_precession_list[rangelist[1]:], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_wegg = interp1d(L_wegg, wegg_precession_list[rangelist[1]:], kind='linear', bounds_error=False, fill_value="extrapolate")
+    interp_pn_list = [interp1d(L_pn, precession_value_lists[i][rangelist[1]:], kind='linear', bounds_error=False, fill_value="extrapolate") for i, L_pn in enumerate(L_pn_list)]
+    # Plot PN - GR
+    for i, interp_pn in enumerate(interp_pn_list):
         color = dark_colors[i % len(dark_colors)]
-        # Ensure lengths match for subtraction
-        min_len = min(len(prcession_L_lists[i][rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
-        ax.plot(
-            prcession_L_lists[i][rangelist[1]:rangelist[1]+min_len],
-            (np.array(precession_value_lists[i][rangelist[1]:rangelist[1]+min_len]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len])) / np.pi,
-            '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq
-        )
-    # PW
-    min_len_pw = min(len(pw_l_list[rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
-    ax.plot(
-        pw_l_list[rangelist[1]:rangelist[1]+min_len_pw],
-        (np.array(pw_precession_list[rangelist[1]:rangelist[1]+min_len_pw]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len_pw])) / np.pi,
-        'g-.', label='Pw'
-    )
-    # Pwegg
-    min_len_wegg = min(len(wegg_l_list[rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
-    ax.plot(
-        wegg_l_list[rangelist[1]:rangelist[1]+min_len_wegg],
-        (np.array(wegg_precession_list[rangelist[1]:rangelist[1]+min_len_wegg]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len_wegg])) / np.pi,
-        'r--', label='Pwegg'
-    )
+        diff = (interp_pn(L_common) - interp_gr(L_common)) / np.pi
+        ax.plot(L_common, diff, '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+    # PW - GR
+    diff_pw = (interp_pw(L_common) - interp_gr(L_common)) / np.pi
+    ax.plot(L_common, diff_pw, 'g-.', label='Pw')
+    # Pwegg - GR
+    diff_wegg = (interp_wegg(L_common) - interp_gr(L_common)) / np.pi
+    ax.plot(L_common, diff_wegg, 'r--', label='Pwegg')
     ax.set_xscale('log')
     ax.set_yscale('linear')
     ax.set_ylim(-0.01, 0.01)
@@ -616,7 +626,7 @@ def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, g
 
 
 def plot_precession_diffs_for_cases():
-        rangelist = [0.8, 5000, 7000, 7000]
+        rangelist = [0.8, 5000, 7010, 7000]
         N1_list = [1, 7]
         rs_list = [2, 2]
         conds_list = [
