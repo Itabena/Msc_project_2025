@@ -563,16 +563,16 @@ def plot_precession_diff_near_L4(ax, prcession_L_lists, precession_value_lists, 
     for i, interp_pn in enumerate(interp_pn_list):
         color = dark_colors[i % len(dark_colors)]
         diff = (interp_pn(L_common) - interp_gr(L_common)) / np.pi
-        print(diff)
+        print(diff[50:])
         ax.plot(L_common - L_common[0], diff, '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
 
     # PW - GR
     diff_pw = (interp_pw(L_common) - interp_gr(L_common)) / np.pi
-    print(diff_pw)
+    print(diff_pw[50:])
     ax.plot(L_common - L_common[0], diff_pw, 'g-.', label='Pw')
     # Pwegg - GR
     diff_wegg = (interp_wegg(L_common) - interp_gr(L_common)) / np.pi
-    print(diff_wegg)
+    print(diff_wegg[50:])
     ax.plot(L_common - L_common[0], diff_wegg, 'r--', label='Pwegg')
     ax.set_xscale('log')
     ax.set_ylim(-1, 1)
