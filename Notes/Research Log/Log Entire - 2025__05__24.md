@@ -17,6 +17,7 @@ _Last modified: 2025-05-24_
 - [ ] Finish optional plot of effeective potential and tragectory gifs around it.
 - [ ] Add "bad" potential plot.
 - [ ] Look at correct angular moentum or orbital energy ISCO alternatives.
+- [ ] sdada
 
 
 ## Questions for reem :
