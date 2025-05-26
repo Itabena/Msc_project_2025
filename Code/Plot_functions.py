@@ -245,6 +245,7 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
         ax.plot(rlist_list[i], (np.array(rdotpn_list[i]) - np.array(rdot_gr[:len(rdotpn_list[i])])), '-*', label=f'Pn-N1={N1_list[i]},{i}_pn', markersize=0.3, color=color)
     ax.plot(rlist, (np.array(rdot_pw) - (np.array(rdot_gr[:len(rdot_pw)]))), 'g-.', label='Pw')
     ax.plot(rlist_wegg[:len(rdot_gr)] + (6 - r_wegg_isdo), (np.array(rdot_wegg[:len(rdot_gr)]) - (np.array(rdot_gr))), 'r--', label='Pwegg(shifted)')
+
     ax.legend(markerscale=10, loc='upper right', fontsize=font_size - 6)
     ax.grid()
     ax.set_ylim(-0.01, 0.11)
@@ -254,15 +255,12 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
     min_len = min(len(rdot_gr), len(rdot_pw), len(rdot_wegg), *[len(rdotpn) for rdotpn in rdotpn_list])
     print('min_len=', min_len)
     initial_index=np.where(rlist >= 5)[0][0]
-    print('initial_index=', initial_index)
-    initial_index_wegg = np.where(rlist_wegg >= rlist_wegg[-1]-1)[0][0]
-    rdot_pw_trunc = np.array(rdot_pw[ initial_index:min_len])
-    rdot_wegg_trunc = np.array(rdot_wegg[ initial_index:min_len])
-    print('pw_diff=', max(abs(rdot_gr[ initial_index: min_len] - rdot_pw_trunc)), 
-          'wegg_diff=', max(abs(rdot_gr[ initial_index: min_len] - rdot_wegg_trunc)))
-    for i in range(len(N1_list)):
-        rdotpn_trunc = np.array(rdotpn_list[i][ initial_index:min_len])
-        print(f"Max difference for PN-N1={N1_list[i]}: {max(abs(rdot_gr[ initial_index: min_len] - rdotpn_trunc))}")
+    initial_index_wegg=np.where(rlist_wegg >= r_wegg_isdo-1)[0][0]
+    print('max_diff_pw', ((rdot_pw[initial_index]- rdot_gr[initial_index])/np.abs(rdot_gr[initial_index]))*100,'%')
+    print('max_diff_wegg', ((rdot_wegg[initial_index_wegg]- rdot_gr[initial_index_wegg])/np.abs(rdot_gr[initial_index_wegg]))*100,'%')
+    for i in range(len(rdotpn_list)):
+        initial_index=np.where(rlist_list[i] >= 5)[0][0]
+        print(f'max_diff_pn_{i}', ((rdotpn_list[i][initial_index]- rdot_gr[initial_index])/np.abs(rdot_gr[initial_index]))*100,'%')
     ax.set_xlabel('r', fontsize=font_size)
     ax.set_ylabel(r"$\Delta \dot{r}$ ", fontsize=font_size, labelpad=20)
     ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
@@ -613,6 +611,8 @@ def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, g
     ax.set_title("Precession Difference Far from L=4", fontsize=font_size + 2)
     ax.legend(fontsize=font_size - 2)
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
+
+
 
 ##########
 # # Define the coefficients for the two cases

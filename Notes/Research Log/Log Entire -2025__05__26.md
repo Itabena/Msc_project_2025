@@ -19,11 +19,11 @@ _Last modified: 2025-05-26_
 
 ## Findings and Notes
 - The maximum error in radial velocity r[5,6]:
-- pw_diff= 0.021851029334803557 
-- wegg_diff= 0.010676126805363704
-Max difference for PN-N1=1: 0.009117375966731504
-Max difference for PN-N1=7: 0.010847709972279684
-
+max_diff_pw 115.16561235653941 %
+max_diff_wegg 65.97239992525974 %
+max_diff_pn_0 48.05303083004025 %
+max_diff_pn_1 57.172737379191304 %
+it is at r=5.
 ## Actions Taken
 1. 
 
