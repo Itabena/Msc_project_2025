@@ -25,3 +25,4 @@ await tp.file.create(path, fm);
 // 7) Open it in the editor
 await tp.obsidian.open_file(path);
 %>
+
