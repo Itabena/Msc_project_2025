@@ -30,8 +30,8 @@ If we take the paper potentials and plot the differance from the GR precession.
 - So we can see that for the two pnps presented in the  in the $L\rightarrow 4^+$ limit gets for $N_1=1$ , $\approx 0.16\pi$  deviation and $N_1=7$ gets something like $\approx 0.7\pi$  deviation, Wegg gets something like $\approx 0.01\pi$ deviation and PW gets worse values that get even more then $2\pi$ .
 So if we look on the bad place:
 ![[The bad precession zone loglog.png]]
-We can see the N1=1 can getto 0 and negative precession for the intermidiate values and N1=7 gets to about maximum of 50 to 60 precents.
-the region it is bad at is between 4.3/.2 to 20 for N1=1 or 8 fro N1 =7
+We can see the N1=1 can get 0 and negative precession (more then 100% error) for the intermediate values and N1=7 gets to about maximum of 50 to 60 precents.
+the region it is bad at is between L=4.3/.2 to L=20 for N1=1 or L=8 for N1 =7
 ## Actions Taken
 1. 
 
