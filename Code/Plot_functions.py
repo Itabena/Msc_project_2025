@@ -584,6 +584,7 @@ def plot_precession_diff_near_L4(ax, prcession_L_lists, precession_value_lists, 
     ax.set_title("Precession Difference Near L=4", fontsize=font_size + 2)
     ax.text(0.05, 0.95, "(II)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
     ax.legend(fontsize=font_size - 2)
+    return interp_gr, interp_pw, interp_wegg, interp_pn_list
 
 def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
     # Interpolate all precession curves to a common L grid for logical subtraction (far from L=4)
@@ -621,77 +622,71 @@ def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, g
     ax.set_title("Precession Difference Far from L=4", fontsize=font_size + 2)
     ax.legend(fontsize=font_size - 2)
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
-
+    return interp_gr, interp_pw, interp_wegg, interp_pn_list
     # Plot the precession differences for the specified rangelist and parameters
 
-
 def plot_precession_diffs_for_cases():
-        rangelist = [0.8, 5000, 7010, 7000]
-        N1_list = [1, 7]
-        rs_list = [2, 2]
-        conds_list = [
-            [0, 1, 4, 5, 6, 7, 8, 12],
-            [0, 1, 4, 5, 6, 7, 8, 12]
-        ]
-        marksizq = 1
-        font_size = 16
+    rangelist = [0.8, 5000, 7010, 7000]
+    N1_list = [1, 7]
+    rs_list = [2, 2]
+    conds_list = [
+        [0, 1, 4, 5, 6, 7, 8, 12],
+        [0, 1, 4, 5, 6, 7, 8, 12]
+    ]
+    marksizq = 1
+    font_size = 16
 
-        # Gather data for each case
-        coefficient_lists = []
-        prcession_L_lists = []
-        precession_value_lists = []
-        for i in range(len(N1_list)):
-            data_tmp = new_main(N1_list[i], rs_list[i], conds_list[i], rangelist)
-            coefficient_lists.append(np.array(data_tmp['coeffs']))
-            prcession_L_lists.append(np.array(data_tmp['Pn_L_list']))
-            precession_value_lists.append(np.array(data_tmp['Pn_parb_prec_list']))
-        gr_l_list = np.array(data_tmp['Gr_L_list'])
-        gr_precession_list = np.array(data_tmp['Gr_parb_prec_list'])
-        pw_l_list = np.array(data_tmp['Pw_L_list'])
-        pw_precession_list = np.array(data_tmp['Pw_parb_prec_list'])
-        wegg_l_list = np.array(data_tmp['Pwegg_L_list'])
-        wegg_precession_list = np.array(data_tmp['Pwegg_parb_prec_list'])
+    # Gather data for each case
+    coefficient_lists = []
+    prcession_L_lists = []
+    precession_value_lists = []
+    for i in range(len(N1_list)):
+        data_tmp = new_main(N1_list[i], rs_list[i], conds_list[i], rangelist)
+        coefficient_lists.append(np.array(data_tmp['coeffs']))
+        prcession_L_lists.append(np.array(data_tmp['Pn_L_list']))
+        precession_value_lists.append(np.array(data_tmp['Pn_parb_prec_list']))
+    gr_l_list = np.array(data_tmp['Gr_L_list'])
+    gr_precession_list = np.array(data_tmp['Gr_parb_prec_list'])
+    pw_l_list = np.array(data_tmp['Pw_L_list'])
+    pw_precession_list = np.array(data_tmp['Pw_parb_prec_list'])
+    wegg_l_list = np.array(data_tmp['Pwegg_L_list'])
+    wegg_precession_list = np.array(data_tmp['Pwegg_parb_prec_list'])
 
-        fig, axs = plt.subplots(1, 2, figsize=(14, 6), constrained_layout=True)
-        plot_precession_diff_near_L4(
-            axs[0], prcession_L_lists, precession_value_lists,
-            gr_l_list, gr_precession_list,
-            pw_l_list, pw_precession_list,
-            wegg_l_list, wegg_precession_list,
-            rangelist, N1_list, marksizq, font_size
-        )
-        plot_precession_diff_far_L4(
-            axs[1], prcession_L_lists, precession_value_lists,
-            gr_l_list, gr_precession_list,
-            pw_l_list, pw_precession_list,
-            wegg_l_list, wegg_precession_list,
-            rangelist, N1_list, marksizq, font_size
-        )
-        plt.show()
-
-    # Call the function to plot the diffs
+    fig, axs = plt.subplots(1, 2, figsize=(20, 6), constrained_layout=True)
+    inter_gr_near, inter_pw_near, inter_wegg_near, inter_pn_near_list =plot_precession_diff_near_L4(
+        axs[0], prcession_L_lists, precession_value_lists,
+        gr_l_list, gr_precession_list,
+        pw_l_list, pw_precession_list,
+        wegg_l_list, wegg_precession_list,
+        rangelist, N1_list, marksizq, font_size
+    )
+    inter_gr_far, inter_pw_far, inter_wegg_far, inter_pn_far_list = plot_precession_diff_far_L4(
+        axs[1], prcession_L_lists, precession_value_lists,
+        gr_l_list, gr_precession_list,
+        pw_l_list, pw_precession_list,
+        wegg_l_list, wegg_precession_list,
+        rangelist, N1_list, marksizq, font_size
+    )
+# Plot all precessions for all L values (logscale x)
+    fig2, ax2 = plt.subplots(figsize=(10, 6))
+    for i in range(len(N1_list)):
+        color = dark_colors[i % len(dark_colors)]
+        precession_vals = np.array(precession_value_lists[i])
+        precession_vals[precession_vals <= 0] = 0.001
+        ax2.plot(prcession_L_lists[i], np.array(precession_vals) / np.array(gr_precession_list),
+                '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+    ax2.plot(gr_l_list, np.array(gr_precession_list) / np.array(gr_precession_list), 'k-', label='Gr')
+    ax2.plot(pw_l_list, np.array(pw_precession_list) / np.array(gr_precession_list), 'g-.', label='Pw')
+    ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.array(gr_precession_list), 'r--', label='Pwegg')
+    ax2.set_xscale('log')
+    ax2.set_yscale('log')
+    ax2.set_xlabel('L', fontsize=font_size + 4)
+    ax2.set_ylabel(r'$\frac{\Delta\phi_{X}}{\Delta\phi_{GR}}$', fontsize=font_size + 4, rotation=0, labelpad=20)
+    ax2.set_title("All Precessions vs L (logscale)", fontsize=font_size + 2)
+    ax2.legend(fontsize=font_size - 2)
+    ax2.grid(True, which="both", ls="--")
+    plt.show()
 plot_precession_diffs_for_cases()
+# Call the function to plot the diffs
 
-##########
-# # Define the coefficients for the two cases
-# coefficients_case_1 = Solve_coeffs(7, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
-# coefficients_case_2 = Solve_coeffs(1, 2, [0, 1, 4, 5, 6, 7, 8, 12])[0]
-
-# # Convert coefficients to rational numbers
-# coefficients_case_1_rational = [Rational(c).limit_denominator() for c in coefficients_case_1]
-# coefficients_case_2_rational = [Rational(c).limit_denominator() for c in coefficients_case_2]
-
-# # Print the coefficients in rational and decimal form
-# print("Coefficients for Case 1 (N1=7, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
-# for rational, decimal in zip(coefficients_case_1_rational, coefficients_case_1):
-#     print(f"{rational} ({decimal})")
-
-# print("\nCoefficients for Case 2 (N1=1, rs=2, conds=[0, 1, 4, 5, 6, 7, 8, 12]):")
-# for rational, decimal in zip(coefficients_case_2_rational, coefficients_case_2):
-#     print(f"{rational} ({decimal})")
-# # final_plots(rangelist,auto=True,N1_list=N11_list,rs_list=rsss,conds_list=conds_list)
-
-# # Example usage:
-# rangelist = [0.8, 5000, 6990, 7000]
-# final_plots_envelope(rangelist, auto=True, N1_list=[1,7], rs_list=[2,2], conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
-#########
+    
