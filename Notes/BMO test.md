@@ -24,3 +24,7 @@ bmo
 prompt
 ```
 
+```bmo
+MODEL phi4-reasoning:latest
+What model of LLm am I using right now?
+```

@@ -1,5 +1,5 @@
 ---
-model: phi4:latest
+model: phi4-reasoning:latest
 max_tokens: .nan
 temperature: 2
 enable_reference_current_note: true

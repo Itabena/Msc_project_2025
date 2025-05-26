@@ -8,7 +8,7 @@
     ]
   },
   "general": {
-    "model": "phi4:latest",
+    "model": "phi4-reasoning:latest",
     "system_role": "You are a helpful assistant.",
     "max_tokens": null,
     "temperature": "2.00",
@@ -63,6 +63,8 @@
       "keep_alive": ""
     },
     "ollamaModels": [
+      "phi4-reasoning:latest",
+      "gemma3:latest",
       "deepseek-r1:latest",
       "phi4:latest"
     ]
