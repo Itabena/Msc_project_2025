@@ -1,0 +1,31 @@
+{
+  "_version": 1,
+  "debugLogging": false,
+  "useNativeFetch": false,
+  "providers": [
+    {
+      "id": "id-1748264511329",
+      "name": "Phi4",
+      "apiKey": "",
+      "url": "http://localhost:11434",
+      "type": "ollama",
+      "model": "phi4:latest",
+      "availableModels": [
+        "deepseek-r1:latest",
+        "phi4:latest"
+      ]
+    },
+    {
+      "id": "id-1748264539162",
+      "name": "DeepSeek",
+      "apiKey": "",
+      "url": "http://localhost:11434",
+      "type": "ollama",
+      "model": "deepseek-r1:latest",
+      "availableModels": [
+        "deepseek-r1:latest",
+        "phi4:latest"
+      ]
+    }
+  ]
+}

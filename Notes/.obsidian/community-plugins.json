@@ -4,5 +4,6 @@
   "obsidian-citation-plugin",
   "templater-obsidian",
   "dataview",
-  "local-gpt"
+  "local-gpt",
+  "ai-providers"
 ]
