@@ -24,6 +24,9 @@ max_diff_wegg 65.97239992525974 %
 max_diff_pn_0 48.05303083004025 %
 max_diff_pn_1 57.172737379191304 %
 it is at r=5.
+
+If we take the paper potentials and plot the differance from the GR precession.
+![[Differances precession article potentials 1.png]]
 ## Actions Taken
 1. 
 
