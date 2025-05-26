@@ -673,15 +673,15 @@ def plot_precession_diffs_for_cases():
         color = dark_colors[i % len(dark_colors)]
         precession_vals = np.array(precession_value_lists[i])
         precession_vals[precession_vals <= 0] = 0.001
-        ax2.plot(prcession_L_lists[i], np.array(precession_vals) / np.array(gr_precession_list),
-                '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
-    ax2.plot(gr_l_list, np.array(gr_precession_list) / np.array(gr_precession_list), 'k-', label='Gr')
-    ax2.plot(pw_l_list, np.array(pw_precession_list) / np.array(gr_precession_list), 'g-.', label='Pw')
-    ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.array(gr_precession_list), 'r--', label='Pwegg')
+        ax2.plot(prcession_L_lists[i], np.array(precession_vals) / np.pi,
+            '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
+        ax2.plot(gr_l_list, np.array(gr_precession_list) / np.pi, 'k-', label='Gr')
+        ax2.plot(pw_l_list, np.array(pw_precession_list) / np.pi, 'g-.', label='Pw')
+        ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.pi, 'r--', label='Pwegg')
     ax2.set_xscale('log')
     ax2.set_yscale('log')
     ax2.set_xlabel('L', fontsize=font_size + 4)
-    ax2.set_ylabel(r'$\frac{\Delta\phi_{X}}{\Delta\phi_{GR}}$', fontsize=font_size + 4, rotation=0, labelpad=20)
+    ax2.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax2.set_title("All Precessions vs L (logscale)", fontsize=font_size + 2)
     ax2.legend(fontsize=font_size - 2)
     ax2.grid(True, which="both", ls="--")
