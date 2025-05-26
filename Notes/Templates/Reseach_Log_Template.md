@@ -24,3 +24,6 @@ _Last modified: <% tp.file.last_modified_date("YYYY-MM-DD") %>_
 
 ## Future Plans
 - 
+```
+<% await tp.file.move("Research Log/ Log Entire -1.md"   %>
+```
