@@ -93,12 +93,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Log/Log Entire -2025__05__26.md",
+                "file": "Templates/Reseach_Log_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Log Entire -2025__05__26"
+              "title": "Reseach_Log_Template"
             }
           }
         ],
@@ -251,11 +251,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ccb41af15cd7519b",
+  "active": "074168bb58b17de5",
   "lastOpenFiles": [
+    "Research Log/Log Entire -2025__05__26.md",
     "Templates/Reseach_Log_Template.md",
-    "Research Log/Log Entire -2025__05__26.md",
-    "Research Log/Log Entire -2025__05__26.md",
     "Research Log/Log Entire - 2025__05__25.md",
     "Templates/Testt.md",
     "Research Log/test.md",
