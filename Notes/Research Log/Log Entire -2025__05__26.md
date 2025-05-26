@@ -36,4 +36,7 @@ the region it is bad at is between L=4.3/.2 to L=20 for N1=1 or L=8 for N1 =7![[
 1. 
 
 ## Future Plans
-- 
+- See about the extant of knowledge needed on the theory of accretion discs and TDEs...
+- READ GR notes, specifically regarding the Sch metric and the geodesic equation,
+- See if there is more data analysis needed or are we good in that front with the plots from todays and yesterdays note.
+- See that you finish the presentation before this wekkend, so you can prepare and learn for at least 1.5 weeks.

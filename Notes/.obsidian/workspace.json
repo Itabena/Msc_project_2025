@@ -93,12 +93,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Log/Log Entire -2025__05__26.md",
+                "file": "Templates/Paper_Summary_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Log Entire -2025__05__26"
+              "title": "Paper_Summary_Template"
             }
           }
         ],
@@ -175,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Research Log/Log Entire -2025__05__26.md",
+                "file": "Templates/Paper_Summary_Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +185,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Log Entire -2025__05__26"
+              "title": "Backlinks for Paper_Summary_Template"
             }
           },
           {
@@ -223,13 +223,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Research Log/Log Entire -2025__05__26.md",
+                "file": "Templates/Paper_Summary_Template.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Log Entire -2025__05__26"
+              "title": "Outline of Paper_Summary_Template"
             }
           },
           {
@@ -267,8 +267,9 @@
   },
   "active": "ccb41af15cd7519b",
   "lastOpenFiles": [
-    "Research Log/Log Entire - 2025__05__25.md",
+    "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire -2025__05__26.md",
+    "Research Log/Log Entire - 2025__05__25.md",
     "z-Assets/The bad precession zone.png",
     "z-Assets/The bad precession zone loglog.png",
     "Differances precession article potentials.png",
@@ -279,7 +280,6 @@
     "BMO/Profiles/BMO.md",
     "BMO/Profiles",
     "BMO",
-    "Templates/Reseach_Log_Template.md",
     "Research Log/test.md",
     "Research Log/Log Entire - 2025__05__26.md",
     "Templates/Paper_Summary_Template.md",
