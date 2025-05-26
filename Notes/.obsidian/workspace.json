@@ -231,9 +231,19 @@
               "icon": "lucide-list",
               "title": "Outline of Testt"
             }
+          },
+          {
+            "id": "a11b7d978c08c169",
+            "type": "leaf",
+            "state": {
+              "type": "chatbot-view",
+              "state": {},
+              "icon": "bot",
+              "title": "BMO Chatbot"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -255,7 +265,7 @@
       "bmo-chatbot:BMO Chatbot": false
     }
   },
-  "active": "ccb41af15cd7519b",
+  "active": "a11b7d978c08c169",
   "lastOpenFiles": [
     "BMO/Profiles/BMO.md",
     "BMO/Profiles",

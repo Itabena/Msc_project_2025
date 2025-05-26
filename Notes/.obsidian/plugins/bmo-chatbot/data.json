@@ -8,11 +8,11 @@
     ]
   },
   "general": {
-    "model": "",
+    "model": "phi4:latest",
     "system_role": "You are a helpful assistant.",
     "max_tokens": null,
-    "temperature": "1.00",
-    "enableReferenceCurrentNote": false
+    "temperature": "2.00",
+    "enableReferenceCurrentNote": true
   },
   "appearance": {
     "userName": "YOU",
@@ -62,7 +62,10 @@
       "min_p": "0.00",
       "keep_alive": ""
     },
-    "ollamaModels": []
+    "ollamaModels": [
+      "deepseek-r1:latest",
+      "phi4:latest"
+    ]
   },
   "RESTAPIURLConnection": {
     "APIKey": "",
@@ -97,10 +100,10 @@
       "openRouterModels": []
     }
   },
-  "toggleGeneralSettings": false,
+  "toggleGeneralSettings": true,
   "toggleAppearanceSettings": false,
   "togglePromptSettings": false,
-  "toggleEditorSettings": false,
+  "toggleEditorSettings": true,
   "toggleChatHistorySettings": false,
   "toggleProfileSettings": false,
   "toggleAPIConnectionSettings": false,
