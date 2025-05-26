@@ -624,18 +624,18 @@ def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, g
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
     return interp_gr, interp_pw, interp_wegg, interp_pn_list
     # Plot the precession differences for the specified rangelist and parameters
+def plot_precession_diffs_for_cases(rangelist, N1_list, rs_list, conds_list, marksizq=1, font_size=16):
+    """
+    Plot precession differences for given cases, similar to final_plots input.
 
-def plot_precession_diffs_for_cases():
-    rangelist = [0.8, 5000, 7010, 7000]
-    N1_list = [1, 7]
-    rs_list = [2, 2]
-    conds_list = [
-        [0, 1, 4, 5, 6, 7, 8, 12],
-        [0, 1, 4, 5, 6, 7, 8, 12]
-    ]
-    marksizq = 1
-    font_size = 16
-
+    Args:
+        rangelist: List of 4 values specifying the rp range.
+        N1_list: List of N1 values.
+        rs_list: List of rs values.
+        conds_list: List of conds lists.
+        marksizq: Marker size for plots.
+        font_size: Font size for plots.
+    """
     # Gather data for each case
     coefficient_lists = []
     prcession_L_lists = []
@@ -653,7 +653,7 @@ def plot_precession_diffs_for_cases():
     wegg_precession_list = np.array(data_tmp['Pwegg_parb_prec_list'])
 
     fig, axs = plt.subplots(1, 2, figsize=(20, 6), constrained_layout=True)
-    inter_gr_near, inter_pw_near, inter_wegg_near, inter_pn_near_list =plot_precession_diff_near_L4(
+    inter_gr_near, inter_pw_near, inter_wegg_near, inter_pn_near_list = plot_precession_diff_near_L4(
         axs[0], prcession_L_lists, precession_value_lists,
         gr_l_list, gr_precession_list,
         pw_l_list, pw_precession_list,
@@ -667,7 +667,7 @@ def plot_precession_diffs_for_cases():
         wegg_l_list, wegg_precession_list,
         rangelist, N1_list, marksizq, font_size
     )
-# Plot all precessions for all L values (logscale x)
+    # Plot all precessions for all L values (logscale x)
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     for i in range(len(N1_list)):
         color = dark_colors[i % len(dark_colors)]
@@ -675,18 +675,26 @@ def plot_precession_diffs_for_cases():
         precession_vals[precession_vals <= 0] = 0.001
         ax2.plot(prcession_L_lists[i], np.array(precession_vals) / np.pi,
             '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq)
-        ax2.plot(gr_l_list, np.array(gr_precession_list) / np.pi, 'k-', label='Gr')
-        ax2.plot(pw_l_list, np.array(pw_precession_list) / np.pi, 'g-.', label='Pw')
-        ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.pi, 'r--', label='Pwegg')
+    ax2.plot(gr_l_list, np.array(gr_precession_list) / np.pi, 'k-', label='Gr')
+    ax2.plot(pw_l_list, np.array(pw_precession_list) / np.pi, 'g-.', label='Pw')
+    ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.pi, 'r--', label='Pwegg')
     ax2.set_xscale('log')
-    # ax2.set_yscale('log')
     ax2.set_xlabel('L', fontsize=font_size + 4)
     ax2.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax2.set_title("All Precessions vs L (logscale)", fontsize=font_size + 2)
     ax2.legend(fontsize=font_size - 2)
     ax2.grid(True, which="both", ls="--")
     plt.show()
-plot_precession_diffs_for_cases()
+
+# Example usage:
+rangelist = [0.8, 5000, 7010, 7000]
+N1_list = [1, 7]
+rs_list = [2, 2]
+conds_list = [
+    [0, 1, 4, 5, 6, 7, 8, 12,13],
+    [0, 1, 4, 5, 6, 7, 8, 12,13]
+]
+plot_precession_diffs_for_cases(rangelist, N1_list, rs_list, conds_list)
 # Call the function to plot the diffs
 
     
