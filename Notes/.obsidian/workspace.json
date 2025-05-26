@@ -223,27 +223,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Research Log/2025_05_22.md",
+                "file": "Templates/Testt.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025_05_22"
-            }
-          },
-          {
-            "id": "5d891e639c1012b8",
-            "type": "leaf",
-            "state": {
-              "type": "smart-chat-view",
-              "state": {},
-              "icon": "message-square",
-              "title": "Smart Chat"
+              "title": "Outline of Testt"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -264,7 +254,7 @@
       "smart-connections:Open: Smart Chat Conversation": false
     }
   },
-  "active": "5d891e639c1012b8",
+  "active": "e6602f4c3e2e18a2",
   "lastOpenFiles": [
     "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire -2025__05__26.md",

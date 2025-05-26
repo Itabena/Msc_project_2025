@@ -26,3 +26,10 @@ await tp.file.create(path, fm);
 await tp.obsidian.open_file(path);
 %>
 
+
+<hr class="__chatgpt_plugin">
+
+### role::user
+
+
+
