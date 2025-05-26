@@ -251,11 +251,15 @@
       "templater-obsidian:Templater": false,
       "copilot:Open Copilot Chat": false,
       "smart-connections:Open: View Smart Connections": false,
-      "smart-connections:Open: Smart Chat Conversation": false
+      "smart-connections:Open: Smart Chat Conversation": false,
+      "bmo-chatbot:BMO Chatbot": false
     }
   },
-  "active": "e6602f4c3e2e18a2",
+  "active": "ccb41af15cd7519b",
   "lastOpenFiles": [
+    "BMO/Profiles/BMO.md",
+    "BMO/Profiles",
+    "BMO",
     "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire -2025__05__26.md",
     "Research Log/Log Entire - 2025__05__25.md",
@@ -296,7 +300,6 @@
     "NotesResearch Log",
     "Templates",
     "Important Calculations",
-    "Articles and books",
-    "Research Log"
+    "Articles and books"
   ]
 }
