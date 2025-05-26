@@ -202,6 +202,7 @@ def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_
     ax.set_xscale('log')
     ax.set_ylim(1, 5)
     ax.set_xlim(10**(-5), 3*10**(-2))
+    
     ax.grid()
     ax.tick_params(axis='both', which='major', labelsize=font_size)
     ax.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
@@ -248,6 +249,20 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
     ax.grid()
     ax.set_ylim(-0.01, 0.11)
     ax.set_xlim(4, 6)
+    print(rlist)
+    # Ensure all arrays are truncated to the length of rdot_gr for fair comparison
+    min_len = min(len(rdot_gr), len(rdot_pw), len(rdot_wegg), *[len(rdotpn) for rdotpn in rdotpn_list])
+    print('min_len=', min_len)
+    initial_index=np.where(rlist >= 5)[0][0]
+    print('initial_index=', initial_index)
+    initial_index_wegg = np.where(rlist_wegg >= rlist_wegg[-1]-1)[0][0]
+    rdot_pw_trunc = np.array(rdot_pw[ initial_index:min_len])
+    rdot_wegg_trunc = np.array(rdot_wegg[ initial_index:min_len])
+    print('pw_diff=', max(abs(rdot_gr[ initial_index: min_len] - rdot_pw_trunc)), 
+          'wegg_diff=', max(abs(rdot_gr[ initial_index: min_len] - rdot_wegg_trunc)))
+    for i in range(len(N1_list)):
+        rdotpn_trunc = np.array(rdotpn_list[i][ initial_index:min_len])
+        print(f"Max difference for PN-N1={N1_list[i]}: {max(abs(rdot_gr[ initial_index: min_len] - rdotpn_trunc))}")
     ax.set_xlabel('r', fontsize=font_size)
     ax.set_ylabel(r"$\Delta \dot{r}$ ", fontsize=font_size, labelpad=20)
     ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
@@ -359,7 +374,12 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     plots_dir = folder_path_plots + r"\Plots"
     if not os.path.exists(plots_dir):
         os.makedirs(plots_dir, exist_ok=True)
-    save_figure(fig, "Figure1_paper.png", plots_dir)
+    # Ask if user wants to save
+    save_choice = input("Do you want to save Figure 1? (y/n): ").strip().lower()
+    if save_choice == 'y':
+        save_figure(fig, "Figure1_paper.png", plots_dir)
+    else:
+        plt.show()
     # ISCO plots
     rlist = np.linspace(2, 6, 1000000)[1:-2]
     E_pn_list = []
@@ -416,13 +436,18 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     veff_pw_isco = 2 * u_pw(rlist_isco) + ((Lpwisco**2) / (rlist_isco**2))
     veff_wegg_isco = 2 * u_wegg(rlist_isco) + ((Lweggisco**2) / (rlist_isco**2))
     plot_isco_veff(axs2[1], rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size2)
-    save_figure(fig2, "Figure2_paper.png", plots_dir)
+    # Ask if user wants to save
+    save_choice2 = input("Do you want to save Figure 2? (y/n): ").strip().lower()
+    if save_choice2 == 'y':
+        save_figure(fig2, "Figure2_paper.png", plots_dir)
+    else:
+        plt.show()
     return
 
 
 rangelist = [0.8, 5000, 7000, 7000]
-# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12],[0,1,2,4,5,7,8,12]])
-final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
+final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
+# final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 
 # Calculate coefficients for the specified cases
@@ -461,12 +486,12 @@ def compare_effective_potentials(N1_list, rs_list, conds_list, L=4, marksizq=2, 
     plt.show()
 
 # Example usage:
-N1_list = [1, 9]
-rs_list = [1.5, 1.5]
-conds_list = [
-    [0, 1, 2, 4, 5, 6, 7, 8, 12, 13],
-    [0, 1, 2, 4, 5, 6, 7, 8, 12, 13]
-]
+# N1_list = [1, 9]
+# rs_list = [1.5, 1.5]
+# conds_list = [
+#     [0, 1, 2, 4, 5, 6, 7, 8, 12, 13],
+#     [0, 1, 2, 4, 5, 6, 7, 8, 12, 13]
+# ]
 # compare_effective_potentials(N1_list, rs_list, conds_list)
 def plot_all_potentials_semilogy(N1_list, rs_list, conds_list, r_min=0.01, r_max=70, num_points=1000):
     """
@@ -515,15 +540,79 @@ def plot_all_potentials_semilogy(N1_list, rs_list, conds_list, r_min=0.01, r_max
     plt.show()
 
 # plot_all_potentials_semilogy([7,1], [2,2], [[0, 1, 4, 5, 6, 7, 8, 12],[0, 1, 4, 5, 6, 7, 8, 12]])
+def plot_precession_diff_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
+    # Plot the difference between GR precession and other potentials' precession (normalized by pi)
+    for i in range(len(N1_list)):
+        color = dark_colors[i % len(dark_colors)]
+        # Ensure lengths match for subtraction
+        min_len = min(len(prcession_L_lists[i][:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
+        ax.plot(
+            prcession_L_lists[i][:min_len] - prcession_L_lists[i][0],
+            (np.array(precession_value_lists[i][:min_len]) - np.array(gr_precession_list[:min_len])) / np.pi,
+            '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq
+        )
+    # PW
+    min_len_pw = min(len(pw_l_list[:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
+    ax.plot(
+        pw_l_list[:min_len_pw] - pw_l_list[0],
+        (np.array(pw_precession_list[:min_len_pw]) - np.array(gr_precession_list[:min_len_pw])) / np.pi,
+        'g-.', label='Pw'
+    )
+    # Pwegg
+    min_len_wegg = min(len(wegg_l_list[:rangelist[1]]), len(gr_precession_list[:rangelist[1]]))
+    ax.plot(
+        wegg_l_list[:min_len_wegg] - wegg_l_list[0],
+        (np.array(wegg_precession_list[:min_len_wegg]) - np.array(gr_precession_list[:min_len_wegg])) / np.pi,
+        'r--', label='Pwegg'
+    )
+    ax.set_xscale('log')
+    ax.set_ylim(-1, 1)
+    ax.set_xlim(10**(-5), 3*10**(-2))
+    ax.grid()
+    ax.tick_params(axis='both', which='major', labelsize=font_size)
+    ax.set_ylabel(r'$\frac{\Delta\phi_{X} - \Delta\phi_{GR}}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
+    ax.set_xlabel('L-4', fontsize=font_size + 4)
+    ax.set_title("Precession Difference Near L=4", fontsize=font_size + 2)
+    ax.text(0.05, 0.95, "(II)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
+    ax.legend(fontsize=font_size - 2)
 
-
-
-
-
-
-
-
-
+def plot_precession_diff_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
+    # Plot the difference between GR precession and other potentials' precession (normalized by pi)
+    for i in range(len(N1_list)):
+        color = dark_colors[i % len(dark_colors)]
+        # Ensure lengths match for subtraction
+        min_len = min(len(prcession_L_lists[i][rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
+        ax.plot(
+            prcession_L_lists[i][rangelist[1]:rangelist[1]+min_len],
+            (np.array(precession_value_lists[i][rangelist[1]:rangelist[1]+min_len]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len])) / np.pi,
+            '-*', label=f'PN-N1={N1_list[i]},{i}_pn', color=color, markersize=marksizq, linewidth=0.7 * marksizq
+        )
+    # PW
+    min_len_pw = min(len(pw_l_list[rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
+    ax.plot(
+        pw_l_list[rangelist[1]:rangelist[1]+min_len_pw],
+        (np.array(pw_precession_list[rangelist[1]:rangelist[1]+min_len_pw]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len_pw])) / np.pi,
+        'g-.', label='Pw'
+    )
+    # Pwegg
+    min_len_wegg = min(len(wegg_l_list[rangelist[1]:]), len(gr_precession_list[rangelist[1]:]))
+    ax.plot(
+        wegg_l_list[rangelist[1]:rangelist[1]+min_len_wegg],
+        (np.array(wegg_precession_list[rangelist[1]:rangelist[1]+min_len_wegg]) - np.array(gr_precession_list[rangelist[1]:rangelist[1]+min_len_wegg])) / np.pi,
+        'r--', label='Pwegg'
+    )
+    ax.set_xscale('log')
+    ax.set_yscale('linear')
+    ax.set_ylim(-0.01, 0.01)
+    ax.set_xlim(25, 10**2)
+    ax.grid()
+    ax.tick_params(axis='both', which='major', labelsize=font_size)
+    ax.tick_params(axis='x', which='minor', labelsize=font_size)
+    ax.set_xlabel('L', fontsize=font_size + 4)
+    ax.set_ylabel(r'$\frac{\Delta\phi_{X} - \Delta\phi_{GR}}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
+    ax.set_title("Precession Difference Far from L=4", fontsize=font_size + 2)
+    ax.legend(fontsize=font_size - 2)
+    ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
 ##########
 # # Define the coefficients for the two cases
