@@ -31,7 +31,7 @@ If we take the paper potentials and plot the differance from the GR precession.
 So if we look on the bad place:
 ![[The bad precession zone loglog.png]]
 We can see the N1=1 can getto 0 and negative precession for the intermidiate values and N1=7 gets to about maximum of 50 to 60 precents.
-the region it is bad at is
+the region it is bad at is between 4.3/.2 to 20 for N1=1 or 8 fro N1 =7
 ## Actions Taken
 1. 
 

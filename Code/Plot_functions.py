@@ -679,7 +679,7 @@ def plot_precession_diffs_for_cases():
         ax2.plot(pw_l_list, np.array(pw_precession_list) / np.pi, 'g-.', label='Pw')
         ax2.plot(wegg_l_list, np.array(wegg_precession_list) / np.pi, 'r--', label='Pwegg')
     ax2.set_xscale('log')
-    ax2.set_yscale('log')
+    # ax2.set_yscale('log')
     ax2.set_xlabel('L', fontsize=font_size + 4)
     ax2.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax2.set_title("All Precessions vs L (logscale)", fontsize=font_size + 2)
