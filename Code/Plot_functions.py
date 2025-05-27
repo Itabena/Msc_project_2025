@@ -403,6 +403,10 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
     Egrisco = np.sqrt(8 / 9)
     Epwisco = u_pw(6) + ((Lpwisco**2) / (2 * (6**2)))
     Eweggisco = u_wegg(r_wegg_isdo) + ((Lweggisco**2) / (2 * (r_wegg_isdo**2)))
+    print(Eweggisco/(-1/9), 'Eweggisco/(-1/9) for run', i, 'is')
+    print(Epwisco/(-1/9), 'Epwisco/(-1/9) for run', i, 'is')
+    print(Lweggisco/np.sqrt(12), 'Lweggisco/sqrt(12) for run', i, 'is')
+    print(Lpwisco/np.sqrt(12), 'Lpwisco/sqrt(12) for run', i, 'is')
     for i in range(len(N1_list)):
         rdot_pn = np.sqrt(2 * E_pn_list[i] - 2 * u(rlist, N1_list[i], coefficient_lists[i], rs_list[i]) - ((L_pn_list[i]**2) / (rlist**2)))
         valid_indices = np.where((~np.isnan(rdot_pn)) & (np.isreal(rdot_pn)))[0]
@@ -449,7 +453,7 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 
 
 rangelist = [0.8, 5000, 7010, 7000]
-# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
+final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 # final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 

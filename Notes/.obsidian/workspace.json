@@ -79,12 +79,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Log/Log Entire - 2025__05__25.md",
+                "file": "Research Log/Log Entire - 2025__05__24.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Log Entire - 2025__05__25"
+              "title": "Log Entire - 2025__05__24"
             }
           },
           {
@@ -93,16 +93,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/NewInFolder.md",
+                "file": "Research Log/Log Entire -2025__05__26.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NewInFolder"
+              "title": "Log Entire -2025__05__26"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -262,14 +262,17 @@
       "bmo-chatbot:BMO Chatbot": false
     }
   },
-  "active": "ccb41af15cd7519b",
+  "active": "3c203a005773adce",
   "lastOpenFiles": [
+    "Research Log/Log Entire -2025__05__26.md",
+    "Research Log/Log Entire - 2025__05__25.md",
+    "z-Assets/Withcond13fig1.png",
+    "Research Log/Log Entire - 2025__05__24.md",
+    "Templates/NewInFolder.md",
     "Templates/Mathematical_Derivation_Template.md",
     "Templates/FolderTemplate.md",
     "Templates/Paper_Summary_Template.md",
     "Templates/Reseach_Log_Template.md",
-    "Research Log/Log Entire -2025__05__26.md",
-    "Research Log/Log Entire - 2025__05__25.md",
     "z-Assets/The bad precession zone.png",
     "z-Assets/The bad precession zone loglog.png",
     "Differances precession article potentials.png",
@@ -283,11 +286,9 @@
     "Research Log/test.md",
     "Research Log/Log Entire - 2025__05__26.md",
     "Research Log/Untitled.md",
-    "Research Log/Log Entire - 2025__05__24.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "z-Assets/Forpresentfig2.png",
     "z-Assets/Withcond2fig2.png",
-    "z-Assets/Withcond13fig1.png",
     "z-Assets/Withcond13fig2.png",
     "z-Assets",
     "z-Assets/Example_for_bad_potential.png",
@@ -295,7 +296,6 @@
     "Research Log/Log Entire - 2025__05__23.md",
     "Research Log/test1.md",
     "Research Log/Test.md",
-    "Templates/NewInFolder.md",
     "Untitled 2.md",
     "Untitled 3.md",
     "Untitled 4.md",
