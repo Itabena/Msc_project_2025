@@ -28,7 +28,7 @@ _Last modified: 2025-05-27_
 - Should the point be the specific result or the general method?*yes*
 - How deep should i go in understanding Accretion discs and TDEs?*Not too much* 
 - Should we do some kind of parameter scan, change rs and N1 on the same conditions to see the effectiveness?*no need*
-- *In general it seems that reem thinks the presentation is good, and the explplenations are good, try and learn more about TDEs and GR recall rules and calculations. also change the slide with all of the conditions to have words and equations, add to the table also the conditions as before and change the % error in precession to error in radians, not the PW has $\infty$ error.*
+- *In general it seems that reem thinks the presentation is good, and the explplenations are good, try and learn more about TDEs and GR recall rules and calculations. also change the slide with all of the conditions to have words and equations, add to the table also the conditions as before and change the % error in precession to error in radians, not the PW has $\infty$ error. also , wrk on presenting and on design and change the summary slide to somthing slightly better. change the BAd example to Limitation slide.*
 ## Findings and Notes
 - 
 
