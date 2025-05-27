@@ -93,12 +93,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Templates/Paper_Summary_Template.md",
+                "file": "Templates/NewInFolder.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Paper_Summary_Template"
+              "title": "NewInFolder"
             }
           }
         ],
@@ -175,7 +175,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Templates/Paper_Summary_Template.md",
+                "file": "Templates/NewInFolder.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -185,7 +185,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Paper_Summary_Template"
+              "title": "Backlinks for NewInFolder"
             }
           },
           {
@@ -223,13 +223,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Templates/Paper_Summary_Template.md",
+                "file": "Templates/NewInFolder.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Paper_Summary_Template"
+              "title": "Outline of NewInFolder"
             }
           },
           {
@@ -259,14 +259,14 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "templater-obsidian:Templater": false,
-      "copilot:Open Copilot Chat": false,
-      "smart-connections:Open: View Smart Connections": false,
-      "smart-connections:Open: Smart Chat Conversation": false,
       "bmo-chatbot:BMO Chatbot": false
     }
   },
   "active": "ccb41af15cd7519b",
   "lastOpenFiles": [
+    "Templates/Mathematical_Derivation_Template.md",
+    "Templates/FolderTemplate.md",
+    "Templates/Paper_Summary_Template.md",
     "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire -2025__05__26.md",
     "Research Log/Log Entire - 2025__05__25.md",
@@ -282,10 +282,8 @@
     "BMO",
     "Research Log/test.md",
     "Research Log/Log Entire - 2025__05__26.md",
-    "Templates/Paper_Summary_Template.md",
     "Research Log/Untitled.md",
     "Research Log/Log Entire - 2025__05__24.md",
-    "Templates/FolderTemplate.md",
     "Templates/Book_Chapter_Summary_Template.md",
     "z-Assets/Forpresentfig2.png",
     "z-Assets/Withcond2fig2.png",
@@ -297,7 +295,6 @@
     "Research Log/Log Entire - 2025__05__23.md",
     "Research Log/test1.md",
     "Research Log/Test.md",
-    "Templates/Mathematical_Derivation_Template.md",
     "Templates/NewInFolder.md",
     "Untitled 2.md",
     "Untitled 3.md",
