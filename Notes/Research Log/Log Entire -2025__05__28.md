@@ -28,3 +28,4 @@ _Last modified: 2025-05-28_
 
 ## Future Plans
 - 
+![[10-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf]]
