@@ -24,7 +24,8 @@ Also , in most cases the time scale of energy generation due too nuclear fusion 
 For Thompson scattering dominated and mainly ionized hydrogen gas $L_{edd} \approx 1.3 \times 10^{38}(\frac{M}{M_{\odot}})\frac{erg}{sec}$ .  
 In the context of accretion this is like saying radiation pressure is so strong the accretion stops.
 We can relate the accretion rate to the luminosity assuming a system that radiates only du to accretion.
-$L=\frac{GM\dot{M}}{R_*}$ 
+$L=\frac{GM\dot{M}}{R_*}$  and so this shows that the Eddington limit can be expressed on the accretion rate as well.
+
 
 
 ## special incites
