@@ -1,14 +1,16 @@
 ---
-
-
-title: "1980A&A....88...23P Paper Summary"
-citekey: "1980A&A....88...23P"
-paper: "Thick accretion disks and supercritical luminosities"
-authors: "Paczyńsky B. & Wiita P.J."
+title: 1980A&A....88...23P Paper Summary
+citekey: 1980A&A....88...23P
+paper: Thick accretion disks and supercritical luminosities
+authors: Paczyńsky B. & Wiita P.J.
 year: 1980
-journal: "A&A"
-doi: "I5NWN2Z4/PW_potential.pdf"
-tags: [paper-summary]
+journal: A&A
+doi: I5NWN2Z4/PW_potential.pdf
+tags:
+  - paper-summary
+  - "#pseudo_Newtonian"
+  - Astrophysics
+  - "#accretion_discs"
 ---
 
 # Thick accretion disks and supercritical luminosities (1980)  
@@ -38,4 +40,6 @@ tags: [paper-summary]
   -  
 
 ## 6. Relation to My Work
-- 
+
+#pseudo_Newtonian
+#accretion_discs

@@ -18,12 +18,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+                    "file": "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Chapter_1"
+                  "title": "PW1980_Summary"
                 }
               },
               {
@@ -342,10 +342,14 @@
       }
     ]
   },
-  "active": "c71e15670ea9f857",
+  "active": "c820d09900b226d9",
   "lastOpenFiles": [
-    "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+    "Untitled.md",
     "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
+    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
+    "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+    "Untitled",
+    "TDEs",
     "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire - 2025__05__25.md",
     "z-Assets/Withcond13fig2.png",
@@ -382,12 +386,9 @@
     "Research Log/Log Entire - 2025__05__26.md",
     "Research Log/Untitled.md",
     "z-Assets/Forpresentfig2.png",
-    "z-Assets",
-    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
     "Research Log/test1.md",
     "Research Log/Test.md",
     "Untitled 2.md",
-    "Untitled 3.md",
-    "Test"
+    "Untitled 3.md"
   ]
 }
