@@ -12,7 +12,10 @@ tags:
 
 
 ## Main points
-- 
+- Introduction to accretion
+- Accretion in compact objects is very efficient in terms of radiation energy.
+- Definition of the Eddington limit.
+- Some order of magnitude examples for accretion systems.
 
 ## Flowing summery
 Accretion of mass is thought to be one of the main power sources for different astrophysical phenomena.
@@ -26,9 +29,12 @@ In the context of accretion this is like saying radiation pressure is so strong 
 We can relate the accretion rate to the luminosity assuming a system that radiates only du to accretion.
 $L=\frac{GM\dot{M}}{R_*}$  and so this shows that the Eddington limit can be expressed on the accretion rate as well.
 In a black hole case $R_*$ is not well defined, and since in the event horizon radiation also cannot escape the gravitational pull there is an uncertainty on the efficiency of turning accretion to luminosity. 
+there is a small paragraph on galactic nuclei not very interesting. 
+We can approximate emmition by taking two limits of optically thick accreting matter, which will lead to black body radiation of the accretion energy to optically thin matter, which will lead to thermal radiation i.e. all the gravitational energy will be transformed to radiation and note absorbed again by a bulk of matter (higher energy radiation.)
+For a stellar mass black hole or neutron star we expect to see medium to hard X-ray emition from accretion. for white dwarf ultraviolet to X-ray.
 
 
 
-## special incites
-
+## special insights
+Introductory chapter so not very much.
 
