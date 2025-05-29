@@ -79,12 +79,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Articles and books/Testt.md",
+                "file": "Templates/Book_Chapter_Summary_Template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Testt"
+              "title": "Book_Chapter_Summary_Template"
+            }
+          },
+          {
+            "id": "1158f66fe0e3dcb8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Chapter_1"
             }
           },
           {
@@ -102,7 +116,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -300,15 +314,19 @@
       }
     ]
   },
-  "active": "c71e15670ea9f857",
+  "active": "074168bb58b17de5",
   "lastOpenFiles": [
+    "Templates/Book_Chapter_Summary_Template.md",
+    "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+    "Templates/Reseach_Log_Template.md",
+    "BMO/Profiles/BMO.md",
+    "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
     "Articles and books/Testt.md",
     "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics",
     "Articles and books/Astrophysics/Books_astphys",
     "Research Log/Log Entire -2025__05__28.md",
     "Articles and books/Astrophysics/Papers_astphys",
     "Articles and books/Astrophysics",
-    "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
     "z-Assets/The bad precession zone.png",
     "z-Assets/withcond2fig1.png",
     "z-Assets/withcond2fig1 1.png",
@@ -317,7 +335,6 @@
     "10-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
     "Research Log/Log Entire -2025__05__27.md",
     "Research Log/Log Entire -2025__05__26.md",
-    "Templates/Reseach_Log_Template.md",
     "Research Log/Log Entire - 2025__05__24.md",
     "Research Log/Log Entire - 2025__05__23.md",
     "Research Log/Log Entire - 2025__05__25.md",
@@ -330,13 +347,11 @@
     "z-Assets/Differances precession article potentials 2.png",
     "Differances precession article potentials 1.png",
     "BMO/BMO test.md",
-    "BMO/Profiles/BMO.md",
     "BMO/Profiles",
     "BMO",
     "Research Log/test.md",
     "Research Log/Log Entire - 2025__05__26.md",
     "Research Log/Untitled.md",
-    "Templates/Book_Chapter_Summary_Template.md",
     "z-Assets/Forpresentfig2.png",
     "z-Assets",
     "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",

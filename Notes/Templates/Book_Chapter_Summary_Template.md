@@ -1,12 +1,13 @@
 ---
 <%* 
 // Prompt for book chapter metadata
-let bookTitle     = await tp.system.prompt("Book title");
+let bookTitle     = await tp.system.prompt("Book title (With sapces and cap 1st letter)");
 let chapterNumber = await tp.system.prompt("Chapter number");
 let bookAuthor    = await tp.system.prompt("Book author");
 let pubYear       = await tp.system.prompt("Publication year");
 let pages         = await tp.system.prompt("Pages (e.g. 12–34)");
-let doi         = await tp.system.prompt("(folder in library)/(File name) from zotero library.");
+let Subject         = await tp.system.prompt("Subject (like astphys)");
+ await tp.file.move("Articles and books/"+"Books_"+Subject+"/"+BookTitle+"Chapters"+chapterNumber)   
 %>
 
 title: "Book: <% bookTitle %> Ch. <% chapterNumber %>"
