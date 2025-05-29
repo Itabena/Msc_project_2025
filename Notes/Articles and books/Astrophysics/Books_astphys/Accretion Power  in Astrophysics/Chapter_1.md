@@ -25,6 +25,7 @@ For Thompson scattering dominated and mainly ionized hydrogen gas $L_{edd} \appr
 In the context of accretion this is like saying radiation pressure is so strong the accretion stops.
 We can relate the accretion rate to the luminosity assuming a system that radiates only du to accretion.
 $L=\frac{GM\dot{M}}{R_*}$  and so this shows that the Eddington limit can be expressed on the accretion rate as well.
+In a black hole case $R_*$ is not well defined, and since in the event horizon radiation also cannot escape the gravitational pull there is an uncertainty on the efficiency of turning accretion to luminosity. 
 
 
 
