@@ -15,6 +15,7 @@ tags:
 - 
 
 ## Flowing summery
+Accretion of mass is thought to be one of the main power sources for different astrophysical phenomena.
 
 
 ## special incites
