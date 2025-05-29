@@ -2,6 +2,6 @@
   "cssTheme": "Primary",
   "interfaceFontFamily": "American Typewriter",
   "textFontFamily": "Arial,David,Inter",
-  "baseFontSize": 30,
+  "baseFontSize": 24,
   "baseFontSizeAction": true
 }
