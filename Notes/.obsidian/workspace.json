@@ -10,7 +10,7 @@
           {
             "id": "8219a32a61a822a1",
             "type": "tabs",
-            "dimension": 79.71602434077079,
+            "dimension": 57.933042212518195,
             "children": [
               {
                 "id": "c820d09900b226d9",
@@ -27,105 +27,40 @@
                 }
               },
               {
-                "id": "3b18ace5023668e4",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Templates/Reseach_Log_Template.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Reseach_Log_Template"
-                }
-              },
-              {
-                "id": "d42a355cc6eb1157",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Research Log/Log Entire - 2025__05__25.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Log Entire - 2025__05__25"
-                }
-              },
-              {
-                "id": "e491b31a95bcef90",
-                "type": "leaf",
-                "state": {
-                  "type": "image",
-                  "state": {
-                    "file": "z-Assets/Withcond13fig2.png"
-                  },
-                  "icon": "lucide-image",
-                  "title": "Withcond13fig2"
-                }
-              },
-              {
-                "id": "b6bd446fe2994a3f",
-                "type": "leaf",
-                "state": {
-                  "type": "image",
-                  "state": {
-                    "file": "z-Assets/Withcond13fig1.png"
-                  },
-                  "icon": "lucide-image",
-                  "title": "Withcond13fig1"
-                }
-              },
-              {
-                "id": "3c203a005773adce",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Templates/Book_Chapter_Summary_Template.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Book_Chapter_Summary_Template"
-                }
-              },
-              {
-                "id": "1158f66fe0e3dcb8",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Research Log/Log Entire -2025__05__29.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "Log Entire -2025__05__29"
-                }
-              },
-              {
                 "id": "ccb41af15cd7519b",
                 "type": "leaf",
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Research Log/Log Entire -2025__05__26.md",
+                    "file": "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Log Entire -2025__05__26"
+                  "title": "Chapter_1"
+                }
+              },
+              {
+                "id": "49ac8983823ad90d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Important Calculations/The Eddington limit.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "The Eddington limit"
                 }
               }
-            ]
+            ],
+            "currentTab": 2
           },
           {
             "id": "c805a57fc9ce3ce1",
             "type": "tabs",
-            "dimension": 20.28397565922921,
+            "dimension": 42.066957787481805,
             "children": [
               {
                 "id": "d24445747f6ae147",
@@ -201,8 +136,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "14c4c302ac2f716f",
@@ -343,20 +277,21 @@
       }
     ]
   },
-  "active": "c820d09900b226d9",
+  "active": "074168bb58b17de5",
   "lastOpenFiles": [
-    "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
-    "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
-    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
+    "Important Calculations/The Eddington limit.md",
     "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+    "Research Log/Log Entire -2025__05__26.md",
+    "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
+    "Templates/Book_Chapter_Summary_Template.md",
+    "z-Assets/Withcond13fig1.png",
+    "Research Log/Log Entire - 2025__05__25.md",
+    "Templates/Reseach_Log_Template.md",
+    "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
+    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
     "Untitled",
     "TDEs",
-    "Templates/Reseach_Log_Template.md",
-    "Research Log/Log Entire - 2025__05__25.md",
     "z-Assets/Withcond13fig2.png",
-    "z-Assets/Withcond13fig1.png",
-    "Templates/Book_Chapter_Summary_Template.md",
-    "Research Log/Log Entire -2025__05__26.md",
     "Research Log/Log Entire -2025__05__29.md",
     "BMO/Profiles/BMO.md",
     "Articles and books/Testt.md",
