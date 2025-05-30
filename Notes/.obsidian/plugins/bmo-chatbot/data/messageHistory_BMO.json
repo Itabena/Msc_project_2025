@@ -38,5 +38,10 @@
         "role": "assistant",
         "content": "Before proceeding further, please be aware that any guidance I provide on reading and summarizing or otherwise processing the content of PDF files is limited by my current capabilities. \n\nAs of my last update (and due to current interface limitations), I do not have the capability to directly open or process a file from an absolute path (such as \"C:\\Users\\itama\\Zotero\\storage\\8KEAXH7M\\Stone et al. - 2019 - Stellar tidal disruption events in general relativity.pdf\") and interpret its contents (which likely includes non-text binary formats like images or specialized fonts) without additional input. I only operate based on text provided to me, not from arbitrary file system locations.\n\nTherefore, if you could extract the text content of that PDF— for example using a PDF extraction tool or converting it to plain text and providing me with that excerpt—I would be able to help process the document. If this document is known to have sensitive or copyrighted information, I cannot read beyond your provided excerpt unless the text meets public domain or otherwise safe-sharing criteria.\n\nIf you are not asking for direct summarization from within a PDF but only requesting that I help with the reading process if possible, please provide me the text you wish me to process. Otherwise, I can provide instructions on how one might programmatically read such a PDF file (e.g., using libraries like PyPDF2 in Python or similar).\n\nLet me know how you would prefer to proceed.",
         "images": []
+    },
+    {
+        "role": "user",
+        "content": "how do you spell torn apart?",
+        "images": []
     }
 ]
