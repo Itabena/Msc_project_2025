@@ -35,7 +35,7 @@ Then they go on for what is the order of magnitude of luminosity and surface tem
 then they go on to describe what observationally do they expect to see, and also about Neutron stars, this is not vey relevant to my needs right now.
 
 ## 2. The Theory of accretion discs in the subcritical regime.
-They present the idea of an accretio disc around a black hole
+They present the idea of an accretion disc around a black hole, setting the ISCO as the inner boundary and the ISCO energy $E-1=0.057mc^2$ as the accretion energy of a mass unit accreted.
 
 
 ## 2. Key Contributions
