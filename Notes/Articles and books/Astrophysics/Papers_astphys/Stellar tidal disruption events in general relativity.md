@@ -54,6 +54,9 @@ The TDEs could prove to be an excellent probe into the theory of black hole and 
 ## 3. Accretion in the Newtonian case
 There are two main takeaways I can see here. The stars goes through a compression in the z direction throughout the  TDE. Simulating these systems is difficult because this systems spans on several length and time scales, circulation may take a lot of time but good resolution in simulating the stars breaks down needs to be simulated in much smaller time scales and so on.
 
+
+## Summary
+This is too long to learn in such few days, I can see here that precession has a crucial role in the circularization of the accretion disc.
 - 
 
 ## 4.\ Results & Conclusions
