@@ -124,7 +124,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#tidal",
+                "query": "544l,kq12",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -145,7 +145,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -289,7 +290,7 @@
       }
     ]
   },
-  "active": "82c31f1d12ddeddd",
+  "active": "1ce191b0e01a6999",
   "lastOpenFiles": [
     "AA General To Do list.md",
     "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
