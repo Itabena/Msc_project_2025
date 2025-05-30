@@ -6,5 +6,5 @@ So the tidal radius will be $\tilde{R}$  if $\Sigma \vec{F}_{particle}=0$ :
 $$\frac{GM_{\star}}{R_{\star}^2}-\frac{G\tilde{M}}{(\tilde{R}-R_{\star})^2}=0$$
 We can simplify:
 $$\frac{M_{\star}}{R_{\star}^2}=\frac{\tilde{M}}{(\tilde{R}-R_{\star})^2}$$
-$$\frac{M_{\star}}{R_{\star}^2}=\frac{\tilde{M}}{M_{\star}}R_{\star}^2$$
-
+$$(\tilde{R}-R_{\star})^2=\frac{\tilde{M}}{M_{\star}}R_{\star}^2$$
+$$(\tilde{R}-R_{\star})^2=\frac{\tilde{M}}{M_{\star}}R_{\star}^2$$
