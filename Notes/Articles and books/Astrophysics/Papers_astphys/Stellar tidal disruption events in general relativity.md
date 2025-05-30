@@ -36,8 +36,10 @@ Since the star is ripped apart, some of the debris remain bound to the SMBH and 
 Since the space around a SMBH has some type of length scale, due to general relativistic effects ($r_s=\frac{GM}{c^2}$), it is possible that for certain values of $R_t$ general relativistic dynamical effect such as orbital precession and so on are important to understand the hydrodynamics of the torn star and the radiation curves.
 taking a limit of $R_t=5r_s$ it is possible to show that :
 $$M_{Gr}\approx 10^7 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
+This means that for a sun-like star, the tidal radius could be effected greatly by GR, if it is disrupted by a SMBH with mass that is well within the SMBH mass range.
+5 Schwarzschild radii is an arbitrary limit, but it could also be replaced with $r_s$  to give , the approximate mass of the SMBH in which a TDE of a sun-like star will occur on the event horizon of the black hole , therefor will not be seen , this is also called the Hill mass :
 
-
+$$M_{Gr}\approx 10^8 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
 
 ## 2. Key Contributions
 - 
