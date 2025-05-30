@@ -39,7 +39,7 @@ $$M_{Gr}\approx 10^7 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star
 This means that for a sun-like star, the tidal radius could be effected greatly by GR, if it is disrupted by a SMBH with mass that is well within the SMBH mass range.
 5 Schwarzschild radii is an arbitrary limit, but it could also be replaced with $r_s$  to give , the approximate mass of the SMBH in which a TDE of a sun-like star will occur on the event horizon of the black hole , therefor will not be seen , this is also called the Hill mass :
 
-$$M_{Gr}\approx 10^8 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
+$$M_{H}\approx 10^8 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
 
 ## 2. Key Contributions
 - 
