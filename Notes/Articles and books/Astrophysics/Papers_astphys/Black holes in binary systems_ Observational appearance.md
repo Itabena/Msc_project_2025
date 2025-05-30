@@ -32,6 +32,9 @@ Basically this can be connected to the simple model of accretion disk where ther
 This spiraling fall motion leads to  release of gravitational energy, some of it is turns to radiation due to thermal heating of the matter. The energy  release is dependent on the accretion rate $\dot{M}$ . As shown also in [[Chapter_1|this book]] the critical accretion rate can be derived from the Eddington luminosity $L=\eta \dot{M} c^2$ where $\eta$ is the efficiency of energy release, in Schwarzschild  black holes it is approximately 6% and in Kerr black holes , it could go up to 40% for the critical spin value.
 This efficiency is related to general relativistic effects , and the critical accretion rate , shows the top barrier of the phenomena.
 Then they go on for what is the order of magnitude of luminosity and surface temperatures for sub-critical accretion rates.
+then they go on to describe what observationally do they expect to see.
+
+
 
 
 ## 2. Key Contributions
