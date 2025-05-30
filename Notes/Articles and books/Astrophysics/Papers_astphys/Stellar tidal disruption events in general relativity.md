@@ -51,7 +51,9 @@ The TDEs could prove to be an excellent probe into the theory of black hole and 
       $$\Delta \epsilon \ \approx \frac{GM_{\star}}{R_{\star}}(\frac{M}{M_{\star}})^{1/3} $$
       Then it circulizes into an accretion disc.
       
-## 3. Methods & Approach
+## 3. Accretion in the Newtonian case
+There are two main takeaways I can see here. The stars goes through a compression in the z direction throughout the  TDE. Simulating these systems is difficult because this systems spans on several length and time scales, circulation may take a lot of time but good resolution in simulating the stars breaks down needs to be simulated in much smaller time scales and so on.
+
 - 
 
 ## 4.\ Results & Conclusions
