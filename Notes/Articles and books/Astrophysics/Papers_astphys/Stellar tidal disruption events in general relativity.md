@@ -40,7 +40,7 @@ This means that for a sun-like star, the tidal radius could be effected greatly 
 5 Schwarzschild radii is an arbitrary limit, but it could also be replaced with $r_s$  to give , the approximate mass of the SMBH in which a TDE of a sun-like star will occur on the event horizon of the black hole , therefor will not be seen , this is also called the Hill mass :
 
 $$M_{H}\approx 10^8 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
-
+The TDEs could prove to be an excellent probe into the theory of black hole and GR but there are much of the hydrodynamics and radiation processes in such events that are misunderstood, and prevent the use of these events as a good probe.
 ## 2. Key Contributions
 - 
 

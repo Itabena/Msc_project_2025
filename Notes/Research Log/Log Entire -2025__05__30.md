@@ -18,6 +18,7 @@ _Last modified: 2025-05-30_
 - [ ] 
 
 ## Findings and Notes
+- Read the TDE article by Nick , Introduction.
 - 
 
 ## Actions Taken
