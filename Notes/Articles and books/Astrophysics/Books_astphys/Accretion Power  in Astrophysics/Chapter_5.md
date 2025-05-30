@@ -8,7 +8,7 @@ tags:
   - Astrophysics
   - accretion_discs
 ---
-1. The General Picture
+
 # Chapter 5: Accretion discs.
 
 
