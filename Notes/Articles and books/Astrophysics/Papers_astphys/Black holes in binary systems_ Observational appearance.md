@@ -20,7 +20,8 @@ tags: [paper-summary]
 ---
 
 ## 1. The General Picture
-
+So this section start by stating that observationally there is a large number of black hole - stars binary systems in the galaxy.
+These systems experience the mass transfer from the doner star to the BH companion.
 
 ## 2. Key Contributions
 - 
