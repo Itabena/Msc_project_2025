@@ -29,9 +29,9 @@ Fir SMBH the Eddington accretion limit is $\dot{M}_{Edd}=2.2\times 10^{-2}M_{\od
 where $\eta$ is the efficiency of energy emotion of the accretion process.
 those active galactic nuclei (AGNs) are among the brightest astrophysical sources.
 If they accrete in lower rate we say they are quiescent, they are much harder to observe therefore, tidal disruption events can be a good tool to research them by.
-A TDE is the event of a star of mass $M_{\star}$ and radius $R_{\star}$  passing in a highly eccentric orbit around a black hole and being torn apart by the tidal forces of the black hole. It is here a ggod point to define the [[Tidal radius]]: 
+A TDE is the event of a star of mass $M_{\star}$ and radius $R_{\star}$  passing in a highly eccentric orbit around a black hole and being torn apart by the tidal forces of the black hole. It is here a good point to define the [[Tidal radius]]: 
 $$R_{t}\approx  (\frac{\tilde{M}}{M_{\star}})^{\frac{1}{3}}R_{\star}$$
-
+At this radius the tidal forces from the blackhole overwhelm the self gravity of the star.
 
 
 ## 2. Key Contributions
