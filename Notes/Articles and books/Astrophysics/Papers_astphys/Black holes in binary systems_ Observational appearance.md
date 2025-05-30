@@ -29,7 +29,7 @@ $v_t$ is the velocity of the turbulence in this medium.
 $H$ is the magnetic field strength.
 $\rho$ is the mass density of the matter.
 Basically this can be connected to the simple model of accretion disk where there is a "friction" between circular layers of the accretion disk that leads "losing" angular momentum and falling to the center.
-This spiraling fall motion leads to  release of gravitational energy, some of it is turns to radiation due to thermal heating of the matter. The energy  realse is dependant 
+This spiraling fall motion leads to  release of gravitational energy, some of it is turns to radiation due to thermal heating of the matter. The energy  release is dependent on the accretion rate $\dot{M}$ 
 
 ## 2. Key Contributions
 - 
