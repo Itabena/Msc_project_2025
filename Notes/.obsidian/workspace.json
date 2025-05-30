@@ -32,12 +32,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+                    "file": "Important Calculations/The Eddington limit.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Chapter_1"
+                  "title": "The Eddington limit"
                 }
               },
               {
@@ -54,8 +54,7 @@
                   "title": "The Eddington limit"
                 }
               }
-            ],
-            "currentTab": 2
+            ]
           },
           {
             "id": "c805a57fc9ce3ce1",
@@ -277,10 +276,11 @@
       }
     ]
   },
-  "active": "074168bb58b17de5",
+  "active": "c820d09900b226d9",
   "lastOpenFiles": [
     "Important Calculations/The Eddington limit.md",
     "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
+    "Astro_Calculations",
     "Research Log/Log Entire -2025__05__26.md",
     "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
     "Templates/Book_Chapter_Summary_Template.md",
@@ -289,7 +289,6 @@
     "Templates/Reseach_Log_Template.md",
     "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
     "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
-    "Untitled",
     "TDEs",
     "z-Assets/Withcond13fig2.png",
     "Research Log/Log Entire -2025__05__29.md",
@@ -323,7 +322,6 @@
     "Research Log/Untitled.md",
     "z-Assets/Forpresentfig2.png",
     "Research Log/test1.md",
-    "Research Log/Test.md",
-    "Untitled 2.md"
+    "Research Log/Test.md"
   ]
 }
