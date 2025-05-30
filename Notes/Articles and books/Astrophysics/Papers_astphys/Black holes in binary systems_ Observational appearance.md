@@ -28,7 +28,7 @@ $v_s$ is the speed of sound in this medium.
 $v_t$ is the velocity of the turbulence in this medium.
 $H$ is the magnetic field strength.
 $\rho$ is the mass density of the matter.
-Basically this can be connected to the simple model of accretion disck where there is a "friction" between circular layers of the accretion disk
+Basically this can be connected to the simple model of accretion disk where there is a "friction" between circular layers of the accretion disk that leads "losing" angular
 ## 2. Key Contributions
 - 
 
