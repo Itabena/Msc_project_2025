@@ -27,6 +27,8 @@ A short survey on black holes. They have two defining characteristics: Mass and 
 I galaxies of the size or larger then the milky way, it is thought that SMBH serve as a galactic nuclei, if the accretion rate is larger then 1% of the Eddington accretion limit they are considered active.
 Fir SMBH the Eddington accretion limit is $\dot{M}_{Edd}=2.2\times 10^{-2}M_{\odot}yr^{-1}(\frac{0.1}{\eta})(\frac{M}{10^6M_{odot}})$ 
 where $\eta$ is the efficiency of energy emotion of the accretion process.
+those active galactic nuclei (AGNs) are among the brightest astrophysical sources.
+
 
 
 ## 2. Key Contributions
