@@ -22,7 +22,10 @@ tags: [paper-summary]
 ## 1. The General Picture
 So this section start by stating that observationally there is a large number of black hole - stars binary systems in the galaxy.
 These systems experience the mass transfer from the doner star to the BH companion.
-
+They present the size $\alpha$ the efficiency of the underline mechanism that transport angular momentum out of the accretion disk.
+$$\alpha=\frac{v_t}{v_s}+\frac{H^2}{4\pi\rho v_s^2}$$
+$v_s$ is the speed of sound in this medium.
+$v_t$ is the velocity of the turbulence in this medium.
 ## 2. Key Contributions
 - 
 
