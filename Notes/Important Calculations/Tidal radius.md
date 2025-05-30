@@ -10,4 +10,4 @@ $$\frac{M_{\star}}{R_{\star}^2}\approx2\frac{\tilde{M}R_{\star}}{\tilde{R}^3}$$
 
 $$R_{t}\propto (\frac{\tilde{M}}{M_{\star}})^{\frac{1}{3}}R_{\star}$$
 The same approximation can be done by just expanding the gravitational force on the star near its edge and subtracting the force on the center of mass.
-This could be obtained also 
+This could be obtained also in exact form using the Roch lobe approach for rigid or fluid satellites, but the depandance on the mass ratio is 
