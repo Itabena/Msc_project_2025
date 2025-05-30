@@ -44,7 +44,8 @@ The TDEs could prove to be an excellent probe into the theory of black hole and 
 ## 2. Tidal disruption events in Newtonian gravity
 *In general I think the better approach is like in chapter 1 to go and summarize thoroughly, however I don't believe I have enough time , so the next part is more scattered unfortunately*
 - Several interesting definitions:
-      - Radius of influence: $r_h=\frac{GM}{\sigma^2}$  - $\sigma$ is the velocity dispersion in the host galaxy. basically determines the radius in which the gravity from the SMBH dictates the motion of the matter in the galaxy.
+      - Radius of influence: $r_h=\frac{GM}{\sigma^2}$  - $\sigma$ is the velocity dispersion in the host galaxy. basically determines the radius in which the gravity from the SMBH dictates the motion of the matter in the galaxy. Usually $r_t\ll r_h$ .
+      - Penetration factor $\beta = \frac{r_t}{r_p}$ - a factor that helps to determine the strength of the disruption effect,  $r_p$ in Newtonian physics is basically limited by $R_{\star}$ and by the event horizon of the black hole (meaning collation), but in general relativity this limitation will be even further since for $r_p<3r_s$, there are no bound orbits so any star will plunge into the black hole with that angular momentum. 
       - 
 
 ## 3. Methods & Approach
