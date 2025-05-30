@@ -23,7 +23,7 @@ tags:
 ---
 
 ## 1. Introduction
-
+A short survey on black holes. They have two defining characteristics: Mass and spin. They are unlimited to be at any mass theoretically but astrophysical are found in two mass classes: stellar mass and supermassive. stellar mass are usually observed due to X-ray radiation due to accretion.
 
 ## 2. Key Contributions
 - 
