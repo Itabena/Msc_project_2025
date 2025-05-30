@@ -32,6 +32,11 @@ If they accrete in lower rate we say they are quiescent, they are much harder to
 A TDE is the event of a star of mass $M_{\star}$ and radius $R_{\star}$  passing in a highly eccentric orbit around a black hole and being torn apart by the tidal forces of the black hole. It is here a good point to define the [[Tidal radius]]: 
 $$R_{t}\approx  (\frac{\tilde{M}}{M_{\star}})^{\frac{1}{3}}R_{\star}$$
 At this radius the tidal forces from the blackhole overwhelm the self gravity of the star.
+Since the star is ripped apart, some of the debris remain bound to the SMBH and some are ejected to space, the bound matter can produce luminous flare and ciruclize into an accretion disc.
+Since the space around a SMBH has some type of length scale, due to general relativistic effects ($r_s=\frac{GM}{c^2}$), it is possible that for certain values of $R_t$ general relativistic dynamical effect such as orbital precession and so on are important to understand the hydrodynamics of the torn star and the radiation curves.
+taking a limit of $R_t=5r_s$ it is possible to show that :
+$$M_{Gr}\approx 10^7 M_{\odot}(\frac{R_{\star}}{R_{\odot}})^{3/2}(\frac{M_{\star}}{M_{\odot}})^{-1/2}$$
+
 
 
 ## 2. Key Contributions
