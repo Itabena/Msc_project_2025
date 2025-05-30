@@ -52,8 +52,12 @@ The TDEs could prove to be an excellent probe into the theory of black hole and 
 ## 3. Methods & Approach
 - 
 
-## 4. Results & Conclusions
-- 
+## 4.\ Results & Conclusions
+- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+   b 
+  v 
+           n 
+              n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n n nnnnnnnnnnnnnnnnnnnnnnnnnxddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\5E N)_Ppppppppppppppppppppppppppppppp00000000000000000000000000000000000000000000000000000000000000000000000
 
 ## 5. Strengths & Weaknesses
 - **Strengths:**  
