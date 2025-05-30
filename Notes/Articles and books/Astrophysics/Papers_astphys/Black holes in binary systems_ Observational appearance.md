@@ -36,7 +36,7 @@ then they go on to describe what observationally do they expect to see, and also
 
 ## 2. The Theory of accretion discs in the subcritical regime.
 They present the idea of an accretion disc around a black hole, setting the ISCO as the inner boundary and the ISCO energy $E-1=0.057mc^2$ as the accretion energy of a mass unit accreted, basically setting the efficiency.
- Basically the mainangular momentum transport that are relevant to this problem are
+ Basically the main angular momentum transport that are relevant to this problem are Turbulence and magnetic fields. If the magnetic fields are strong enough then can create a sufficient angular momentum transport for accretion.
 
 
 ## 2. Key Contributions
