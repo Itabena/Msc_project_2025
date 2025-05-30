@@ -29,7 +29,9 @@ $v_t$ is the velocity of the turbulence in this medium.
 $H$ is the magnetic field strength.
 $\rho$ is the mass density of the matter.
 Basically this can be connected to the simple model of accretion disk where there is a "friction" between circular layers of the accretion disk that leads "losing" angular momentum and falling to the center.
-This spiraling fall motion leads to  release of gravitational energy, some of it is turns to radiation due to thermal heating of the matter. The energy  release is dependent on the accretion rate $\dot{M}$ 
+This spiraling fall motion leads to  release of gravitational energy, some of it is turns to radiation due to thermal heating of the matter. The energy  release is dependent on the accretion rate $\dot{M}$ . As shown also in [[Chapter_1|this book]] the critical accretion rate can be derived from the Eddington luminosity $L=\eta \dot{M} c^2$ where $\eta$ is the efficiency of energy release, in Schwarzschild  black holes it is approximately 6% and in Kerr black holes , it could go up to 40% for the critical spin value.
+This efficiency is related to general relativistic effects , and the critical accretion rate , shows the top barrier of the phenomena.
+
 
 ## 2. Key Contributions
 - 
