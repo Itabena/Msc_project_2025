@@ -49,6 +49,7 @@ The TDEs could prove to be an excellent probe into the theory of black hole and 
       - For a full disruption this penetration factor must be larger then some limit.
       - After penetrating the tidal sphere the debris move on nearly geodesic orbits around the SMBH, the have some spread of energy, some are bound and some are unbound, if we assume that the self gravity turns of instantaneously when this breach happens we ca approximate:
       $$\Delta \epsilon \ \approx \frac{GM_{\star}}{R_{\star}}(\frac{M}{M_{\star}})^{1/3} $$
+      Then it circulizes into an accretion disc.
       
 ## 3. Methods & Approach
 - 
