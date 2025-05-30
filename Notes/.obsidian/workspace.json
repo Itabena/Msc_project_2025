@@ -333,20 +333,20 @@
           }
         ],
         "direction": "vertical",
-        "x": 847,
+        "x": 846,
         "y": 0,
-        "width": 866,
-        "height": 1025,
+        "width": 870,
+        "height": 1020,
         "maximize": false,
         "zoom": 0
       }
     ]
   },
-  "active": "074168bb58b17de5",
+  "active": "c820d09900b226d9",
   "lastOpenFiles": [
-    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
-    "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
     "z-Assets/7-Day Study Plan_ TDEs and Accretion Discs in Schwarzschild Spacetime.pdf",
+    "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
+    "Articles and books/Astrophysics/Papers_astphys/PW1980_Summary.md",
     "Articles and books/Astrophysics/Books_astphys/Accretion Power  in Astrophysics/Chapter_1.md",
     "Untitled",
     "TDEs",
@@ -388,7 +388,6 @@
     "z-Assets/Forpresentfig2.png",
     "Research Log/test1.md",
     "Research Log/Test.md",
-    "Untitled 2.md",
-    "Untitled 3.md"
+    "Untitled 2.md"
   ]
 }
