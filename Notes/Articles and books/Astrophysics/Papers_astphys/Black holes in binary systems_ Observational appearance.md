@@ -26,7 +26,7 @@ They present the size $\alpha$ the efficiency of the underline mechanism that tr
 $$\alpha=\frac{v_t}{v_s}+\frac{H^2}{4\pi\rho v_s^2}$$
 $v_s$ is the speed of sound in this medium.
 $v_t$ is the velocity of the turbulence in this medium.
-$H$ is the
+$H$ is the kinetic energy density?
 $\rho$ is the mass density of the matter.
 ## 2. Key Contributions
 - 
