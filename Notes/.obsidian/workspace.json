@@ -32,12 +32,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Important Calculations/Tidal radius.md",
+                    "file": "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "Tidal radius"
+                  "title": "Stellar tidal disruption events in general relativity"
                 }
               },
               {
@@ -290,7 +290,7 @@
       }
     ]
   },
-  "active": "074168bb58b17de5",
+  "active": "115de0ce695cfb8d",
   "lastOpenFiles": [
     "Important Calculations/Tidal radius.md",
     "Articles and books/Astrophysics/Papers_astphys/Stellar tidal disruption events in general relativity.md",
