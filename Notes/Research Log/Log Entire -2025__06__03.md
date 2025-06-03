@@ -24,6 +24,8 @@ _Last modified: 2025-06-03_
 - What spectrum is emitted at each phenomena?
 
 
+- Look agian at Nicks paper form 2019 points 5.3 5.4 this is about the circulazations
+
 ## Actions Taken
 1. 
 
