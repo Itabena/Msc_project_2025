@@ -24,7 +24,7 @@ _Last modified: 2025-06-03_
 - What spectrum is emitted at each phenomena?
 
 
-- Look again at Nicks paper form 2019 points 6.1 6.2 this is about the circulations.
+- Look again at Nicks paper form 2019 points 6.1 6.2 this is about the circulations. Also in the 2024 paper in page 8.
 
 ## Actions Taken
 1. 
