@@ -21,7 +21,7 @@ _Last modified: 2025-06-03_
 ### Questions about thesis presentation
 - What is the exact mechanism in which  particle radiates its orbital energy after falling through the ISCO?
 - What is the mechanism in which precession contributes to circulation of the steam after TDE?
-- What 
+- What spectrum is emitted at each phenomena?
 
 
 ## Actions Taken
