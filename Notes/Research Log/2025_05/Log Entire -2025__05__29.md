@@ -14,7 +14,7 @@ tags: [research-log]
 # Log Entire - 2025__05__29  
 _Last modified: 2025-05-29_
 
-## Tasks and Goals
+## Tasks and Goals 
 - [ ] Do first day plan of learning program for thesis test
 
 ## Findings and Notes
