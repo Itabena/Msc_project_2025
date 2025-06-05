@@ -10,6 +10,7 @@ from datetime import datetime
 import os
 from sympy import Rational
 from scipy.interpolate import interp1d
+import numpy as np
 
 conditions_text_list=[   
     '1) Covergence to the classical Newtonian potential at large distances',
@@ -453,7 +454,7 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 
 
 rangelist = [0.8, 5000, 7010, 7000]
-final_plots(rangelist,auto=True,N1_list=[1],rs_list=[4*np.sqrt(6)-9],conds_list=[[0,4,5,6,7,8]])
+# final_plots(rangelist,auto=True,N1_list=[1],rs_list=[4*np.sqrt(6)-9],conds_list=[[0,4,5,6,7,8]])
 # final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
 # final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 
@@ -691,14 +692,110 @@ def plot_precession_diffs_for_cases(rangelist, N1_list, rs_list, conds_list, mar
     plt.show()
 
 # Example usage:
-rangelist = [0.8, 5000, 7010, 7000]
-N1_list = [1, 7]
-rs_list = [2, 2]
-conds_list = [
-    [0, 1, 4, 5, 6, 7, 8, 12,13],
-    [0, 1, 4, 5, 6, 7, 8, 12,13]
-]
-plot_precession_diffs_for_cases(rangelist, N1_list, rs_list, conds_list)
-# Call the function to plot the diffs
+# rangelist = [0.8, 5000, 7010, 7000]
+# N1_list = [1, 7]
+# rs_list = [2, 2]
+# conds_list = [
+#     [0, 1, 4, 5, 6, 7, 8, 12,13],
+#     [0, 1, 4, 5, 6, 7, 8, 12,13]
+# ]
+# plot_precession_diffs_for_cases(rangelist, N1_list, rs_list, conds_list)
+# # Call the function to plot the diffs
 
-    
+# Plot effective potential for L=sqrt(12) (ISCO) and mark ISCO
+def plot_veff_isco(font_size=22, lw=2, ms=14):
+    r = np.linspace(2, 10, 1000)
+    L_isco = np.sqrt(12)
+    veff_isco = (1 - (2 / r)) * (1 + (L_isco**2 / r**2)) - 1
+
+    fig, ax = plt.subplots(figsize=(7, 6), constrained_layout=True)
+    ax.plot(r, veff_isco, color='red', lw=lw, label=r"$L=\sqrt{12}$ (ISCO)")
+    ax.plot(6, -1/9, marker='*', color='green', markersize=ms, label=r"ISCO (r=6, $E^{2}-1= -\frac{1}{9}$)")
+    ax.set_xlabel("r", fontsize=font_size)
+    ax.set_ylabel(r"$V_{eff}$", fontsize=font_size)
+    ax.set_title("Effective Potential at ISCO", fontsize=font_size)
+    ax.tick_params(axis='both', which='major', labelsize=font_size)
+    ax.legend(fontsize=font_size-2)
+    ax.grid(True)
+    ax.set_xlim(2, 10)
+    ax.set_ylim(-0.2, 0.1)
+    fig.patch.set_alpha(0)  # Make the figure background transparent
+    ax.set_facecolor('none')  # Make the axes background transparent
+    plt.show()
+
+def plot_veff_mbco(font_size=22, lw=2, ms=14):
+    r = np.linspace(2, 10, 1000)
+    L_mbco = 4
+    veff_mbco = (1 - (2 / r)) * (1 + (L_mbco**2 / r**2)) - 1
+
+    fig, ax = plt.subplots(figsize=(7, 6), constrained_layout=True)
+    ax.plot(r, veff_mbco, color='green', lw=lw, label=r"$L=4$ (MBCO)")
+    ax.plot(4, 0, marker='*', color='red', markersize=ms, label="MBCO (r=4, $E^2-1=0$)")
+    ax.set_xlabel("r", fontsize=font_size)
+    ax.set_ylabel(r"$V_{eff}$", fontsize=font_size)
+    ax.set_title("Effective Potential at MBCO", fontsize=font_size)
+    ax.tick_params(axis='both', which='major', labelsize=font_size)
+    ax.legend(fontsize=font_size-2)
+    ax.grid(True)
+    ax.set_xlim(2, 10)
+    ax.set_ylim(-0.2, 2)
+    fig.patch.set_alpha(0)  # Make the figure background transparent
+    ax.set_facecolor('none')  # Make the axes background transparent
+    plt.show()
+def plot_all_potentials_one_figure():
+    """
+    Plot all potentials on one figure, transparent background and axes,
+    with specified colors and styles:
+    - Pwegg: red dashed
+    - PW: green dot-dashed
+    - PN (N1=1): purple solid
+    - PN (N1=7): cyan solid
+    - Newtonian: black solid
+    r from 2 to 20, y from -1.4 to 0.1, large fonts and ticks.
+    """
+    import matplotlib.pyplot as plt
+
+    # Parameters
+    N1_list = [1, 7]
+    rs_list = [2, 2]
+    conds_list = [
+        [0, 1, 4, 5, 6, 7, 8, 12],
+        [0, 1, 4, 5, 6, 7, 8, 12]
+    ]
+    r_min = 2
+    r_max = 20
+    num_points = 1000
+    r = np.linspace(r_min, r_max, num_points)
+
+    # Compute potentials
+    v_newton = -1 / r
+    v_pw = u_pw(r)
+    v_pwegg = u_wegg(r)
+    coeffs1 = Solve_coeffs(N1_list[0], rs_list[0], conds_list[0])[0]
+    coeffs2 = Solve_coeffs(N1_list[1], rs_list[1], conds_list[1])[0]
+    v_pn1 = u(r, N1_list[0], coeffs1, rs_list[0])
+    v_pn2 = u(r, N1_list[1], coeffs2, rs_list[1])
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(10, 7), constrained_layout=True)
+    fig.patch.set_alpha(0)
+    ax.set_facecolor('none')
+
+    ax.plot(r, v_pwegg, 'r--', label="Pwegg", linewidth=2.5)
+    ax.plot(r, v_pw, color="green", linestyle='-.', label="PW", linewidth=2.5)
+    ax.plot(r, v_pn1, color="#8A07E8", linestyle='-', label="PN (N1=1)", linewidth=2.5)
+    ax.plot(r, v_pn2, color="#00FFFF", linestyle='-', label="PN (N1=7)", linewidth=2.5)
+    ax.plot(r, v_newton, color="black", linestyle='-', label="Newtonian", linewidth=2.5)
+
+    ax.set_xlim(r_min, r_max)
+    ax.set_ylim(-1.4, 0.1)
+    ax.set_xlabel("r", fontsize=28)
+    ax.set_ylabel(r"$\Phi(r)$", fontsize=28)
+    ax.tick_params(axis='both', which='major', labelsize=22, length=8, width=2)
+    ax.tick_params(axis='both', which='minor', labelsize=18, length=5, width=1)
+    ax.legend(fontsize=20, loc='lower right')
+    ax.grid(True, which="both", ls="--", alpha=0.4)
+    plt.show()
+
+# Call the function to plot
+plot_all_potentials_one_figure()
