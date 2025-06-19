@@ -183,9 +183,11 @@ def plot_effective_potential(ax, rlist, N1_list, coefficient_lists, rs_list, L, 
     ax.grid()
     ax.tick_params(axis='both', which='major', labelsize=font_size)
     ax.set_xlabel('r', fontsize=font_size + 4)
+    leg = ax.legend(fontsize=font_size-4, loc='upper right', framealpha=0.7)
+    leg.get_frame().set_alpha(0.7)
     ax.set_ylabel(r'$V_{eff}$', fontsize=font_size + 4)
     ax.text(0.05, 0.95, "(I)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
-    ax.legend(fontsize=font_size - 2)
+    
 
 def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
     # dark_colors = [
@@ -213,8 +215,10 @@ def plot_precession_near_L4(ax, prcession_L_lists, precession_value_lists, gr_l_
     ax.tick_params(axis='both', which='major', labelsize=font_size)
     ax.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax.set_xlabel('L-4', fontsize=font_size + 4)
+    leg = ax.legend(fontsize=font_size-4, loc='upper right', framealpha=0.7)
+    leg.get_frame().set_alpha(0.7)
     ax.text(0.05, 0.95, "(II)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
-    ax.legend(fontsize=font_size - 2)
+    
 
 def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_list, gr_precession_list, pw_l_list, pw_precession_list, wegg_l_list, wegg_precession_list, rangelist, N1_list, marksizq, font_size):
     # dark_colors = [
@@ -239,7 +243,8 @@ def plot_precession_far_L4(ax, prcession_L_lists, precession_value_lists, gr_l_l
     ax.set_xlabel('L', fontsize=font_size + 4)
     ax.set_ylabel(r'$\frac{\Delta\phi}{\pi}$', fontsize=font_size + 4, rotation=0, labelpad=20)
     ax.text(0.05, 0.95, "(III)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
-    ax.legend(fontsize=font_size - 2)
+    leg = ax.legend(fontsize=font_size-4, loc='upper right', framealpha=0.7)
+    leg.get_frame().set_alpha(0.7)
 
 def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rlist, rlist_wegg, r_wegg_isdo, N1_list, font_size):
     # dark_colors = [
@@ -252,11 +257,11 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
     ax.plot(rlist, (np.array(rdot_pw) - (np.array(rdot_gr[:len(rdot_pw)]))), 'g-.', label='Pw')
     ax.plot(rlist_wegg[:len(rdot_gr)] + (6 - r_wegg_isdo), (np.array(rdot_wegg[:len(rdot_gr)]) - (np.array(rdot_gr))), 'r--', label='Pwegg(shifted)')
 
-    ax.legend(markerscale=10, loc='upper right', fontsize=font_size - 6)
+    ax.legend(markerscale=10, loc='upper right', fontsize=font_size - 4)
     ax.grid()
     ax.set_ylim(-0.01, 0.11)
     ax.set_xlim(4, 6)
-    print(rlist)
+    # print(rlist)
     # Ensure all arrays are truncated to the length of rdot_gr for fair comparison
     min_len = min(len(rdot_gr), len(rdot_pw), len(rdot_wegg), *[len(rdotpn) for rdotpn in rdotpn_list])
     print('min_len=', min_len)
@@ -269,7 +274,7 @@ def plot_isco_rdot(ax, rlist_list, rdotpn_list, rdot_gr, rdot_pw, rdot_wegg, rli
         print(f'max_diff_pn_{i}', ((rdotpn_list[i][initial_index]- rdot_gr[initial_index])/np.abs(rdot_gr[initial_index]))*100,'%')
     ax.set_xlabel('r', fontsize=font_size)
     ax.set_ylabel(r"$\Delta \dot{r}$ ", fontsize=font_size, labelpad=20)
-    ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
+    ax.tick_params(axis='both', which='major', labelsize=font_size)
     ax.text(0.05, 0.95, "(a)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
 def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisco, veff_gr_isco, veff_pw_isco, veff_wegg_isco, font_size):
@@ -292,12 +297,12 @@ def plot_isco_veff(ax, rlist_isco, N1_list, coefficient_lists, rs_list, Lweggisc
     # ax.set_ylim(-0.5, 0.5)
     ax.axvline(x=6, color='gray', linestyle=':', linewidth=3)
     ax.text(6.1, -0.1, 'r=6', fontsize=font_size - 2, color='gray', verticalalignment='center')
-    ax.legend(markerscale=1, loc='upper right', fontsize=font_size - 6)
+    ax.legend(markerscale=1, loc='upper right', fontsize=font_size -4)
     ax.grid()
     ax.set_xlabel('r', fontsize=font_size)
     ax.set_ylabel(r"$V_{eff}$", fontsize=font_size, labelpad=20)
-    ax.legend(markerscale=1, loc='lower right', fontsize=font_size - 6)
-    ax.tick_params(axis='both', which='major', labelsize=font_size - 2)
+    ax.legend(markerscale=1, loc='lower right', fontsize=font_size -4)
+    ax.tick_params(axis='both', which='major', labelsize=font_size )
     ax.text(0.05, 0.95, "(b)", transform=ax.transAxes, fontsize=font_size, verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5))
 
 def save_figure(fig, default_name, plots_dir):
@@ -313,7 +318,7 @@ def save_figure(fig, default_name, plots_dir):
     plt.show()
 
 def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
-    font_size = 16
+    font_size = 18
     marksizq = 1
     # Set folder path to the directory where this script is located
     folder_path_plots = r"C:\Users\itama\Desktop\My Projects\Msc_project_2025\Code"
@@ -326,14 +331,14 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
         fig1_size = (18, 6)
     else:
         fig1_shape = (3, 1)
-        fig1_size = (6, 18)
+        fig1_size = (10, 18)
     orientation2 = input("Choose subplot orientation for Figure 2 (h for horizontal, v for vertical): ").strip().lower()
     if orientation2 == 'h':
         fig2_shape = (1, 2)
         fig2_size = (14, 7)
     else:
         fig2_shape = (2, 1)
-        fig2_size = (10, 14)
+        fig2_size = (12, 14)
     if not auto:
         N1_list = []
         rs_list = []
@@ -456,7 +461,7 @@ def final_plots(rangelist, auto=False, N1_list=[], rs_list=[], conds_list=[]):
 rangelist = [0.8, 5000, 7010, 7000]
 # final_plots(rangelist,auto=True,N1_list=[1],rs_list=[4*np.sqrt(6)-9],conds_list=[[0,4,5,6,7,8]])
 # final_plots(rangelist,auto=True,N1_list=[1,8],rs_list=[2,2],conds_list=[[0,1,2,4,5,7,8,12,13],[0,1,2,4,5,7,8,12,13]])
-# final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
+final_plots(rangelist,auto=True,N1_list=[1,7],rs_list=[2,2],conds_list=[[0,1,4,5,6,7,8,12],[0,1,4,5,6,7,8,12]])
 
 # Calculate coefficients for the specified cases
 def compare_effective_potentials(N1_list, rs_list, conds_list, L=4, marksizq=2, font_size=14):
